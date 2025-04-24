@@ -1,0 +1,112 @@
+name: Bootstrap CDK
+on:
+  workflow_call:
+    inputs:
+      AWS_ACCESS_KEY_ID:
+        type: string
+        description: "Access Key ID with Permissions to deploy IAM, and OIDC"
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        type: string
+        description: "Secret Access Key with Permissions to deploy IAM, and OIDC"
+        required: true
+      AWS_SESSION_TOKEN:
+        type: string
+        description: "Secret Session Token with Permissions to deploy IAM, and OIDC"
+        required: false
+      AWS_REGION:
+        description: "Region to deploy to."
+        required: true
+        type: string
+        default: eu-west-1
+      CDK_BOOTSTRAP:
+        description: "Bootstrap the CDK"
+        required: true
+        type: boolean
+        default: true
+      SUB_TREE_PATH:
+        description: "Support subtreeing"  
+        type: string
+        default: ""
+        required: false
+  workflow_dispatch:
+    inputs:
+      AWS_ACCESS_KEY_ID:
+        description: "Access Key ID with Permissions to deploy IAM, and OIDC"
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        description: "Secret Access Key with Permissions to deploy IAM, and OIDC"
+        required: true
+      AWS_SESSION_TOKEN:
+        description: "Secret Session Token with Permissions to deploy IAM, and OIDC"
+        required: false
+      AWS_REGION:
+        description: "Region to deploy to."
+        required: true
+        type: choice
+        default: eu-west-1
+        options:
+          - us-east-1
+          - us-east-2
+          - us-west-1
+          - us-west-2
+          - en-central-1
+          - eu-north-1
+          - eu-west-1
+          - eu-west-2
+          - eu-west-3
+      CDK_BOOTSTRAP:
+        description: "Bootstrap the CDK"
+        required: true
+        type: boolean
+        default: true
+
+permissions:
+  id-token: write
+  contents: read
+  issues: write
+  pull-requests: read
+
+jobs:
+  deploy:
+    name: CDK Bootstrap ${{ github.event.inputs.ENVIRONMENT }}
+    environment: ${{ github.event.inputs.ENVIRONMENT }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@v4
+
+      - name: Configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ github.event.inputs.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ github.event.inputs.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ github.event.inputs.AWS_SESSION_TOKEN }}
+          aws-region: eu-west-1
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+
+      - name: Install AWS CDK CLI
+        run: npm install -g aws-cdk
+
+      - name: Get AWS Account Number
+        if: ${{ github.event.inputs.CDK_BOOTSTRAP }}
+        id: get-account-number
+        run: |
+            CDK_BOOTSTRAP_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+            echo Credentials for account $CDK_BOOTSTRAP_ACCOUNT_ID
+            echo "CDK_BOOTSTRAP_ACCOUNT_ID=$CDK_BOOTSTRAP_ACCOUNT_ID" >> $GITHUB_OUTPUT
+
+      - name: CDK Bootstrapping AWS Account '${{ steps.get-account-number.outputs.CDK_BOOTSTRAP_ACCOUNT_ID }}' in region '${{ github.event.inputs.AWS_REGION }}'
+        if: ${{ github.event.inputs.CDK_BOOTSTRAP }}
+        run: cdk bootstrap aws://${{ steps.get-account-number.outputs.CDK_BOOTSTRAP_ACCOUNT_ID }}/${{ github.event.inputs.AWS_REGION }}
+        working-directory: ${{ inputs.SUB_TREE_PATH }}Cdk.Bootstrap
+
+      - name: Deploying CDK Bootstrap Stacks in region eu-west-1
+        run: cdk deploy --all --require-approval never
+        working-directory: ${{ inputs.SUB_TREE_PATH }}Cdk.Bootstrap
+

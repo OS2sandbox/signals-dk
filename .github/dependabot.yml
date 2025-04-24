@@ -1,0 +1,54 @@
+version: 2
+registries:
+  public:
+    type: nuget-feed
+    url: https://api.nuget.org/v3/index.json
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 30
+    groups:
+      test-dependencies:
+        patterns:
+          - "xunit*"
+          - "Microsoft.NET.Test.*"
+          - "JunitXml.TestLogger"
+          - "coverlet.msbuild"
+          - "Microsoft.AspNetCore.Mvc.Testing"
+          - "Moq"
+      core-dependencies:
+        patterns:
+          - "System.*"
+          - "Microsoft.Extensions.*"
+          - "Microsoft.AspNetCore.*"
+        update-types:
+          - "minor"
+          - "patch"
+      otel:
+        patterns:
+          - "OpenTelemetry*"
+      aws:
+        patterns:
+          - "AWSSDK.*"
+          - "Amazon.*"
+          - "AWSXRay.*"
+      OpenAPI:
+        patterns:
+          - "Swashbuckle.*"
+    ignore:
+      - dependency-name: "System.*"
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "Microsoft.Extensions.*"
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "Microsoft.AspNetCore.*"
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "System.Text.Json"
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "Constructs"
+      - dependency-name: "Amazon.Jsii.Analyzers"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
