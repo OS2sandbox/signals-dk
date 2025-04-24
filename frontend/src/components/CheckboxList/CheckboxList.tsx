@@ -18,6 +18,7 @@ import FormField from 'components/FormField'
 import TextArea from 'components/TextArea'
 
 import TopicLabel from '../TopicLabel'
+import i18n from 'i18n'
 
 const FilterGroup = styled.div`
   contain: content;
@@ -444,8 +445,8 @@ CheckboxList.defaultProps = {
   onToggle: undefined,
   onSubmit: /* istanbul ignore next*/ () => {},
   title: null,
-  toggleAllLabel: 'Alles selecteren',
-  toggleNothingLabel: 'Niets selecteren',
+  toggleAllLabel: i18n.t('alles-selecteren'),
+  toggleNothingLabel: i18n.t('niets-selecteren'),
 }
 
 export default CheckboxList

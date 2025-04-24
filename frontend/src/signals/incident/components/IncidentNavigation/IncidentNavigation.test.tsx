@@ -4,7 +4,7 @@ import { act, fireEvent, render, waitFor } from '@testing-library/react'
 import * as reactRouterDom from 'react-router-dom'
 
 import * as auth from 'shared/services/auth/auth'
-import wizardDefinition from 'signals/incident/definitions/wizard'
+import getWizardSections from 'signals/incident/definitions/wizard-sections'
 import { withAppContext } from 'test/utils'
 
 import IncidentNavigation from '.'
@@ -17,7 +17,7 @@ jest.mock('shared/services/auth/auth', () => ({
 
 jest.spyOn(auth, 'getIsAuthenticated').mockImplementation(() => false)
 
-const steps = Object.keys(wizardDefinition)
+const steps = Object.keys(getWizardSections)
   .filter((key) => key !== 'opslaan')
   .map((key) => `incident/${key}`)
 
@@ -25,7 +25,7 @@ const handleSubmit = jest.fn()
 
 const props = {
   meta: {
-    wizard: wizardDefinition,
+    wizard: getWizardSections(),
     handleSubmit,
   },
 }
@@ -50,7 +50,7 @@ describe('signals/incident/components/IncidentNavigation', () => {
     handleSubmit.mockReset()
   })
   it('redirects to wizard step 1 from step 2 when refresh is hit', async () => {
-    const wizardDefinitionWithoutFormAction = { ...wizardDefinition }
+    const wizardDefinitionWithoutFormAction = { ...getWizardSections() }
 
     wizardDefinitionWithoutFormAction.vulaan.formAction = undefined
 

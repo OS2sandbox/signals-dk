@@ -72,6 +72,7 @@ import { useIncidentManagementContext } from '../../context'
 import { makeSelectFilterParams } from '../../selectors'
 import type { SaveFilterAction, UpdateFilterAction } from '../../types'
 import CalendarInput from '../CalendarInput'
+import i18n from 'i18n'
 
 const USERS_AUTO_SUGGEST_URL = `${configuration.AUTOCOMPLETE_USERNAME_ENDPOINT}?is_active=true&username=`
 
@@ -411,10 +412,10 @@ const FilterForm = ({
         <ControlsWrapper>
           {filter.id && <input type="hidden" name="id" value={filter.id} />}
           <Fieldset>
-            <legend className="hiddenvisually">Naam van het filter</legend>
+            <legend className="hiddenvisually">{i18n.t('naam-van-het-filter')}</legend>
 
             <Label htmlFor="filter_name" isGroupHeader>
-              Filternaam
+              {i18n.t('filternaam')}
             </Label>
 
             <div className="invoer">
@@ -425,13 +426,13 @@ const FilterForm = ({
                 name="name"
                 onBlur={onNameBlur}
                 onChange={onNameChange}
-                placeholder="Geef deze filterinstelling een naam om deze op te slaan"
+                placeholder={i18n.t('geef-deze-filterinstelling-een-naam-om-deze-op-te-slaan')}
                 type="text"
               />
             </div>
 
             <Label htmlFor="filter_refresh" isGroupHeader>
-              Automatisch verversen
+              {i18n.t('automatisch-verversen')}
             </Label>
             <div>
               <Checkbox
@@ -445,7 +446,7 @@ const FilterForm = ({
                 htmlFor="filter_refresh"
                 label={
                   <Fragment>
-                    <RefreshIcon width={16} height={18} /> Automatisch verversen
+                    <RefreshIcon width={16} height={18} /> {i18n.t('automatisch-verversen')}
                   </Fragment>
                 }
               />
@@ -455,7 +456,7 @@ const FilterForm = ({
           <Fieldset>
             <FilterGroup>
               <Label htmlFor="filter_notes" isGroupHeader>
-                Zoek in notitie
+                {i18n.t('zoek-in-notitie')}
               </Label>
               <Input
                 data-testid="filter-notes"
@@ -463,7 +464,7 @@ const FilterForm = ({
                 name="note_keyword"
                 onBlur={onNoteBlur}
                 onChange={onNoteChange}
-                placeholder="Zoek in notitie"
+                placeholder={i18n.t('zoek-in-notitie')}
                 type="text"
                 value={controlledTextInput.note}
               />
@@ -471,11 +472,11 @@ const FilterForm = ({
           </Fieldset>
 
           <Fieldset>
-            <legend>Filter parameters</legend>
+            <legend>{i18n.t('filter-parameters')}</legend>
 
             <CheckboxGroup
               defaultValue={state.options.status}
-              label="Status"
+              label={i18n.t('status')}
               name="status"
               state={state}
               onChange={onGroupChange}
@@ -502,7 +503,7 @@ const FilterForm = ({
             {!configuration.featureFlags.fetchDistrictsFromBackend && (
               <CheckboxGroup
                 defaultValue={state.options.stadsdeel}
-                label="Stadsdeel"
+                label={i18n.t('stadsdeel')}
                 name="stadsdeel"
                 onChange={onGroupChange}
                 onToggle={onGroupToggle}
@@ -516,7 +517,7 @@ const FilterForm = ({
             <CheckboxGroup
               defaultValue={state.options.priority}
               hasToggle={false}
-              label="Urgentie"
+              label={i18n.t('urgentie')}
               name="priority"
               onChange={onGroupChange}
               onToggle={onGroupToggle}
@@ -529,7 +530,7 @@ const FilterForm = ({
             <CheckboxGroup
               defaultValue={state.options.type}
               hasToggle={false}
-              label="Type"
+              label={i18n.t('type')}
               name="type"
               onChange={onGroupChange}
               onToggle={onGroupToggle}
@@ -542,7 +543,7 @@ const FilterForm = ({
             <CheckboxGroup
               defaultValue={state.options.contact_details}
               hasToggle={false}
-              label="Contact"
+              label={i18n.t('contact')}
               name="contact_details"
               onChange={onGroupChange}
               onToggle={onGroupToggle}
@@ -554,7 +555,7 @@ const FilterForm = ({
 
             <Accordion
               id="feedback"
-              title="Feedback"
+              title={i18n.t('feedback')}
               count={state.options.feedback?.length ?? ''}
             >
               <RadioGroup
@@ -568,7 +569,7 @@ const FilterForm = ({
             <CheckboxGroup
               defaultValue={state.options.kind}
               hasToggle={false}
-              label="Soort"
+              label={i18n.t('soort')}
               name="kind"
               onChange={onGroupChange}
               onToggle={onGroupToggle}
@@ -581,7 +582,7 @@ const FilterForm = ({
             {sources && (
               <CheckboxGroup
                 defaultValue={state.options.source}
-                label="Bron"
+                label={i18n.t('bron')}
                 name="source"
                 onChange={onGroupChange}
                 onToggle={onGroupToggle}
@@ -594,7 +595,7 @@ const FilterForm = ({
 
             <Accordion
               id="punctuality"
-              title="Doorlooptijd"
+              title={i18n.t('doorlooptijd')}
               count={state.options.punctuality?.length ?? ''}
             >
               <RadioGroup
@@ -608,7 +609,7 @@ const FilterForm = ({
 
           <FilterGroup>
             <Label htmlFor="filter_date" isGroupHeader>
-              Datum
+              {i18n.t('datum')}
             </Label>
 
             <DatesWrapper>
@@ -621,7 +622,7 @@ const FilterForm = ({
                   )
                 }}
                 selectedDate={dateFrom}
-                label="Vanaf"
+                label={i18n.t('vanaf')}
                 name="created_after"
               />
 
@@ -634,7 +635,7 @@ const FilterForm = ({
                   )
                 }}
                 selectedDate={dateBefore}
-                label="Tot en met"
+                label={i18n.t('tot-en-met')}
                 name="created_before"
               />
             </DatesWrapper>
@@ -642,7 +643,7 @@ const FilterForm = ({
 
           <FilterGroup>
             <Label htmlFor="filter_address" isGroupHeader>
-              Adres
+              {i18n.t('adres')}
             </Label>
             <PDOKAutoSuggest
               id="filter_address"
@@ -650,7 +651,7 @@ const FilterForm = ({
               onChange={onAddressChange}
               onSelect={onAddressSelect}
               onClear={onAddressClear}
-              placeholder="Zoek op straatnaam"
+              placeholder={i18n.t('zoek-op-straatnaam')}
               value={state.options.address_text}
               streetNameOnly
               showNoResultFeedback={false}
@@ -660,12 +661,12 @@ const FilterForm = ({
           {configuration.featureFlags.assignSignalToEmployee && (
             <FilterGroup data-testid="filter-assigned-user-email">
               <Label htmlFor="filter_assigned_user_email" isGroupHeader>
-                Toegewezen aan
+                {i18n.t('toegewezen-aan')}
               </Label>
               <div>
                 <AscLabel
                   htmlFor="filter_not_assigned"
-                  label="Niet toegewezen"
+                  label={i18n.t('niet-toegewezen')}
                   noActiveState
                 >
                   <Checkbox
@@ -689,7 +690,7 @@ const FilterForm = ({
                 includeAuthHeaders={true}
                 onSelect={onAssignedSelect}
                 onClear={onAssignedClear}
-                placeholder="medewerker@example.com"
+                placeholder={i18n.t('medewerker-example-com')}
                 url={USERS_AUTO_SUGGEST_URL}
                 formatResponse={getUserOptions}
                 numOptionsDeterminer={getUserCount}
@@ -701,7 +702,7 @@ const FilterForm = ({
           {configuration.featureFlags.assignSignalToDepartment && (
             <FilterGroup data-testid="filter-routing-department">
               <Label htmlFor="filter_routing_department" isGroupHeader>
-                Afdeling
+                {i18n.t('afdeling')}
               </Label>
               <div>
                 <AscLabel
@@ -735,10 +736,10 @@ const FilterForm = ({
 
         <ControlsWrapper>
           <Fieldset>
-            <legend>Filter categorieën</legend>
+            <legend>{i18n.t('filter-categorieen')}</legend>
 
             <Label forwardedAs="span" htmlFor="not_used" isGroupHeader>
-              Categorie
+              {i18n.t('categorie')}
             </Label>
 
             {categories && (
@@ -757,7 +758,7 @@ const FilterForm = ({
             <CheckboxGroup
               defaultValue={state.options.directing_department}
               hasToggle={false}
-              label="Regie hoofdmelding"
+              label={i18n.t('regie-hoofdmelding')}
               name="directing_department"
               onChange={onGroupChange}
               onToggle={onGroupToggle}
@@ -769,7 +770,7 @@ const FilterForm = ({
             <CheckboxGroup
               defaultValue={state.options.has_changed_children}
               hasToggle={false}
-              label="Wijziging"
+              label={i18n.t('wijziging')}
               name="has_changed_children"
               onChange={onGroupChange}
               onToggle={onGroupToggle}
@@ -781,11 +782,11 @@ const FilterForm = ({
         </ControlsWrapper>
 
         <FormFooterWrapper
-          cancelBtnLabel="Annuleer"
+          cancelBtnLabel={i18n.t('annuleer')}
           onCancel={onCancel}
           onResetForm={onResetForm}
           onSubmitForm={onSubmitForm}
-          resetBtnLabel="Nieuw filter"
+          resetBtnLabel={i18n.t('Opnieuw instellen')}
           submitBtnLabel={state.submitBtnLabel}
         />
       </Form>

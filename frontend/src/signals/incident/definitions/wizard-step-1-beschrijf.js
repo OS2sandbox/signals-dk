@@ -14,6 +14,7 @@ import FormComponents from '../components/form'
 import IncidentNavigation from '../components/IncidentNavigation'
 import checkVisibility from '../services/checkVisibility'
 import getStepControls from '../services/get-step-controls'
+import i18n from 'i18n'
 
 const priorityValuesList = priorityList.reduce(
   (acc, { key, value, info }) => ({ ...acc, [key]: { value, info } }),
@@ -28,7 +29,7 @@ const selectableSources = (sources) =>
 const reduceSources = (sources) =>
   sources.reduce(
     (acc, { value }) => [...acc, { [value]: value }],
-    [{ '': 'Vul bron in' }]
+    [{ '': i18n.t('vul-bron-in') }]
   )
 
 export const renderSources = () => {
@@ -58,11 +59,11 @@ const getControls = memoize(
       },
       source: {
         meta: {
-          label: 'Hoe komt de melding binnen?',
+          label: i18n.t('hoe-komt-de-melding-binnen'),
           path: 'source',
           values: sources ? reduceSources(selectableSources(sources)) : [],
           name: 'source',
-          value: configuration.featureFlags.appMode ? 'app' : 'online',
+          value: configuration.featureFlags.appMode ? i18n.t('aanvraag') : i18n.t('online'),
         },
         options: {
           validators: ['required'],
@@ -71,9 +72,8 @@ const getControls = memoize(
       },
       description: {
         meta: {
-          label: 'Waar gaat het om?',
-          subtitle:
-            'Typ geen persoonsgegevens in deze omschrijving. We vragen dit later in dit formulier aan u.',
+          label: i18n.t('waar-gaat-het-om'),
+          subtitle: i18n.t('typ-geen-persoonsgegevens-in-deze-omschrijving-we-'),
           path: 'text',
           rows: 7,
           maxLength: 1000,
@@ -85,7 +85,7 @@ const getControls = memoize(
       },
       subcategory: {
         meta: {
-          label: 'Subcategorie',
+          label: i18n.t('subcategorie'),
           path: 'subcategory',
         },
         options: {
@@ -95,7 +95,7 @@ const getControls = memoize(
       },
       priority: {
         meta: {
-          label: 'Wat is de urgentie?',
+          label: i18n.t('wat-is-de-urgentie'),
           path: 'priority',
           values: priorityValuesList,
         },
@@ -124,8 +124,8 @@ const getControls = memoize(
       },
       images: {
         meta: {
-          label: "Foto's toevoegen",
-          subtitle: 'Voeg een foto toe om de situatie te verduidelijken',
+          label: i18n.t('fotos-toevoegen'),
+          subtitle: i18n.t('voeg-een-foto-toe-om-de-situatie-te-verduidelijken'),
           minFileSize: 30 * 2 ** 10, // 30 KiB.
           maxFileSize: 20 * 2 ** 20, // 20 MiB.
           allowedFileTypes: [
@@ -144,8 +144,8 @@ const getControls = memoize(
       },
       help_text: {
         meta: {
-          label: configuration.language.helpTextHeader,
-          value: configuration.language.helpText,
+          label: i18n.t('lukt-het-niet-om-een-melding-te-doen-bel-het-telef'),
+          value: i18n.t('wij-zijn-bereikbaar-van-maandag-tot-en-met-vrijdag'),
           ignoreVisibility: true,
         },
         render: FormComponents.PlainText,
@@ -156,7 +156,7 @@ const getControls = memoize(
 )
 
 export default {
-  label: 'Beschrijf uw melding',
+  label: i18n.t('beschrijf-uw-melding'),
   getNextStep: (wizard, incident) => {
     if (
       !some(getStepControls(wizard.vulaan, incident), (control) => {
@@ -170,7 +170,7 @@ export default {
     }
     return false
   },
-  nextButtonLabel: 'Volgende',
+  nextButtonLabel: i18n.t('volgende'),
   nextButtonClass: 'action primary arrow-right',
   formFactory: (incident, sources) => getControls(sources),
 }

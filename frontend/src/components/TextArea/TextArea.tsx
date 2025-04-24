@@ -14,6 +14,7 @@ import {
   ErrorWrapper,
   Paragraph,
 } from './styled'
+import i18n from 'i18n'
 
 interface TextAreaProps extends AscTextAreaProps {
   defaultValue?: string
@@ -68,7 +69,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
 
     const textareaInfoText =
       maxContentLength && maxContentLength > 0
-        ? `${contents.length}/${maxContentLength} tekens`
+        ? `${contents.length}/${maxContentLength} ` + i18n.t('tekens')
         : infoText
 
     useEffect(() => {

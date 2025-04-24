@@ -23,6 +23,7 @@ import { StyledDD, StyledEditButton, StyledLink } from './styled'
 import { makeSelectUserCan } from '../../../../../../../../containers/App/selectors'
 import IncidentDetailContext from '../../../../context'
 import type { Result, SignalReporter } from '../../../../types'
+import i18n from 'i18n'
 
 type Props = {
   incident: Incident
@@ -148,7 +149,7 @@ export const Contact = ({ incident, showPhone }: Props) => {
   return (
     <Fragment>
       <dt data-testid="detail-phone-definition" aria-label="phone">
-        Telefoon melder
+        {i18n.t('telefoon-melder')}
       </dt>
       {configuration.featureFlags.showContactEdit && (
         <>
@@ -190,13 +191,13 @@ export const Contact = ({ incident, showPhone }: Props) => {
       )}
 
       <dt data-testid="detail-email-definition" aria-label="email">
-        E-mail melder
+        {i18n.t('e-mail-melder')}
       </dt>
       {!activeComponent && (
         <dd data-testid="detail-email-value">
           {`${incident.reporter.email}`}
           {emailChanged && configuration.featureFlags.showContactEdit
-            ? ' (verificatie verzonden)'
+            ? '(' + i18n.t('verificatie-verzonden') + ')'
             : ''}
 
           {configuration.featureFlags.showContactEdit &&
@@ -206,7 +207,7 @@ export const Contact = ({ incident, showPhone }: Props) => {
                 href={'#'}
                 onClick={() => setActiveComponent('cancel')}
               >
-                Verificatie annuleren
+                {i18n.t('verificatie-annuleren')}
               </StyledLink>
             )}
         </dd>

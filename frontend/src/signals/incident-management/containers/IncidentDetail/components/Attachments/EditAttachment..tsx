@@ -12,6 +12,7 @@ import { ButtonsWrapper, EditAttachmentWrapper, StyledForm } from './styled'
 import TextArea from '../../../../../../components/TextArea'
 import type { Attachment } from '../../types'
 import { StyledH2 } from '../StatusForm/styled'
+import i18n from 'i18n'
 
 type Props = {
   attachment: Attachment
@@ -85,7 +86,7 @@ export default function EditAttachment({
           control={control}
           render={({ field }) => {
             return (
-              <Label label={'Openbaar tonen'}>
+              <Label label={i18n.t('openbaar-tonen')}>
                 <Checkbox {...field} checked={field.value} />
               </Label>
             )
@@ -102,7 +103,7 @@ export default function EditAttachment({
                   errorMessage={errors.caption?.message}
                   label={
                     <>
-                      <strong>Onderschrift</strong> (optioneel)
+                      <strong>{i18n.t('onderschrift')}</strong> ({i18n.t('optioneel')})
                     </>
                   }
                   maxContentLength={120}
@@ -117,7 +118,7 @@ export default function EditAttachment({
             type="submit"
             variant="secondary"
           >
-            Opslaan
+            {i18n.t('opslaan')}
           </Button>
 
           <Button
@@ -125,7 +126,7 @@ export default function EditAttachment({
             variant="tertiary"
             onClick={() => setSelectedEditAttachment(null)}
           >
-            Annuleer
+            {i18n.t('annuleer')}
           </Button>
         </ButtonsWrapper>
       </StyledForm>

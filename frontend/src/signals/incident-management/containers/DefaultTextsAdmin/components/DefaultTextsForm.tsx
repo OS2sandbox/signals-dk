@@ -10,6 +10,7 @@ import styled from 'styled-components'
 import Checkbox from 'components/Checkbox'
 import TextAreaInput from 'signals/incident-management/components/TextAreaInput'
 import TextInput from 'signals/incident-management/components/TextInput'
+import i18n from 'i18n'
 
 const StyledLeftColumn = styled.div`
   display: inline-block;
@@ -69,7 +70,7 @@ const DefaultTextsForm: FC<DefaultTextsFormProps> = ({
           display={''}
           name={`title-${index}`}
           value={value.title}
-          placeholder={'Titel'}
+          placeholder={i18n.t('titel')}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setValue(item, { ...value, title: e.target.value })
           }
@@ -79,7 +80,7 @@ const DefaultTextsForm: FC<DefaultTextsFormProps> = ({
           display={''}
           name={`text-${index}`}
           value={value.text}
-          placeholder="Tekst"
+          placeholder={i18n.t('tekst')}
           onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
             setValue(item, { ...value, text: e.target.value })
           }
@@ -88,7 +89,7 @@ const DefaultTextsForm: FC<DefaultTextsFormProps> = ({
         <StyledLabel
           htmlFor={`formis_active-${index}`}
           disabled={setDisabled}
-          label="Actief"
+          label={i18n.t('actief')}
         >
           <Checkbox
             data-testid={`is_active-${index}`}

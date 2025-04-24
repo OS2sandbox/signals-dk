@@ -15,6 +15,7 @@ import type { FetchError } from 'hooks/useFetch'
 import { RequestType } from 'hooks/useFetch'
 
 import { isFetchError } from '../../shared/type-guards'
+import i18n from 'i18n'
 
 interface Props {
   entityName: string // Name by which the stored/patched data should be labeled (eg. 'Afdeling')
@@ -59,16 +60,16 @@ const useFetchResponseNotification = ({
     }
 
     if (isSuccess) {
-      const entityLabel = entityName || 'Gegevens'
+      const entityLabel = entityName || i18n.t('gegevens')
       const actionMap: { [key: string]: string } = {
-        [RequestType.DELETE]: 'verwijderd',
-        [RequestType.PATCH]: 'bijgewerkt',
-        [RequestType.PUT]: 'bijgewerkt',
-        [RequestType.POST]: 'toegevoegd',
+        [RequestType.DELETE]: i18n.t('verwijderd'),
+        [RequestType.PATCH]: i18n.t('bijgewerkt'),
+        [RequestType.PUT]: i18n.t('bijgewerkt'),
+        [RequestType.POST]: i18n.t('toegevoegd'),
       }
 
       message = `${entityLabel} ${
-        requestType ? actionMap[requestType] : 'bijgewerkt'
+        requestType ? actionMap[requestType] : i18n.t('bijgewerkt')
       }`
     }
     showNotification(variant, message)

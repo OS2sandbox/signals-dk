@@ -29,6 +29,7 @@ import type { StandardTextsData } from '../../types'
 import { Filter } from '../Filter'
 import { StyledLink } from '../styled'
 import { Summary } from '../Summary'
+import i18n from 'i18n'
 
 const PAGE_SIZE = 15
 
@@ -89,7 +90,7 @@ export const OverviewPage = () => {
       dispatch(
         showGlobalNotification({
           title: getErrorMessage(error),
-          message: 'De standaardteksten konden niet worden opgehaald',
+          message: i18n.t('de-standaardteksten-konden-niet-worden-opgehaald'),
           variant: VARIANT_ERROR,
           type: TYPE_LOCAL,
         })
@@ -113,7 +114,7 @@ export const OverviewPage = () => {
             setActiveFilter={setActiveFilter}
           />
           <StyledLink to="./new">
-            <Button variant="secondary">Tekst toevoegen</Button>
+            <Button variant="secondary">{i18n.t('tekst-toevoegen')}</Button>
           </StyledLink>
         </div>
 
@@ -121,7 +122,7 @@ export const OverviewPage = () => {
           <form onSubmit={onSearchSubmit}>
             <Label
               htmlFor="Searchbar"
-              label={`Zoek op standaardtekst (${data?.count ?? 0})`}
+              label={i18n.t('zoek-op-standaardtekst-count', {count: data?.count ?? 0})}
             >
               <SearchBar
                 id="Searchbar"

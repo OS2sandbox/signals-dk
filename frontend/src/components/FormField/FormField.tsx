@@ -13,8 +13,9 @@ import type {
   FormMeta,
   FormOptions,
 } from 'types/reactive-form'
+import i18n from 'i18n'
 
-const StyledErrorWrapper = styled(ErrorWrapper)<{ invalid: boolean }>`
+const StyledErrorWrapper = styled(ErrorWrapper) <{ invalid: boolean }>`
   display: flex;
   flex-direction: column;
 
@@ -98,7 +99,7 @@ const FormField = ({
           >
             <Fragment>
               {meta.label}
-              {isOptional && <Optional>(niet verplicht)</Optional>}
+              {isOptional && <Optional>{i18n.t('niet-verplicht')}</Optional>}
             </Fragment>
           </StyledLabel>
         )}
@@ -115,7 +116,7 @@ const FormField = ({
                   data-testid={`${meta.name}-required`}
                   message={
                     getError('required') || getError('min')
-                      ? 'Dit is een verplicht veld'
+                      ? i18n.t('dit-is-een-verplicht-veld')
                       : (getError('required') as string)
                   }
                 />
@@ -124,15 +125,13 @@ const FormField = ({
               {hasError('email') && (
                 <ErrorMessage
                   data-testid="invalid-mail"
-                  message="Vul een geldig e-mailadres in, met een @ en een domeinnaam. Bijvoorbeeld: naam@domein.nl"
+                  message={i18n.t('vul-een-geldig-e-mailadres-in-met-een-en-een-domei')}
                 />
               )}
 
               {hasError('max') && (
                 <ErrorMessage
-                  message={`U heeft meer dan de maximale ${String(
-                    getError('max') as { requiredLength: number }
-                  )} tekens ingevoerd`}
+                  message={i18n.t('u-heeft-meer-dan-de-maximale-string-geterror-max-a', { requiredLength: getError('max') })}
                 />
               )}
 

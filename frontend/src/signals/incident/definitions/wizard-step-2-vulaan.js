@@ -27,6 +27,7 @@ import wegenVerkeerStraatmeubilair from './wizard-step-2-vulaan/wegen-verkeer-st
 import wonen from './wizard-step-2-vulaan/wonen'
 import FormComponents from '../components/form'
 import IncidentNavigation from '../components/IncidentNavigation'
+import i18n from 'i18n'
 
 const mapFieldNameToComponent = (key) => FormComponents[key]
 
@@ -74,8 +75,8 @@ const expandQuestions = memoize(
       },
       help_text: {
         meta: {
-          label: configuration.language.helpTextHeader,
-          value: configuration.language.helpText,
+          label: i18n.t('lukt-het-niet-om-een-melding-te-doen-bel-het-telef'),
+          value: i18n.t('wij-zijn-bereikbaar-van-maandag-tot-en-met-vrijdag'),
           ignoreVisibility: true,
         },
         render: FormComponents.PlainText,
@@ -88,10 +89,10 @@ const expandQuestions = memoize(
 const fallback = expandQuestions({ locatie })
 
 export default {
-  label: 'Locatie en vragen',
-  nextButtonLabel: 'Volgende',
+  label: i18n.t('locatie-en-vragen'),
+  nextButtonLabel: i18n.t('volgende'),
   nextButtonClass: 'action primary arrow-right',
-  previousButtonLabel: 'Vorige',
+  previousButtonLabel: i18n.t('vorige'),
   previousButtonClass: 'action startagain',
   formAction: 'UPDATE_INCIDENT',
   formFactory: ({ category, subcategory, questions }) => {

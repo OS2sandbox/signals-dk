@@ -5,14 +5,15 @@ import configuration from 'shared/services/configuration/configuration'
 
 import FormComponents from '../components/form'
 import IncidentNavigation from '../components/IncidentNavigation'
+import i18n from 'i18n'
 
 const navigation = configuration.featureFlags.appMode
   ? {
       app_close_window_action: {
         meta: {
-          title: 'Wilt u nog een andere melding doen?',
-          labelCloseButton: 'Sluit venster',
-          labelLinkButton: 'Doe een melding',
+          title: i18n.t('wilt-u-nog-een-andere-melding-doen'),
+          labelCloseButton: i18n.t('sluit-venster'),
+          labelLinkButton: i18n.t('doe-een-melding'),
           hrefLinkButton: '/',
         },
         render: FormComponents.AppNavigation,
@@ -21,7 +22,7 @@ const navigation = configuration.featureFlags.appMode
   : {
       next_incident_action: {
         meta: {
-          label: 'Doe een melding',
+          label: i18n.t('doe-een-melding'),
           href: '/',
         },
         render: FormComponents.LinkButton,
@@ -29,22 +30,20 @@ const navigation = configuration.featureFlags.appMode
     }
 
 export default {
-  label: 'Bedankt!',
+  label: i18n.t('bedankt'),
   form: {
     controls: {
       confirmation_message: {
         meta: {
           type: 'message',
-          value: `Uw melding is bij ons bekend onder nummer: {incident.id_display}.
-            \n Hebt u een e-mailadres ingevuld? Dan ontvangt u een e-mail met alle gegevens van uw melding.`,
-          valueAuthenticated: `Uw melding is bij ons bekend onder nummer: [{incident.id_display}](/manage/incident/{incident.id}).
-            \n Hebt u een e-mailadres ingevuld? Dan ontvangt u een e-mail met alle gegevens van uw melding.`,
+          value: i18n.t('uw-melding-is-bij-ons-bekend-onder-nummer-incident'),
+          valueAuthenticated: i18n.t('uw-melding-is-bij-ons-bekend-onder-nummer-incident-id_display-manage-incide'),
         },
         render: FormComponents.PlainText,
       },
       handling_message: {
         meta: {
-          title: 'Wat doen we met uw melding?',
+          title: i18n.t('wat-doen-we-met-uw-melding'),
           key: 'incident.handling_message',
         },
         render: FormComponents.HandlingMessage,

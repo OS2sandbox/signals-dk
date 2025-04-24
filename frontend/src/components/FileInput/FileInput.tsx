@@ -20,6 +20,7 @@ import FileInputStyle, {
   ScreenReaderOnly,
   StyledErrorMessage,
 } from './styles'
+import i18n from 'i18n'
 
 interface FileInputProps {
   maxNumberOfFiles?: number
@@ -82,7 +83,7 @@ const FileInput: FunctionComponent<FileInputProps> = ({
       {label && (
         <Label inline htmlFor="fileUpload">
           <strong>{label}</strong>
-          {!required && ' (niet verplicht)'}
+          {!required && ' ' + i18n.t('niet-verplicht')}
         </Label>
       )}
 

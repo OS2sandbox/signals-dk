@@ -42,6 +42,7 @@ import { PATCH_TYPE_STATUS } from '../../constants'
 import IncidentDetailContext from '../../context'
 import type { EmailTemplate, IncidentChild } from '../../types'
 import EmailPreview from '../EmailPreview/EmailPreview'
+import i18n from 'i18n'
 
 export interface StandardTextsResponse {
   results: StandardTextType[]
@@ -255,8 +256,7 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
     if (emailTemplateError) {
       storeDispatch(
         showGlobalNotification({
-          title:
-            'Er is geen email template beschikbaar voor de gegeven statustransitie',
+          title: i18n.t('er-is-geen-email-template-beschikbaar-voor-de-gegeven-statustransitie-0'),
           variant: VARIANT_ERROR,
           type: TYPE_LOCAL,
         })
@@ -266,17 +266,17 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
 
   return (
     <Form onSubmit={handleSubmit} data-testid="status-form" noValidate>
-      <StyledH2 forwardedAs="h2">Status wijzigen</StyledH2>
+      <StyledH2 forwardedAs="h2">{i18n.t('status-wijzigen')}</StyledH2>
 
       <StyledSection>
-        <StyledLabel htmlFor="status" label="Status" />
+        <StyledLabel htmlFor="status" label={i18n.t('status')} />
         <Select
           data-testid="select-status"
           id="status"
           value={state.status.key}
           onChange={onStatusChange}
         >
-          <option key="default">Kies status</option>
+          <option key="default">{i18n.t('kies-status')}</option>
           {changeStatusOptionList.map((status: Status) => (
             <option key={status.key} value={status.key}>
               {status.value}
@@ -301,7 +301,7 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
           ))}
 
         <fieldset>
-          <StyledLegend>Versturen</StyledLegend>
+          <StyledLegend>{i18n.t('versturen')}</StyledLegend>
 
           {state.flags.isSplitIncident &&
             (state.status.key === StatusCode.ReactieGevraagd ? (
@@ -361,9 +361,9 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
                   state.flags.hasEmail &&
                   incident?.reporter?.allows_contact
                     ? state.text.label
-                    : 'Toelichting'}
+                    : i18n.t('toelichting')}
                 </strong>
-                {!state.text.required && <span>&nbsp;(niet verplicht)</span>}
+                {!state.text.required && <span>&nbsp;({i18n.t('niet-verplicht')})</span>}
               </>
             }
           />
@@ -420,7 +420,7 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
           variant="secondary"
           disabled={disableSubmit}
         >
-          {state.flags.hasEmail && state.check.checked ? 'Verstuur' : 'Opslaan'}
+          {state.flags.hasEmail && state.check.checked ? i18n.t('verstuur') : i18n.t('opslaan')}
         </StyledButton>
 
         <StyledButton
@@ -428,12 +428,12 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
           variant="tertiary"
           onClick={onClose}
         >
-          Annuleer
+          {i18n.t('annuleer')}
         </StyledButton>
         {modalEmailPreviewIsOpen && (
           <EmailPreview
             isLoading={isLoading}
-            title="Controleer bericht aan melder"
+            title={i18n.t('controleer-bericht-aan-melder')}
             emailBody={emailTemplate?.html}
             onClose={closeEmailPreview}
             onUpdate={onUpdate}

@@ -1,5 +1,10 @@
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (C) 2019 - 2021 Gemeente Amsterdam
+import i18n from 'i18n'
+
+const roleName = i18n.t('naam')
+const rolePermissions = i18n.t('rechten')
+
 const formatRoles = (items) => {
   const roles = []
   items.forEach((role) => {
@@ -11,8 +16,8 @@ const formatRoles = (items) => {
 
     roles.push({
       id: role.id,
-      Naam: role.name,
-      Rechten: permissions.join(', '),
+      [roleName]: role.name,
+      [rolePermissions]: permissions.join(', '),
     })
   })
 

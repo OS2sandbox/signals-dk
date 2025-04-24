@@ -11,6 +11,7 @@ import { reCategory } from 'shared/services/resolveClassification'
 import { dataListType } from 'shared/types'
 import RadioInput from 'signals/incident-management/components/RadioInput'
 import SelectInput from 'signals/incident-management/components/SelectInput'
+import i18n from 'i18n'
 
 const SelectForm = ({ defaultTextsOptionList, onFetchDefaultTexts }) => {
   const [subcategoryGroups, subcategoryOptions] = useSelector(
@@ -81,7 +82,7 @@ const SelectForm = ({ defaultTextsOptionList, onFetchDefaultTexts }) => {
         render={({ field: { name, onChange } }) => (
           <SelectInput
             name={name}
-            display="Subcategorie"
+            display={i18n.t('subcategorie')}
             values={subcategoryOptions}
             groups={subcategoryGroups}
             onChange={onChange}
@@ -95,7 +96,7 @@ const SelectForm = ({ defaultTextsOptionList, onFetchDefaultTexts }) => {
         render={({ field: { name, value, onChange } }) => (
           <RadioInput
             name={name}
-            display="Status"
+            display={i18n.t('status')}
             values={defaultTextsOptionList}
             onChange={onChange}
             value={value}

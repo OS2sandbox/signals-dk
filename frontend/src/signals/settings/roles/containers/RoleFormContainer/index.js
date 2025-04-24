@@ -18,8 +18,8 @@ import { VARIANT_SUCCESS, TYPE_LOCAL } from 'containers/Notification/constants'
 import { patchRole, saveRole, resetResponse } from 'models/roles/actions'
 import { rolesModelSelector } from 'models/roles/selectors'
 import routes, { BASE_URL } from 'signals/settings/routes'
-
 import RoleForm from './components/RoleForm'
+import i18n from 'i18n'
 
 export const RoleFormContainer = ({
   roles: {
@@ -40,7 +40,7 @@ export const RoleFormContainer = ({
   const navigate = useNavigate()
   const location = useLocation()
   const role = list.find((item) => item.id === roleId * 1)
-  const title = `Rol ${roleId ? 'wijzigen' : 'toevoegen'}`
+  const title = i18n.t('rol') + ` ${roleId ? i18n.t('wijzigen') : i18n.t('toevoegen')}`
   const redirectURL = location.referrer || `${BASE_URL}/${routes.roles}`
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export const RoleFormContainer = ({
     let message
 
     if (responseSuccess) {
-      message = roleId ? 'Gegevens opgeslagen' : 'Rol toegevoegd'
+      message = roleId ? i18n.t('gegevens-opgeslagen') : i18n.t('rol-toegevoegd')
     }
 
     if (!message) return
@@ -78,7 +78,7 @@ export const RoleFormContainer = ({
         <PageHeader
           dataTestId={'settings-page-header'}
           title={title}
-          BackLink={<BackLink to={redirectURL}>Terug naar overzicht</BackLink>}
+          BackLink={<BackLink to={redirectURL}>{i18n.t('terug-naar-overzicht')}</BackLink>}
         />
       </Row>
       <Row>

@@ -8,6 +8,7 @@ import { themeColor, themeSpacing, Icon } from '@amsterdam/asc-ui'
 import styled from 'styled-components'
 
 import type { PdokResponse } from 'shared/services/map-location'
+import i18n from 'i18n'
 
 const StyledList = styled.ul`
   border-top: 0;
@@ -117,7 +118,7 @@ const SuggestList: FC<SuggestListProps> = ({
     options = [
       {
         id: 'feedbackEmpty',
-        value: 'Wij kennen dit adres niet. \n Probeer het opnieuw.',
+        value: i18n.t('wij-kennen-dit-adres-niet-n-probeer-het-opnieuw'),
         data: {
           location: { lat: 0, lng: 0 },
           address: {

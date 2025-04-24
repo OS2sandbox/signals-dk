@@ -9,6 +9,7 @@ import type { Incident } from 'types/incident'
 
 import { StyledForm, StyledInput, EditFormWrapper } from './styled'
 import { StyledButton, StyledH2 } from '../../../StatusForm/styled'
+import i18n from 'i18n'
 
 type Props = {
   onClose: () => void
@@ -48,7 +49,7 @@ const Edit = ({ onClose, incident, submit }: Props) => {
   const { errors, dirtyFields } = formState
   return (
     <EditFormWrapper>
-      <StyledH2 forwardedAs="h2">Contactgegevens melder wijzigen</StyledH2>
+      <StyledH2 forwardedAs="h2">{i18n.t('contactgegevens-melder-wijzigen')}</StyledH2>
 
       <StyledForm
         onSubmit={handleSubmit((data) => {
@@ -92,7 +93,7 @@ const Edit = ({ onClose, incident, submit }: Props) => {
             type="submit"
             variant="secondary"
           >
-            Opslaan
+            {i18n.t('opslaan')}
           </StyledButton>
 
           <StyledButton
@@ -100,7 +101,7 @@ const Edit = ({ onClose, incident, submit }: Props) => {
             variant="tertiary"
             onClick={onClose}
           >
-            Annuleer
+            {i18n.t('annuleer')}
           </StyledButton>
         </div>
       </StyledForm>

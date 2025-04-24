@@ -3,6 +3,7 @@ import type { FunctionComponent } from 'react'
 import type { Filter } from 'shared/types/filter'
 
 import { StyledPageHeaderItem, StyledLink, StyledParagraph } from '../../styled'
+import i18n from 'i18n'
 
 interface QuickFilterProps {
   filters: Filter[]
@@ -16,7 +17,7 @@ const QuickFilter: FunctionComponent<QuickFilterProps> = ({
   filters.length > 0 ? (
     <StyledPageHeaderItem>
       <StyledParagraph>
-        <strong>Mijn filters:</strong>
+        <strong>{i18n.t('mijn-filters')}</strong>
       </StyledParagraph>
 
       {filters.map((filter) => (

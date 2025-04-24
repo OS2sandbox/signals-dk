@@ -1,6 +1,19 @@
 name: Build Docker image and push to Docker Hub
 
 on:
+  workflow_call:
+    inputs:
+      release_tag:
+        required: true
+        type: string
+      SUB_TREE_PATH:
+        required: true
+        type: string
+    secrets:
+      DOCKERHUB_USERNAME:
+        required: true
+      DOCKERHUB_PASSWORD:
+        required: true
   release:
     types: [ published ]
 
@@ -16,16 +29,20 @@ jobs:
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
       - name: Release tag
-        run: echo "${{ github.event.release.tag_name }}"
+        run: echo "${{ inputs.release_tag }}"
 
       - name: Build the release Docker image
+        working-directory: ${{ inputs.SUB_TREE_PATH }}
         run: |
-          docker build --build-arg FRONTEND_TAG=${{ github.event.release.tag_name }} -t signalen/frontend:${{ github.event.release.tag_name }} .
+          docker build --build-arg FRONTEND_TAG=${{ inputs.release_tag }} -t strongminds/signalen-frontend:${{ inputs.release_tag }} .
+          
       - name: Build the latest Docker image
+        working-directory: ${{ inputs.SUB_TREE_PATH }}
         run: |
-          docker build -t signalen/frontend:latest .
+          docker build -t strongminds/signalen-frontend:latest .
+          
       - name: Push the tagged image to Docker
-        run: docker push signalen/frontend:${{ github.event.release.tag_name }}
+        run: docker push strongminds/signalen-frontend:${{ inputs.release_tag }}
 
       - name: Push the latest image to Docker
-        run: docker push signalen/frontend:latest
+        run: docker push strongminds/signalen-frontend:latest

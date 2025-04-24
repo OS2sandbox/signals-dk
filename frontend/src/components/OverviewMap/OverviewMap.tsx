@@ -41,6 +41,7 @@ import type { Geometrie } from 'types/incident'
 import DetailPanel from './DetailPanel'
 import type { IncidentSummary } from './types'
 import MarkerCluster from '../MarkerCluster'
+import i18n from 'i18n'
 
 interface Feature {
   geometry: Geometrie
@@ -256,7 +257,7 @@ const OverviewMap: FC<OverviewMapProps> = ({
               fieldList={['centroide_ll']}
               municipality={configuration.map?.municipality}
               onSelect={onSelect}
-              placeholder="Zoom naar adres"
+              placeholder={i18n.t('zoom-naar-adres')}
             />
           }
           topRight={

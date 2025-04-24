@@ -1,4 +1,7 @@
 // SPDX-License-Identifier: MPL-2.0
+
+import i18n from "i18n"
+
 // Copyright (C) 2021 Gemeente Amsterdam
 enum PunctualityKey {
   ON_TIME = 'on_time',
@@ -14,15 +17,15 @@ export type Punctuality = {
 const punctualityList: Array<Punctuality> = [
   {
     key: PunctualityKey.ON_TIME,
-    value: 'Binnen de afhandeltermijn',
+    value: i18n.t('binnen-de-afhandeltermijn'),
   },
   {
     key: PunctualityKey.LATE,
-    value: 'Buiten de afhandeltermijn',
+    value: i18n.t('buiten-de-afhandeltermijn'),
   },
   {
     key: PunctualityKey.LATE_FACTOR_3,
-    value: '3x buiten de afhandeltermijn',
+    value: i18n.t('3x-buiten-de-afhandeltermijn'),
   },
 ]
 

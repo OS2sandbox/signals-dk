@@ -6,6 +6,7 @@ import FileInputComponent from 'components/FileInput'
 
 import fileSize from '../../../services/file-size'
 import type { Meta, Parent } from '../types/FileInput'
+import i18n from 'i18n'
 
 export interface Props {
   handler: () => { value: File[] }
@@ -42,31 +43,25 @@ const FileInput = ({ handler, parent, meta }: Props) => {
 
       if (meta.minFileSize && !files.every(checkMinFileSize)) {
         errorMessages.push(
-          `Dit bestand is te klein. De minimale bestandgrootte is ${fileSize(
-            meta.minFileSize
-          )}.`
+          i18n.t('dit-bestand-is-te-klein-de-minimale-bestandgrootte-is-filesize-meta-minfile')
         )
       }
 
       if (meta.maxFileSize && !files.every(checkMaxFileSize)) {
         errorMessages.push(
-          `Dit bestand is te groot. De maximale bestandgrootte is ${fileSize(
-            meta.maxFileSize
-          )}.`
+          i18n.t('dit-bestand-is-te-groot-de-maximale-bestandgrootte-is') + ` ${fileSize(meta.maxFileSize)}.`
         )
       }
 
       if (meta.allowedFileTypes && !files.every(checkFileType)) {
         errorMessages.push(
-          `Dit bestandstype wordt niet ondersteund. Toegestaan zijn: ${meta.allowedFileTypes
-            .map((type) => type.replace(/.*\//, ''))
-            .join(', ')}.`
+          i18n.t('dit-bestandstype-wordt-niet-ondersteund-toegestaan-zijn') + `: ${meta.allowedFileTypes.map((type) => type.replace(/.*\//, '')).join(', ')}.`
         )
       }
 
       if (!files.every(checkNumberOfFiles)) {
         errorMessages.push(
-          `U kunt maximaal ${maxNumberOfFiles} bestanden uploaden.`
+          i18n.t('u-kunt-maximaal-maxnumberoffiles-bestanden-uploaden')
         )
       }
 

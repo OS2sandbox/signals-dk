@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2023 Gemeente Amsterdam
+from signals.apps.email_integrations.translations import TranslationKey, translate
 from signals.apps.email_integrations.actions.abstract import AbstractSignalStatusAction
 from signals.apps.email_integrations.models import EmailTemplate
 from signals.apps.email_integrations.rules import SignalHandledNegativeRule
@@ -11,9 +12,8 @@ class SignalHandledNegativeAction(AbstractSignalStatusAction):
     rule: AbstractRule = SignalHandledNegativeRule()
 
     key: str = EmailTemplate.SIGNAL_STATUS_CHANGED_AFGEHANDELD_KTO_NEGATIVE_CONTACT
-    subject: str = 'Meer over uw melding {formatted_signal_id}'
-
-    note: str = 'Automatische e-mail bij afhandelen heropenen negatieve feedback'
+    subject: str = translate(TranslationKey.email_negative_contact_notification_message)
+    note: str = translate(TranslationKey.email_automated_email_on_negative_feedback_resolution)
 
     def get_additional_context(self, signal: Signal, dry_run: bool = False) -> dict:
         """

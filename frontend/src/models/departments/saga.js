@@ -10,6 +10,7 @@ import CONFIGURATION from 'shared/services/configuration/configuration'
 
 import { fetchDepartmentsSuccess, fetchDepartmentsError } from './actions'
 import { FETCH_DEPARTMENTS } from './constants'
+import i18n from 'i18n'
 
 export function* fetchDepartments() {
   try {
@@ -21,7 +22,7 @@ export function* fetchDepartments() {
     yield put(
       showGlobalNotification({
         title: getErrorMessage(error),
-        message: 'De lijst van afdelingen kon niet opgehaald worden',
+        message: i18n.t('de-lijst-van-afdelingen-kon-niet-opgehaald-worden'),
         variant: VARIANT_ERROR,
         type: TYPE_LOCAL,
       })

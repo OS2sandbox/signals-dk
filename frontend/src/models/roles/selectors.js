@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (C) 2019 - 2021 Gemeente Amsterdam
 import { createSelector } from 'reselect'
-
 import { initialState } from './reducer'
+import i18n from 'i18n'
 
 /**
  * Direct selector to the roles state domain
@@ -26,7 +26,7 @@ const rolesInputOptions = (state) => [
 export const inputSelectRolesSelector = createSelector(
   selectRolesDomain,
   (state) => [
-    { key: 'all', name: 'Alles', value: '*' },
+    { key: 'all', name: i18n.t('alles'), value: '*' },
     ...rolesInputOptions(state),
   ]
 )

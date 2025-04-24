@@ -6,6 +6,7 @@ import IconList, { IconListItem } from 'components/IconList/IconList'
 
 import { Panel, CloseBtn } from './styled'
 import { ScrollWrapper, Title } from '../styled'
+import i18n from 'i18n'
 
 export interface LegendPanelProps {
   className?: string
@@ -28,13 +29,13 @@ const LegendPanel: FunctionComponent<LegendPanelProps> = ({
     id="legendPanel"
     slide={slide}
   >
-    <Title>Legenda</Title>
+    <Title>{i18n.t('legenda')}</Title>
 
     <CloseBtn
       data-testid="close-button"
       ref={buttonRef}
       tabIndex={-1}
-      title="Sluit legenda"
+      title={i18n.t('sluit-legenda')}
       onClick={onClose}
     />
 

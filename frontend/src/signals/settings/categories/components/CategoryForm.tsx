@@ -30,6 +30,7 @@ import {
 } from './styled'
 import configuration from '../../../../shared/services/configuration/configuration'
 import type { CategoryFormValues } from '../types'
+import i18n from 'i18n'
 
 interface StatusOption {
   key: string
@@ -37,8 +38,8 @@ interface StatusOption {
 }
 
 export const statusOptions: StatusOption[] = [
-  { key: 'true', value: 'Actief' },
-  { key: 'false', value: 'Niet actief' },
+  { key: 'true', value: i18n.t('actief') },
+  { key: 'false', value: i18n.t('niet-actief') },
 ]
 
 export interface Props {
@@ -78,9 +79,9 @@ export const CategoryForm = ({
                     <Input
                       {...formMethods.register('name')}
                       disabled={readOnly}
-                      hint="Het wijzigen van de naam heeft geen invloed op het type melding"
+                      hint={i18n.t('het-wijzigen-van-de-naam-heeft-geen-invloed-op-het-type-melding')}
                       id="name"
-                      label="Naam"
+                      label={i18n.t('naam')}
                       name="name"
                       readOnly={readOnly}
                       type="text"
@@ -88,7 +89,7 @@ export const CategoryForm = ({
                   ) : (
                     <>
                       <StyledDefinitionTerm>
-                        <strong>Naam</strong>
+                        <strong>{i18n.t('naam')}</strong>
                       </StyledDefinitionTerm>
                       <dd data-testid="name">{defaultValues?.name}</dd>
                     </>
@@ -102,7 +103,7 @@ export const CategoryForm = ({
                         <TextArea
                           disabled={readOnly}
                           id={name}
-                          label={<strong>Omschrijving</strong>}
+                          label={<strong>{i18n.t('omschrijving')}</strong>}
                           name={name}
                           onChange={onChange}
                           readOnly={readOnly}
@@ -116,7 +117,7 @@ export const CategoryForm = ({
                 {responsibleDepartments.length > 0 && (
                   <FieldGroup as="dl">
                     <StyledDefinitionTerm>
-                      <strong>Verantwoordelijke afdeling</strong>
+                      <strong>{i18n.t('verantwoordelijke-afdeling')}</strong>
                     </StyledDefinitionTerm>
                     <dd data-testid="responsible_departments">
                       {responsibleDepartments.join(', ')}
@@ -127,7 +128,7 @@ export const CategoryForm = ({
                 <FieldGroup>
                   {!isMainCategory && (
                     <>
-                      <StyledHeading>Openbaar tonen</StyledHeading>
+                      <StyledHeading>{i18n.t('openbaar-tonen')}</StyledHeading>
                       <Controller
                         name="is_public_accessible"
                         control={formMethods.control}
@@ -154,14 +155,14 @@ export const CategoryForm = ({
 
                   {isMainCategory && (
                     <>
-                      <StyledHeading>Meldingenkaartfilter</StyledHeading>
+                      <StyledHeading>{i18n.t('meldingenkaartfilter')}</StyledHeading>
                       <Controller
                         name="show_children_in_filter"
                         control={formMethods.control}
                         render={({ field: { name, value, onChange } }) => (
                           <StyledLabel
                             htmlFor={name}
-                            label="Toon alle subcategorieën in het filter op de meldingenkaart die openbaar getoond mogen worden"
+                            label={i18n.t('toon-alle-subcategorieen-in-het-filter-op-de-meldingenkaart-die-openbaar-ge')}
                             data-testid="show_children_in_filter"
                             disabled={readOnly}
                           >
@@ -188,7 +189,7 @@ export const CategoryForm = ({
                     <Input
                       {...formMethods.register('public_name')}
                       id="public_name"
-                      label="Naam openbaar"
+                      label={i18n.t('naam-openbaar')}
                       name="public_name"
                       type="text"
                       readOnly={readOnly}
@@ -214,7 +215,7 @@ export const CategoryForm = ({
 
                         return (
                           <FieldGroup>
-                            <StyledHeading>Status</StyledHeading>
+                            <StyledHeading>{i18n.t('status')}</StyledHeading>
                             <RadioButtonList
                               defaultValue={value}
                               disabled={readOnly}
@@ -228,7 +229,7 @@ export const CategoryForm = ({
                       }}
                     />
                     <FieldGroup>
-                      <StyledHeading>Afhandeltermijn</StyledHeading>
+                      <StyledHeading>{i18n.t('afhandeltermijn')}</StyledHeading>
                       <CombinedFields>
                         <Input
                           {...formMethods.register('n_days')}
@@ -245,8 +246,8 @@ export const CategoryForm = ({
                           disabled={readOnly}
                           id="use_calendar_days"
                         >
-                          <option value="1">Dagen</option>
-                          <option value="0">Werkdagen</option>
+                          <option value="1">{i18n.t('dagen-0')}</option>
+                          <option value="0">{i18n.t('werkdagen')}</option>
                         </StyledSelect>
                       </CombinedFields>
                     </FieldGroup>
@@ -258,7 +259,7 @@ export const CategoryForm = ({
                           <TextArea
                             disabled={readOnly}
                             id={name}
-                            label={<strong>Servicebelofte</strong>}
+                            label={<strong>{i18n.t('servicebelofte')}</strong>}
                             name={name}
                             onChange={onChange}
                             readOnly={readOnly}
@@ -276,7 +277,7 @@ export const CategoryForm = ({
                         render={({ field: { onChange, name } }) => (
                           <FieldGroup>
                             <StyledH2 forwardedAs="h2" styleAs="h5">
-                              Standaardteksten volgorde
+                              {i18n.t('standaardteksten-volgorde')}
                             </StyledH2>
                             <StandardTextsField
                               onChange={onChange}
@@ -303,7 +304,7 @@ export const CategoryForm = ({
                     <TextArea
                       disabled={readOnly}
                       id={name}
-                      label={<strong>Notitie</strong>}
+                      label={<strong>{i18n.t('notitie')}</strong>}
                       name={name}
                       onChange={onChange}
                       readOnly={readOnly}
@@ -319,9 +320,9 @@ export const CategoryForm = ({
 
             {!readOnly && (
               <StyledFormFooter
-                cancelBtnLabel="Annuleer"
+                cancelBtnLabel={i18n.t('annuleer')}
                 onCancel={onCancel}
-                submitBtnLabel="Opslaan"
+                submitBtnLabel={i18n.t('opslaan')}
               />
             )}
           </Row>

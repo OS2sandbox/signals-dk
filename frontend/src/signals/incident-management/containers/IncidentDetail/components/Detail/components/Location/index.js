@@ -17,6 +17,7 @@ import { useIncidentManagementContext } from '../../../../../../context'
 import IncidentDetailContext from '../../../../context'
 import EditButton from '../../../EditButton'
 import HighLight from '../../../Highlight'
+import i18n from 'i18n'
 
 const mapWidth = 80
 const mapHeight = 80
@@ -62,11 +63,11 @@ const Location = ({ location }) => {
 
   return (
     <Fragment>
-      <dt data-testid="detail-location">Locatie</dt>
+      <dt data-testid="detail-location">{i18n.t('locatie')}</dt>
       <Description>
         <StyledEditButton
           data-testid="edit-location-button"
-          icon={<img src="/assets/images/icon-edit.svg" alt="Bewerken" />}
+          icon={<img src="/assets/images/icon-edit.svg" alt={i18n.t('bewerken')} />}
           iconSize={18}
           onClick={() => {
             edit('location')
@@ -127,7 +128,7 @@ const Location = ({ location }) => {
           ) : (
             <div>
               <span data-testid="location-value-pinned">
-                Locatie is gepind op de kaart
+                {i18n.t('locatie-is-gepind-op-de-kaart')}
               </span>
             </div>
           )}

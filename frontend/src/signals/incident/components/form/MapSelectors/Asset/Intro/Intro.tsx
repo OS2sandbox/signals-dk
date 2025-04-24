@@ -13,6 +13,7 @@ import configuration from 'shared/services/configuration/configuration'
 import MAP_OPTIONS from 'shared/services/configuration/map-options'
 import AssetSelectContext from 'signals/incident/components/form/MapSelectors/Asset/context'
 import { showMap } from 'signals/incident/containers/IncidentContainer/actions'
+import i18n from 'i18n'
 
 const Wrapper = styled.div`
   position: relative;
@@ -69,7 +70,7 @@ const Intro = () => {
           onClick={() => dispatch(showMap())}
           variant="primary"
         >
-          Kies locatie
+          {i18n.t('kies-locatie')}
         </Button>
       </ButtonBar>
     </Wrapper>

@@ -234,6 +234,8 @@ const handlers = [
     }
   }),
 
+  http.get('http://localhost/locales/da/translation.json', () => HttpResponse.json({ status: 200 })),
+
   http.get(API.QA_QUESTIONNAIRES, () =>
     HttpResponse.json(qaQuestionnaireFixture)
   ),

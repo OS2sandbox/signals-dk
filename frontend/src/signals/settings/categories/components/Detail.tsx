@@ -26,6 +26,7 @@ import { getPatchPayload } from './utils'
 import useConfirmedCancel from '../../hooks/useConfirmedCancel'
 import useFetchResponseNotification from '../../hooks/useFetchResponseNotification'
 import type { CategoryFormValues } from '../types'
+import i18n from 'i18n'
 
 const DEFAULT_STATUS_OPTION = 'true'
 
@@ -116,7 +117,7 @@ export const CategoryDetail = ({
     redirectURL,
   })
 
-  const title = `${entityName} wijzigen`
+  const title = `${entityName} ` + i18n.t('wijzigen-small')
 
   useEffect(() => {
     // Prefill form with data from query
@@ -185,7 +186,7 @@ export const CategoryDetail = ({
         <PageHeader
           dataTestId={'settings-page-header'}
           title={title}
-          BackLink={<BackLink to={redirectURL}>Terug naar overzicht</BackLink>}
+          BackLink={<BackLink to={redirectURL}>{i18n.t('terug-naar-overzicht')}</BackLink>}
         />
       </Row>
 

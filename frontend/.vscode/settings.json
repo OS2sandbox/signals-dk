@@ -1,0 +1,11 @@
+{
+    "i18n-ally.localesPaths": [
+        "public/locales"
+    ],
+    "i18n-ally.keystyle": "nested",
+    "i18n-ally.extract.ignoredByFiles": {
+        "src/signals/settings/categories/components/IconInput/IconInput.tsx": [
+            "Er wordt geen back-up van het icoon gemaakt."
+        ]
+    }
+}

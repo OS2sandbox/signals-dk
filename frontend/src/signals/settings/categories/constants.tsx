@@ -3,10 +3,11 @@
 import { Fragment } from 'react'
 
 import { StyledInfo } from './components/styled'
+import i18n from 'i18n'
 
 export const ICONEXAMPLE = [
   <Fragment key={'IconExample'}>
-    <StyledInfo>Voorbeeld van een icoon:</StyledInfo>
+    <StyledInfo>{i18n.t('voorbeeld-van-een-icoon')}</StyledInfo>
     <img alt={'example-of-an-icon'} src={'/assets/images/afval/rest.svg'} />
   </Fragment>,
 ]

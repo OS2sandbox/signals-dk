@@ -9,6 +9,7 @@ import styled from 'styled-components'
 
 import { makeSelectSubCategories } from 'models/categories/selectors'
 import { makeSelectIncidentContainer } from 'signals/incident/containers/IncidentContainer/selectors'
+import i18n from 'i18n'
 
 const DescriptionInfoWrapper = styled.div`
   display: flex;
@@ -42,7 +43,7 @@ const DescriptionInfo = ({ info }) => {
   return (
     <DescriptionInfoWrapper data-testid="description-info">
       <div>{info}</div>
-      {suggestion && <div>{`Subcategorie voorstel: ${suggestion.name}`}</div>}
+      {suggestion && <div>{i18n.t('subcategorie-voorstel') + `: ${suggestion.name}`}</div>}
     </DescriptionInfoWrapper>
   )
 }

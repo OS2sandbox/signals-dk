@@ -184,28 +184,4 @@ describe('api service', () => {
       expect(gen.next(token).value).toEqual(call(request, url, postBody))
     })
   })
-
-  describe('getErrorMessage', () => {
-    it('returns a default error message', () => {
-      expect(getErrorMessage({})).toEqual(errorMessageDictionary.default)
-      expect(getErrorMessage({ status: 415 })).toEqual(
-        errorMessageDictionary.default
-      )
-      expect(getErrorMessage({ status: 'foo bar' })).toEqual(
-        errorMessageDictionary.default
-      )
-      expect(getErrorMessage({ status: 'foo bar' }, 'Zork')).toEqual('Zork')
-      expect(getErrorMessage({ status: 'foo bar' }, 'Zork')).toEqual('Zork')
-    })
-
-    it('returns a specific error message', () => {
-      const statuses = [401, 403, 408, 413, 429, 500, 503]
-
-      statuses.forEach((status) => {
-        expect(getErrorMessage({ status })).toEqual(
-          errorMessageDictionary[status]
-        )
-      })
-    })
-  })
 })

@@ -54,6 +54,7 @@ import type { IncidentChild } from '../../types'
 import ChangeValue from '../ChangeValue'
 import Highlight from '../Highlight'
 import StatusForm from '../StatusForm'
+import i18n from 'i18n'
 
 const StyledMetaList = styled.dl`
   dt {
@@ -219,7 +220,7 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
 
     return routingDepartments
       ? options
-      : options && [{ key: null, value: 'Niet gekoppeld' }, ...options]
+      : options && [{ key: null, value: i18n.t('niet-gekoppeld') }, ...options]
   }, [categoryDepartments, routingDepartments])
 
   const handlingTime = useMemo(
@@ -249,17 +250,17 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
       incident.category.deadline_factor_3 &&
       compareDate > new Date(incident.category.deadline_factor_3)
     ) {
-      return ['3x buiten de afhandeltermijn', 'alert']
+      return [i18n.t('3x-buiten-de-afhandeltermijn'), 'alert']
     }
 
     if (
       incident.category.deadline &&
       compareDate > new Date(incident.category.deadline)
     ) {
-      return ['Buiten de afhandeltermijn', 'alert']
+      return [i18n.t('buiten-de-afhandeltermijn'), 'alert']
     }
 
-    return ['Binnen de afhandeltermijn']
+    return [i18n.t('binnen-de-afhandeltermijn')]
   }, [incident])
 
   const getDepartmentId = useCallback(
@@ -310,7 +311,7 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
     <LoadingIndicator />
   ) : (
     <StyledMetaList>
-      <dt data-testid="meta-list-date-definition">Gemeld op</dt>
+      <dt data-testid="meta-list-date-definition">{i18n.t('gemeld-op')}</dt>
       <dd data-testid="meta-list-date-value">
         {string2date(incident?.created_at)} {string2time(incident?.created_at)}
       </dd>
@@ -318,7 +319,7 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
       {handlingTime && (
         <Fragment>
           <dt data-testid="meta-list-handling-time-definition">
-            Afhandeltermijn
+            {i18n.t('afhandeltermijn')}
           </dt>
           <dd data-testid="meta-list-handling-time-value">{handlingTime}</dd>
         </Fragment>
@@ -326,7 +327,7 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
 
       {processTimeText && (
         <>
-          <dt data-testid="meta-list-process-time-definition">Doorlooptijd</dt>
+          <dt data-testid="meta-list-process-time-definition">{i18n.t('doorlooptijd')}</dt>
           <dd
             className={processTimeClass}
             data-testid="meta-list-process-time-value"
@@ -341,14 +342,14 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
           {!showEditStatus && (
             <EditButton
               data-testid="edit-status-button"
-              icon={<img src="/assets/images/icon-edit.svg" alt="Bewerken" />}
+              icon={<img src="/assets/images/icon-edit.svg" alt={i18n.t('bewerken')} />}
               iconSize={18}
               variant="application"
               type="button"
               onClick={() => setShowEditStatus(true)}
             />
           )}
-          Status
+          {i18n.t('status')}
         </dt>
         <dd className="status" data-testid="meta-list-status-value">
           {incident?.status?.state && (
@@ -368,7 +369,7 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
         <Highlight type="priority">
           <ChangeValue
             component={RadioInput}
-            display="Urgentie"
+            display={i18n.t('urgentie')}
             valueClass={incident?.priority.priority === 'high' ? 'alert' : ''}
             options={priorityList}
             path="priority.priority"
@@ -381,7 +382,7 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
         <Highlight type="type">
           <ChangeValue
             component={RadioInput}
-            display="Type"
+            display={i18n.t('type')}
             options={typesList}
             path="type.code"
             type="type"
@@ -393,7 +394,7 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
         <Highlight type="assigned_user_email">
           <ChangeValue
             component={SelectInput}
-            display="Toegewezen aan"
+            display={i18n.t('toegewezen-aan')}
             options={userOptions}
             path="assigned_user_email"
             type="assigned_user_email"
@@ -406,7 +407,7 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
           <Highlight type="routing_departments">
             <ChangeValue
               component={SelectInput}
-              display="Afdeling"
+              display={i18n.t('afdeling')}
               options={departmentOptions}
               path="routing_departments"
               type="routing_departments"
@@ -421,7 +422,7 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
           <ChangeValue
             component={SelectSearch}
             disabled={subcatHighlightDisabled}
-            display="Subcategorie (verantwoordelijke afdeling)"
+            display={i18n.t('subcategorie-verantwoordelijke-afdeling')}
             options={subcategoryOptions}
             groups={subcategoryGroups}
             infoKey="description"
@@ -437,7 +438,7 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
         <Highlight type="directing_departments">
           <ChangeValue
             component={RadioInput}
-            display="Regie"
+            display={i18n.t('regie')}
             options={directingDepartments}
             path="directing_departments"
             type="directing_departments"
@@ -448,7 +449,7 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
       )}
 
       <Highlight type="subcategory">
-        <dt data-testid="meta-list-main-category-definition">Hoofdcategorie</dt>
+        <dt data-testid="meta-list-main-category-definition">{i18n.t('hoofdcategorie')}</dt>
         <dd data-testid="meta-list-main-category-value">
           {incident?.category?.main}
         </dd>
@@ -456,7 +457,7 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
 
       {parentId && (
         <Fragment>
-          <dt data-testid="meta-list-parent-definition">Hoofdmelding</dt>
+          <dt data-testid="meta-list-parent-definition">{i18n.t('hoofdmelding')}</dt>
           <dd data-testid="meta-list-parent-value">
             <AscLink
               variant="inline"
@@ -470,7 +471,7 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
         </Fragment>
       )}
 
-      <dt data-testid="meta-list-source-definition">Bron</dt>
+      <dt data-testid="meta-list-source-definition">{i18n.t('bron')}</dt>
       <dd data-testid="meta-list-source-value">{incident?.source}</dd>
     </StyledMetaList>
   )

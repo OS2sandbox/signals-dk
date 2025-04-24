@@ -28,6 +28,7 @@ import { inputSelectRolesSelector } from 'models/roles/selectors'
 import { BASE_URL, USERS_PAGED_URL, USER_URL } from 'signals/settings/routes'
 
 import useFetchUsers from './hooks/useFetchUsers'
+import i18n from 'i18n'
 
 type Params = {
   pageNum: string
@@ -69,9 +70,9 @@ const StyledCompactPager = styled(CompactPager)`
 `
 
 const selectUserActive = [
-  { key: 'all', name: 'Alles', value: '*' },
-  { key: 'active', name: 'Actief', value: 'true' },
-  { key: 'inactive', name: 'Niet actief', value: 'false' },
+  { key: 'all', name: i18n.t('alles'), value: '*' },
+  { key: 'active', name: i18n.t('actief'), value: 'true' },
+  { key: 'inactive', name: i18n.t('niet-actief'), value: 'false' },
 ]
 
 const UsersOverviewContainer = () => {
@@ -90,8 +91,8 @@ const UsersOverviewContainer = () => {
   const selectDepartments = useSelector(inputSelectDepartmentsSelector)
   const selectedDepartment = filters.get('profile_department_code')
     ? selectDepartments.find(
-        ({ value }) => value === filters.get('profile_department_code')
-      )?.value
+      ({ value }) => value === filters.get('profile_department_code')
+    )?.value
     : undefined
 
   const selectedRole = filters.get('role')
@@ -166,14 +167,18 @@ const UsersOverviewContainer = () => {
     },
     [filters, navigate]
   )
-
   const columnHeaders = ['Gebruikersnaam', 'Rol', 'Afdeling', 'Status']
+  const columnHeaderTitles = [
+    i18n.t('gebruikersnaam'),
+    i18n.t('rol'),
+    i18n.t('afdeling'),
+    i18n.t('status')]
   return (
     <Fragment>
       <Row>
         <PageHeader
-          title={`Gebruikers${count ? ` (${count})` : ''}`}
-          BackLink={<BackLink to={BASE_URL}>Terug naar instellingen</BackLink>}
+          title={i18n.t('gebruikers') + `${count ? ` (${count})` : ''}`}
+          BackLink={<BackLink to={BASE_URL}>{i18n.t('terug-naar-instellingen')}</BackLink>}
         >
           {userCan('add_user') && (
             <HeaderButton
@@ -181,7 +186,7 @@ const UsersOverviewContainer = () => {
               forwardedAs={Link}
               to={`${BASE_URL}/${USER_URL}`}
             >
-              Gebruiker toevoegen
+              {i18n.t('gebruiker-toevoegen')}
             </HeaderButton>
           )}
         </PageHeader>
@@ -193,7 +198,7 @@ const UsersOverviewContainer = () => {
         <Column span={12} wrap>
           <Column span={12}>
             <StyledDataView
-              headers={columnHeaders}
+              headers={columnHeaderTitles}
               filters={[
                 <StyledSearchbar
                   placeholder=""

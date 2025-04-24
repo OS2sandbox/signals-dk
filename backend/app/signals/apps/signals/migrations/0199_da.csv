@@ -1,0 +1,243 @@
+signals_category_id;name;slug;handling_message
+13;Beholder plastik knækket;container-voor-plastic-afval-is-kapot;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+20;Cykelstativ/hæfteklammer;fietsrek-nietje;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+31;Cykelvrag;fietswrak;"Vi vil fortælle dig, hvad vi har gjort inden for 3 uger. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+16;Glat vinterservice;gladheid;I tilfælde af glatte forhold på grund af sne eller løv, tager vi først fat på hovedveje og cykelruter. Vi vil behandle andre rapporter, når de vigtigste ruter er gennemført.
+2;Storskrald;grofvuil;Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse. Vi holder dig orienteret.
+3;Husholdningsaffald;huisafval;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+25;Ur;klok;Vi vil løse farlige situationer så hurtigt som muligt, andre situationer kan tage lidt længere tid. Vi kan desværre ikke altid holde dig orienteret om dette.
+29;Udledning / dumpning / jordforurening;lozing-dumping-bodemverontreiniging;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+17;Trafikomlægning / afmærkning;omleiding-belijning-verkeer;"Vi behandler din anmeldelse inden for tre uger. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+14;Vedligeholdelse af fortov, gade og cykelsti;onderhoud-stoep-straat-en-fietspad;"Vi behandler din anmeldelse inden for tre hverdage. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+27;Andet Veje, trafik, gademøbler;overig-wegen-verkeer-straatmeubilair;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+11;Andet affald;overig-afval;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+22;Legeplads;speelplaats;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+10;Asbest / batteri;asbest-accu;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+4;Industriaffald;bedrijfsafval;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+18;Bro;brug;"Vi behandler din anmeldelse inden for tre uger. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+8;Containeren er i stykker;container-is-kapot;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+6;Containeren er fuld;container-is-vol;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+12;Plastaffaldsbeholder fuld;container-voor-plastic-afval-is-vol;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+33;Byggeri/nedrivningsgener;bouw-sloopoverlast;"Vi vil fortælle dig, hvad vi har gjort inden for 3 uger. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+59;Hjemløs/tiggende;daklozen-bedelen;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+38;Cykeldeling;deelfiets;"Vi vil fortælle dig, hvad vi har gjort inden for 3 uger. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+51;Døde dyr;dode-dieren;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+61;Drikke-/stofgener;drank-en-drugsoverlast;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+43;Flydende affald i sejlbart vand;drijfvuil;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+48;Duer;duiven;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+47;Gæs;ganzen;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+63;Støjbelastningsanlæg;geluidsoverlast-installaties;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+62;Støjforurenende musik;geluidsoverlast-muziek;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+35;Graffiti / dyreliv plakette;graffiti-wildplak;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+37;Irriterende placeret genstand;hinderlijk-geplaatst-object;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+58;Unge gener;jongerenoverlast;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+78;Spild;afval;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+34;Bil / scooter / knallert (vrag);auto-scooter-bromfietswrak;"Vi vil fortælle dig, hvad vi har gjort inden for 3 uger. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+40;Træ - død;boom;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+144;Drænbro;afwatering-brug;Vi vurderer din rapport. Vi reagerer på hastemeldinger så hurtigt som muligt. Vi behandler andre rapporter inden for en uge. Vi holder dig orienteret via e-mail.
+91;Auto Udtrækkelige indlæg;autom-verzinkbare-palen;"Vi behandler din anmeldelse inden for tre uger. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+92;Skiltning;bewegwijzering;"Vi behandler din anmeldelse inden for tre uger. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+133;Blokade af vandvejen;blokkade-van-de-vaarweg;Vi tackler farlige situationer så hurtigt som muligt. Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Vi holder dig orienteret via e-mail.
+112;Træ - anmod om placering;boom-aanvraag-plaatsing;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+114;Træ - ulovlig fældning;boom-illegale-kap;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+113;Bom - nødudhæng;boom-noodkap;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+116;Træ - andet;boom-overig;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+117;Træ - plastik og andet affald;boom-afval;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+115;Træ - spejl;boom-spiegel;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+141;Bro;bruggen;"Vi behandler din anmeldelse inden for tre uger. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+121;Brodrift;brug-bediening;"Vi behandler din anmeldelse inden for tre uger. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+93;Kamerasystemer;camerasystemen;"Vi behandler din anmeldelse inden for tre uger. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+105;Civilkonstruktioner;civiele-constructies;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+131;Beholderglas knust;container-glas-kapot;"Vi vil fortælle dig, hvad vi har gjort inden for 3 uger. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+132;Beholderglas fuld;container-glas-vol;"Vi vil fortælle dig, hvad vi har gjort inden for 3 uger. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+88;Containerpapir i stykker;container-voor-papier-is-stuk;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+89;Beholder fuld af papir;container-voor-papier-is-vol;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+137;Flydende affald i sejlbart vand;drijfvuil-bevaarbaar-water;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+107;Flydende affald i ikke-sejlbart vand;drijfvuil-niet-bevaarbaar-water;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+71;Lyd på vandet;overlast-op-het-water-geluid;"Vi videregiver din indberetning til ordensmagten. Hvis det er muligt, griber de straks ind, men de kan ikke altid være der hurtigt nok.
+
+Fortsæt venligst med at rapportere gener til os. Også selvom vi ikke altid kan gøre noget for dig med det samme. Vi bruger alle indberetninger til at begrænse gener i fremtiden."
+108;Glathed gennem blade;gladheid-bladeren;I tilfælde af glatte forhold på grund af sne eller løv, tager vi først fat på hovedveje og cykelruter. Vi vil behandle andre rapporter, når de vigtigste ruter er gennemført.
+109;Glatte forhold på grund af olie på vejen;gladheid-olie;Er det glat på grund af en ulykke (olie eller stegefedt på vejen)? Vi vil derefter svare på din anmeldelse så hurtigt som muligt. I hvert fald inden for 3 hverdage.
+139;Glat vinterservice;gladheid-winterdienst;I tilfælde af glatte forhold på grund af sne eller løv, tager vi først fat på hovedveje og cykelruter. Vi vil behandle andre rapporter, når de vigtigste ruter er gennemført.
+140;Graffiti / dyreliv plakette;graffitiwildplak;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+90;Håndhævelse af affald;handhaving-op-afval;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+118;Kajer;kades;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+128;Ledig stilling;leegstand;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+94;Lysforurening;lichthinder;"Vi løser farlige situationer så hurtigt som muligt, andre situationer håndterer vi normalt inden for 5 hverdage. Du vil så ikke længere modtage en separat besked.
+Kan vi ikke håndtere din anmeldelse inden for 5 hverdage, hører du - via e-mail - hvordan vi håndterer din anmeldelse."
+41;Slå;maaien-snoeien;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+49;Måger;meeuwen;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+73;Nautisk opsyn / sejladfærd;scheepvaart-nautisch-toezicht;"Vi videregiver din rapport til vores håndhævere. De vurderer, om det er nødvendigt at gribe ind med det samme. For eksempel fordi der lækker olie, eller fordi situationen udgør en fare for andre både.
+
+Hvis der ikke er behov for øjeblikkelig handling, vil vi reagere på din rapport uden for sejlsæsonen (september - marts).
+"
+44;Kyst;oever-kade-steiger;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+146;Kyster;oevers;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+134;Olie på vandet;olie-op-het-water;Vi tackler farlige situationer så hurtigt som muligt. Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Vi holder dig orienteret via e-mail.
+145;Omvej;omleiding;Vi behandler din anmeldelse inden for tre uger. Du vil så ikke længere modtage en separat besked.
+127;Fremleje og adressekvalitet;onderhuur-en-adreskwaliteit;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+87;Subversion;ondermijning;Tak for din rapport. Vi inddrager disse i vores forskning.
+42;Ukrudt i det grønne;onkruid;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+110;Ukrudt på fortovet;onkruid-verharding;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+81;Offentligt grønt og vand;openbaar-groen-en-water;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+135;Ladestation;oplaadpunt;Tekniske fejl rapporteres normalt automatisk og løses inden for få dage. Det kan tage op til tre uger at besvare spørgsmål. Vi holder dig orienteret via e-mail.
+76;Andre;overig;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+86;Andre;overig;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+68;Andre virksomheder / cateringbranche;overig-horecabedrijven;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+52;Andre dyr;overig-dieren;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+45;Andet grønt og vand;overig-groen-en-water;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+39;Andet offentligt rum;overig-openbare-ruimte;"Vi vil fortælle dig, hvad vi har gjort inden for 3 uger. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+75;Andre både;overig-boten;"Vi videregiver din rapport til vores håndhævere. De vurderer, om det er nødvendigt at gribe ind med det samme. For eksempel fordi der lækker olie, eller fordi situationen udgør en fare for andre både.
+
+Hvis der ikke er behov for øjeblikkelig handling, vil vi reagere på din rapport uden for sejlsæsonen (september - marts).
+"
+100;Andre tjenester;overige-dienstverlening;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+55;Anden gener forårsaget af mennesker;overige-overlast-door-personen;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+84;Gener for virksomheder og catering;overlast-bedrijven-en-horeca;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+54;Gener forårsaget af fyrværkeri;overlast-door-afsteken-vuurwerk;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+67;Gener af besøgende (ikke på terrassen);overlast-door-bezoekers-niet-op-terras;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+80;Gener i offentlige rum;overlast-in-de-openbare-ruimte;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+85;Gener på vandet;overlast-op-het-water;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+70;Gener på vandet - Sejladfærd;overlast-op-het-water-vaargedrag;"Vi videregiver din indberetning til ordensmagten. Hvis det er muligt, griber de straks ind, men de kan ikke altid være der hurtigt nok.
+
+Fortsæt venligst med at rapportere gener til os. Også selvom vi ikke altid kan gøre noget for dig med det samme. Vi bruger alle indberetninger til at begrænse gener i fremtiden."
+64;Generende terrasser;overlast-terrassen;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+82;Dyregener;overlast-van-dieren;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+83;Gener fra og af personer eller grupper;overlast-van-en-door-personen-of-groepen;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+57;Gener fra taxaer, busser og cykeltaxier;overlast-van-taxis-bussen-en-fietstaxis;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+74;Gener fra vandet;overlast-vanaf-het-water;"Vi videregiver din indberetning til ordensmagten. Hvis det er muligt, griber de straks ind, men de kan ikke altid være der hurtigt nok.
+
+Fortsæt venligst med at rapportere gener til os. Også selvom vi ikke altid kan gøre noget for dig med det samme. Vi bruger alle indberetninger til at begrænse gener i fremtiden."
+95;Parkeringshenvisningssystem;parkeer-verwijssysteem;"Vi behandler din anmeldelse inden for tre uger. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+126;Parkeringsmeter;parkeerautomaten;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+30;Parkeringsgener;parkeeroverlast;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+56;Folk på vandet;personen-op-het-water;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+9;Skraldespanden er gået i stykker;prullenbak-is-kapot;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+149;Skraldespanden er gået i stykker;prullenbak-kapot;"Vi behandler din anmeldelse inden for tre hverdage. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+150;Skraldespanden er gået i stykker;prullenbakkapot;"Vi behandler din anmeldelse inden for tre hverdage. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+148;Papirkurven er fuld;prullenbak-vol;"Vi behandler din anmeldelse inden for tre hverdage. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+7;Papirkurven er fuld;prullenbak-is-vol;"Vi behandler din anmeldelse inden for tre hverdage. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+5;Murbrokker/nedrivningsaffald;puin-sloopafval;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+21;Brønd/kloak tilstoppet;put-riolering-verstopt;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+46;Rotter;ratten;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+104;Smuk;schoon;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+142;Låse;sluis;Vi vurderer din rapport. Vi reagerer på hastemeldinger så hurtigt som muligt. Vi behandler andre rapporter inden for en uge. Vi holder dig orienteret via e-mail.
+69;Sejler hurtigt;overlast-op-het-water-snel-varen;"Vi videregiver din indberetning til ordensmagten. Hvis det er muligt, griber de straks ind, men de kan ikke altid være der hurtigt nok.
+
+Fortsæt venligst med at rapportere gener til os. Også selvom vi ikke altid kan gøre noget for dig med det samme. Vi bruger alle indberetninger til at begrænse gener i fremtiden."
+111;Beskæring;snoeien;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+23;Sportsfaciliteter;sportvoorziening;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+96;Bykort;stadsplattegronden;"Vi behandler din anmeldelse inden for tre uger. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+65;Stank i catering/virksomheder;stank-horecabedrijven;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+32;Lugt/støjforurening;stank-geluidsoverlast;"Vi vil fortælle dig, hvad vi har gjort inden for 3 uger. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+66;Lugtgener;stankoverlast;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+119;Anløbsbro;steiger;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+19;Gademøbler;straatmeubilair;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+103;Gadebelysning;lantaarnpaal-straatverlichting;Problemer med offentlig belysning kan normalt repareres inden for 21 hverdage. I tilfælde af farlige situationer behandles anmeldelsen straks.
+24;Gadebelysning / offentligt ur;straatverlichting-openbare-klok;Vi vil løse farlige situationer så hurtigt som muligt, andre situationer kan tage lidt længere tid. Vi kan desværre ikke altid holde dig orienteret om dette.
+136;Midlertidige trafikale foranstaltninger;tijdelijke-verkeersmaatregelen;"Vi behandler din anmeldelse inden for tre hverdage. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+36;Afføring;hondenpoep;"Vi vil fortælle dig, hvad vi har gjort inden for 3 uger. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+138;Afføring;uitwerpselen;"Vi vil fortælle dig, hvad vi har gjort inden for 3 uger. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+124;Ferieudlejning;vakantieverhuur;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+1;Fejning/affald;veeg-zwerfvuil;"Vi behandler din anmeldelse inden for tre hverdage. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+147;Fejning/affald;veegzwerfvuil;"Vi behandler din anmeldelse inden for tre hverdage. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+97;Fordelingsbokse / kabling;verdeelkasten-bekabeling;"Vi behandler din anmeldelse inden for tre uger. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+15;Trafikskilt / trafikafspærring;verkeersbord-verkeersafzetting;"Vi behandler din anmeldelse inden for tre hverdage. Du vil så ikke længere modtage en separat besked.
+Ellers hører du - via e-mail - hvornår vi kan svare på din anmeldelse."
+122;Kloakering - tilstoppet kloak;riolering-verstopte-kolk;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+26;Trafiklys;verkeerslicht;"Vi løser farlige situationer så hurtigt som muligt, andre situationer håndterer vi normalt inden for 5 hverdage. Du vil så ikke længere modtage en separat besked.
+Kan vi ikke håndtere din anmeldelse inden for 5 hverdage, hører du - via e-mail - hvordan vi håndterer din anmeldelse."
+102;Trafikgener;verkeersoverlast;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+28;Trafikgener / Trafiksituationer;verkeersoverlast-verkeerssituaties;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+101;Trafiksituationer;verkeerssituaties;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+98;Lysnetsvigt;verlichting-netstoring;"Vi løser farlige situationer så hurtigt som muligt, andre situationer håndterer vi normalt inden for 5 hverdage. Du vil så ikke længere modtage en separat besked.
+Kan vi ikke håndtere din anmeldelse inden for 5 hverdage, hører du - via e-mail - hvordan vi håndterer din anmeldelse."
+99;Formode;vermoeden;Tak for din rapport. Vi inddrager disse i vores forskning.
+120;Nedsænkning af kajer;verzakking-kades;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+53;Fyrværkeri gener;vuurwerkoverlast;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+143;Vandveje;watergangen;Vi vurderer din rapport. Vi reagerer på hastemeldinger så hurtigt som muligt. Vi behandler andre rapporter inden for en uge. Vi holder dig orienteret via e-mail.
+79;Veje, trafik, gademøbler;wegen-verkeer-straatmeubilair;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+77;Slæb væk;wegsleep;"Vi vil fortælle dig, hvad vi har gjort inden for 3 uger. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+50;Hvepse;wespen;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+60;Vandladning / afføring / opkastning offentligt;wildplassen-poepen-overgeven;"Vi giver dig besked om, hvad vi har lavet inden for 3 hverdage. Ellers vil du få at vide, hvornår vi kan svare på din anmeldelse.
+Vi holder dig orienteret via e-mail."
+106;Levende;wonen;Vi gennemgår din anmeldelse og sikrer, at den rigtige del af kommunen håndterer den. Har du efterladt kontaktoplysninger? Vi kontakter dig herefter, hvis der er usikkerhed.
+129;Hjemdeling / spøgelsesborgere;woningdelen-spookburgers;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+125;Boligkvalitet;woningkwaliteit;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+123;Boligsvindel;fraude;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+72;Vragdele i vandet;overlast-op-het-water-gezonken-boot;"Vi videregiver din rapport til vores håndhævere. De vurderer, om det er nødvendigt at gribe ind med det samme. For eksempel fordi der lækker olie, eller fordi situationen udgør en fare for andre både.
+
+Hvis der ikke er behov for øjeblikkelig handling, vil vi reagere på din rapport uden for sejlsæsonen (september - marts).
+
+Se i hvilke situationer vi fjerner et vrag. Vi må for eksempel ikke fjerne både, der er fyldt med vand, men stadig flyder."
+151;Plantning;beplanting;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+152;Japansk pileurt;japanse-duizendknoop;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+153;Træ - sygdomme og skadedyr;boomziekten-en-plagen;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+154;Træ - anmod om inspektion;boom-verzoek-inspectie;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+155;Træ - stormskader;boom-stormschade;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+156;Markeder;markten;Vi vurderer din rapport. Vi reagerer på hastemeldinger så hurtigt som muligt. Vi behandler andre indberetninger inden for tre dage. Hvis du har angivet en e-mailadresse, vil vi holde dig orienteret.
+130;Træ - træstub;boom-boomstob;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+157;Andet levende;wonen-overig;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret. Det gør vi via e-mail.
+158;Rotter – i og omkring et hjem;ratten-in-en-rond-woning;Vi giver dig besked inden for 5 arbejdsdage, hvad vi vil gøre med din rapport. Vi vil også informere dig, hvornår vi gør det. Det gør vi via e-mail, hvis du har oplyst en e-mailadresse.
+159;Brune og hårde hvidevarer;bruin-en-witgoed;Vi behandler din anmeldelse inden for tre hverdage. Hvis du har angivet en e-mailadresse, vil vi holde dig orienteret.
+160;Eg processionslarve;eikenprocessierups;Din rapport vil blive vurderet og planlagt, hvis det er nødvendigt: Vi giver dig besked inden for to uger, hvordan og hvornår din anmeldelse vil blive håndteret. Hvis du har angivet en e-mailadresse, vil vi holde dig orienteret.
+161;juletræer;kerstbomen;Vi har videresendt din rapport til implementering. Vi behandler normalt din anmeldelse inden for 3 hverdage. På grund af corona er vores sygefravær desværre højere end normalt. Vi vil gøre vores yderste for at behandle din anmeldelse så hurtigt som muligt. Vi tager naturligvis hensyn til hasterapporter.
+162;Vedligeholdelse af cykelsti;onderhoud-fietspad;Vi behandler din anmeldelse inden for en uge. Hvis du har angivet en e-mailadresse, vil vi holde dig orienteret.
+163;Brønd/kloak ødelagt;put-riool-kapot;Din rapport vil blive planlagt: vi giver dig besked inden for 5 arbejdsdage, hvordan og hvornår din rapport vil blive håndteret.  Hvis du har angivet en e-mailadresse, vil vi holde dig orienteret.
+164;Yderligere beholderplacering;container-bijplaatsing;Vi begynder at arbejde på din rapport. Hvis det haster, griber vi straks ind. Du hører hvad vi har lavet indenfor 3 hverdage.
+165;Den rullende beholder er i stykker;rolcontainer-is-kapot;Vi begynder at arbejde på din rapport. Hvis det haster, griber vi straks ind. Du vil høre, hvad vi har lavet inden for 10 hverdage.
+166;Den rullende container er fuld;rolcontainer-is-vol;Vi begynder at arbejde på din rapport. Hvis det haster, griber vi straks ind. Du hører hvad vi har lavet indenfor 3 hverdage.
+167;Aggressive hunde løber løs;loslopende-agressieve-honden;Vi begynder at arbejde på din rapport. Hvis det haster, griber vi straks ind. Du hører hvad vi har lavet indenfor 3 hverdage.
+168;Boligomlægning;wonen-ondermijning;Du hører inden for 10 arbejdsdage, hvad vi vil gøre med din indberetning. Og du vil høre, hvor lang tid det vil tage.

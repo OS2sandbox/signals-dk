@@ -11,6 +11,7 @@ stats.json
 /app.*.json
 !/app.base.json
 !/app.amsterdam.json
+!/app.aarhus.json
 .githubtoken
 .jiratoken
 

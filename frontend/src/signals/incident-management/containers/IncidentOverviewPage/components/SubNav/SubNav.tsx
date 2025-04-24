@@ -9,6 +9,7 @@ import configuration from 'shared/services/configuration/configuration'
 
 import { MapHeading } from './styled'
 import { MAP_URL, INCIDENTS_URL } from '../../../../routes'
+import i18n from 'i18n'
 
 type SubNavProps = {
   showsMap?: boolean
@@ -17,26 +18,26 @@ type SubNavProps = {
 const SubNav: FC<SubNavProps> = ({ showsMap }) => (
   <>
     {showsMap && configuration.featureFlags.mapFilter24Hours && (
-      <MapHeading data-testid="sub-nav-header">Afgelopen 24 uur</MapHeading>
+      <MapHeading data-testid="sub-nav-header">{i18n.t('afgelopen-24-uur')}</MapHeading>
     )}
 
     <TabContainer data-testid="sub-nav">
       {showsMap ? (
         <>
           <Tab data-testid="sub-nav-list-link" as={Link} to={INCIDENTS_URL}>
-            Lijst
+          {i18n.t('lijst')}
           </Tab>
           <Tab className="active">
-            <span>Kaart</span>
+          <span>{i18n.t('kaart')}</span>
           </Tab>
         </>
       ) : (
         <>
           <Tab className="active">
-            <span>Lijst</span>
+          {i18n.t('lijst')}
           </Tab>
           <Tab data-testid="sub-nav-map-link" as={Link} to={MAP_URL}>
-            Kaart
+          <span>{i18n.t('kaart')}</span>
           </Tab>
         </>
       )}

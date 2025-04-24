@@ -7,6 +7,7 @@ import styled from 'styled-components'
 
 import BackLink from 'components/BackLink'
 import { INCIDENT_URL } from 'signals/incident-management/routes'
+import i18n from 'i18n'
 
 const StyledHeading = styled(Heading)`
   padding-top: ${themeSpacing(6)};
@@ -26,9 +27,9 @@ const Header: FunctionComponent<HeaderProps> = ({
   className,
 }) => (
   <div className={className}>
-    <BackLink to={`../${INCIDENT_URL}/${id}`}>Terug naar melding</BackLink>
+    <BackLink to={`../${INCIDENT_URL}/${id}`}>{i18n.t('terug-naar-melding')}</BackLink>
     <StyledHeading forwardedAs="h1">
-      Meldingen van {email} ({count})
+      {i18n.t('meldingen-van')} {email} ({count})
     </StyledHeading>
   </div>
 )

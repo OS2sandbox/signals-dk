@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
-    <title>Uw melding {{ formatted_signal_id }}</title>
+    <title>Din rapport {{ formatted_signal_id }}</title>
 </head>
 <body>
     <p>
-        <h1>Geachte heer, mevrouw,</h1>
+        <h1>Kære hr/fru,</h1>
     </p>
 
     <p>
-        Op {{ created_at|date:"j F Y" }} om {{ created_at|date:"H.i" }} uur hebt u een melding gedaan bij de gemeente. In deze mail leest u de stand van zaken van uw melding.
+        Den {{ created_at|date:"j F Y" }} kl. {{ created_at|date:"H.i" }} har du indsendt en rapport til kommunen. I denne e-mail kan du læse status for din rapport.
     </p>
 
     <p>
-        <b>U liet ons het volgende weten</b>
+        <b>Du lod os vide følgende</b>
         {{ signal.text }}
     </p>
 
     <p>
-        <b>Stand van zaken</b>
+        <b>Status</b>
         {{ status_text }}
     </p>
 
     <p>
-        <b>Gegevens van uw melding</b>
+        <b>Oplysninger om din rapport</b>
         <br/>
-        Nummer: <i>{{ formatted_signal_id }}</i>
-        Gemeld op: <i>{{ created_at|date:"DATETIME_FORMAT" }}</i><br/>
-        Locatie: <i>{% if address %}{{ address|format_address:"O hlT, P W" }}{% endif %} </i><br/>
+        Nummer: <i>{{ formatted_signal_id }}</i><br/>
+        Indsendt den: <i>{{ created_at|date:"DATETIME_FORMAT" }}</i><br/>
+        Placering: <i>{% if address %}{{ address|format_address:"O hlT, P W" }}{% endif %}</i><br/>
     </p>
 
     <p>
-        Met vriendelijke groet,
+        Med venlig hilsen,
         <br/>
         {{ ORGANIZATION_NAME }}
     </p>

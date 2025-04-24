@@ -20,6 +20,7 @@ import reducer from './reducer'
 import DepartmentDetailContext from '../../context'
 import CategoryGroups from '../CategoryGroups'
 import { incoming, outgoing } from '../mapCategories'
+import i18n from 'i18n'
 
 const StyledFieldset = styled(Fieldset)`
   padding-top: ${themeSpacing(2)};
@@ -98,9 +99,9 @@ const CategoryLists = ({ onCancel, onSubmit }) => {
     <Row data-testid="category-lists">
       <Form>
         <ControlsWrapper>
-          <StyledFieldset>
+          <StyledFieldset style={{ paddingTop: 0, marginTop: 8 }}>
             <Label as="span" isGroupHeader>
-              Verantwoordelijk voor categorie
+              {i18n.t('verantwoordelijk-voor-categorie')}
             </Label>
 
             {categories && (
@@ -117,7 +118,7 @@ const CategoryLists = ({ onCancel, onSubmit }) => {
         <ControlsWrapper>
           <StyledFieldset>
             <Label as="span" isGroupHeader>
-              Toegang tot categorie
+              {i18n.t('toegang-tot-categorie')}
             </Label>
 
             {categories && (
@@ -132,10 +133,10 @@ const CategoryLists = ({ onCancel, onSubmit }) => {
         </ControlsWrapper>
 
         <FormFooter
-          cancelBtnLabel="Annuleer"
+          cancelBtnLabel={i18n.t('annuleer')}
           onCancel={onCancelForm}
           onSubmitForm={onSubmitForm}
-          submitBtnLabel="Opslaan"
+          submitBtnLabel={i18n.t('opslaan')}
         />
       </Form>
     </Row>

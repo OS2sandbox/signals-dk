@@ -14,6 +14,7 @@ import BarGraph from './components/BarGraph'
 import { Color as GraphColor } from './components/BarGraph/BarGraph'
 import GraphDescription from './components/GraphDescription'
 import GraphEmpty from './components/GraphEmpty'
+import i18n from 'i18n'
 
 const StyledColumn = styled(Column)`
   height: 100%;
@@ -80,8 +81,8 @@ const Signaling: FunctionComponent = () => {
   if (errorOpen || errorReopenRequested) {
     return (
       <Notification
-        title="Er is iets misgegaan"
-        message="De data kon niet worden opgehaald"
+        title={i18n.t('er-is-iets-misgegaan')}
+        message={i18n.t('de-data-kon-niet-worden-opgehaald')}
         variant="error"
       />
     )
@@ -96,14 +97,14 @@ const Signaling: FunctionComponent = () => {
       <StyledColumn span={6} wrap>
         {totalOpen !== null ? (
           <GraphDescription
-            title="Buiten de afhandeltermijn"
-            description="Alle openstaande meldingen, waarvan de doorlooptijd langer is dan 3x de afhandeltermijn."
+            title={i18n.t('buiten-de-afhandeltermijn')}
+            description={i18n.t('alle-openstaande-meldingen-waarvan-de-doorlooptijd-langer-is-dan-3x-de-afha')}
             total={totalOpen}
           />
         ) : null}
 
         {totalOpen === 0 ? (
-          <GraphEmpty text={'Hier is niks meer te signaleren'} />
+          <GraphEmpty text={i18n.t('hier-is-niks-meer-te-signaleren')} />
         ) : (
           <BarGraph
             maxValue={1000}
@@ -115,14 +116,14 @@ const Signaling: FunctionComponent = () => {
       <StyledColumn span={6} wrap>
         {totalReopenRequested !== null && (
           <GraphDescription
-            title="Verzoek tot heropenen"
-            description={`Meldingen waarbij de melder langer dan 2 weken geleden een "verzoek tot heropenen" heeft gedaan.`}
+            title={i18n.t('verzoek-tot-heropenen')}
+            description={i18n.t('meldingen-waarbij-de-melder-langer-dan-2-weken-geleden-een-verzoek-tot-hero')}
             total={totalReopenRequested}
           />
         )}
 
         {totalReopenRequested === 0 ? (
-          <GraphEmpty text={'Hier is niks meer te signaleren'} />
+          <GraphEmpty text={i18n.t('hier-is-niks-meer-te-signaleren')} />
         ) : (
           <BarGraph
             maxValue={1000}

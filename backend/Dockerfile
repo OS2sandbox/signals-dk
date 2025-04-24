@@ -42,6 +42,7 @@ RUN set -eux;  \
     rm -rf /var/lib/apt/lists/*
 
 COPY app/requirements /app/requirements
+COPY migrate/migrate.sh /migrate.sh
 
 RUN set -eux; \
     pip install --no-cache -r /app/requirements/requirements.txt; \

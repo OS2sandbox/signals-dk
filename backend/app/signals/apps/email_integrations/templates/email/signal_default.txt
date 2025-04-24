@@ -1,18 +1,18 @@
-Geachte heer, mevrouw,
+Kære {{ recipient_full_name }},
 
-Op {{ created_at|date:"j F Y" }} om {{ created_at|date:"H.i" }} uur hebt u een melding gedaan bij de gemeente. In deze mail leest u de stand van zaken van uw melding.
+Den {{ created_at|date:"j F Y" }} kl. {{ created_at|date:"H.i" }} har du indsendt en rapport til kommunen. I denne e-mail kan du læse status for din rapport.
 
-U liet ons het volgende weten
+Du lod os vide følgende
 {{ afhandelings_text }}
 
-Stand van zaken
+Status
 {{ status_text }}
 
-Gegevens van uw melding
+Oplysninger om din rapport
 - Nummer: {{ formatted_signal_id }}
-- Gemeld op: {{ created_at|date:"DATETIME_FORMAT" }}
-- Plaats: {% if location %}{{ location|format_address:"O hlT, P W" }}{% endif %}
+- Indsendt den: {{ created_at|date:"DATETIME_FORMAT" }}
+- Placering: {% if location %}{{ location|format_address:"O hlT, P W" }}{% endif %}
 
-Met vriendelijke groet,
+Med venlig hilsen,
 
 {{ ORGANIZATION_NAME }}

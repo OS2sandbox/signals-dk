@@ -1,17 +1,34 @@
-# signals-dk
+# Signals-dk
 Subtree project for the danish version of Signals
 
-## Git
+## Repository
 
-### Subtrees
+This repository serves as the parent repository for the **signals-dk** project, integrating multiple sub-projects (`frontend`, `backend`, etc.) using Git subtree. This setup allows for seamless collaboration, while maintaining the independence of the individual sub-project repositories.
 
-This project is a collection of **git subtrees** on which you can push changes to be merged into the parent, eg:
-`git subtree push --prefix=/frontend signals-dk main`
+### Structure
 
-Use the `--squash` option for pushing a single aggregated commit.
+- `infrastructure`: Contains the AWS/IaC version of a hosting environment.
+- `frontend`: Contains the frontend codebase, pulled from its dedicated repository.
+- `backend`: Contains the backend codebase, pulled from its dedicated repository.
 
-### Add subtree
+### Subtree Management Commands
 
-Use the following commands for adding new subtrees:
-`git remote add` _remoterepos_ `git@github.com:`_organization_`/?`_remoterepos_`.git`
-`git subtree add --prefix=`_foldername_ _remoterepos_ `main --squash`
+#### Pull Updates from Subtree Repositories
+
+To bring the latest changes from the upstream repositories into the (in this case, **Strongminds**) `signals-dk` repository:
+
+```
+git subtree pull --prefix=aws-infrastructure git@github.com:Strongminds/signals-aws-infrastructure.git main
+git subtree pull --prefix=frontend git@github.com:Strongminds/signals-frontend.git main
+git subtree pull --prefix=backend git@github.com:Strongminds/signals-backend.git main
+```
+
+#### Push Changes Back to Subtree Repositories
+If changes are made to the frontend or backend directories in this repository, push them back to the respective upstream repositories using the `git subtree push` command.
+
+#### In a Dedicated Subtree Repository
+You can also clone and work directly in the subtree repositories (e.g., frontend or backend) for independent development
+
+## Migrations
+
+New database migrations handling translation of `Category` and `Permission` have been added. Also, a migration for entering signal `Source` defaults have been added (this is otherwise done manually using the Djando admin interface)

@@ -2,16 +2,14 @@
 // Copyright (C) 2020 - 2024 Gemeente Amsterdam
 import { useCallback, useState } from 'react'
 import type { FunctionComponent, HTMLProps } from 'react'
-
 import { Button, themeSpacing } from '@amsterdam/asc-ui'
 import { themeColor } from '@amsterdam/asc-ui'
 import styled from 'styled-components'
-
 import LoadingIndicator from 'components/LoadingIndicator'
 import { pointWithinBounds } from 'shared/services/map-location'
 import type { LocationResult } from 'types/location'
-
 import GPS from '../../images/icon-gps.svg'
+import i18n from 'i18n'
 
 const StyledButton = styled(Button)`
   box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
@@ -104,7 +102,7 @@ const GPSButton: FunctionComponent<GPSButtonProps & HTMLProps<HTMLElement>> = ({
       type="button"
       variant="blank"
     >
-      Mijn locatie
+      {i18n.t('mijn-locatie')}
     </StyledButton>
   )
 }

@@ -18,6 +18,7 @@ import { MAP_URL, INCIDENTS_URL } from 'signals/incident-management/routes'
 import DownloadButton from './components/DownloadButton'
 import { PATCH_TYPE_THOR } from '../../constants'
 import IncidentDetailContext from '../../context'
+import i18n from 'i18n'
 
 const Header = styled.header`
   padding: ${themeSpacing(2, 0)};
@@ -90,11 +91,11 @@ const DetailHeader = () => {
   const parentId = incident?._links?.['sia:parent']?.href?.split('/').pop()
 
   const hasChildren = incident?._links?.['sia:children']?.length > 0
-  let headingText = 'Standaardmelding'
+  let headingText = i18n.t('standaardmelding')
   if (hasChildren) {
-    headingText = 'Hoofdmelding'
+    headingText = i18n.t('hoofdmelding')
   } else if (parentId) {
-    headingText = 'Deelmelding'
+    headingText = i18n.t('deelmelding')
   }
 
   const patchIncident = useCallback(() => {
@@ -103,7 +104,7 @@ const DetailHeader = () => {
       patch: {
         status: {
           state: 'ready to send',
-          text: 'Te verzenden naar THOR',
+          text: i18n.t('te-verzenden-naar-thor'),
           target_api: 'sigmax',
         },
       },
@@ -114,7 +115,7 @@ const DetailHeader = () => {
 
   return (
     <Header className="detail-header">
-      <StyledBackLink to={referrer}>Terug naar overzicht</StyledBackLink>
+      <StyledBackLink to={referrer}>{i18n.t('terug-naar-overzicht')}</StyledBackLink>
 
       <HeadingContainer>
         <StyledHeading data-testid="detail-header-title">
@@ -131,7 +132,7 @@ const DetailHeader = () => {
               to={`split`}
               data-testid="detail-header-button-split"
             >
-              Delen
+              {i18n.t('delen')}
             </Button>
           )}
 
@@ -142,7 +143,7 @@ const DetailHeader = () => {
               onClick={patchIncident}
               data-testid="detail-header-button-thor"
             >
-              THOR
+              {i18n.t('thor')}
             </Button>
           )}
 
@@ -153,14 +154,14 @@ const DetailHeader = () => {
                 variant="application"
                 onClick={() => toggleExternal()}
                 data-testid="detail-header-button-external"
-                title="Doorzetten naar extern"
+                title={t('doorzetten-naar-extern')}
               >
-                Extern
+                {i18n.t('extern')}
               </Button>
             )}
 
           <DownloadButton
-            label="PDF"
+            label={i18n.t('pdf')}
             url={downloadLink}
             filename={`${configuration.language.shortTitle}-${incident.id}.pdf`}
             data-testid="detail-header-button-download"

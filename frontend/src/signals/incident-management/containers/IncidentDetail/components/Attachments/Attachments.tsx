@@ -18,7 +18,6 @@ import Button from 'components/Button'
 import ErrorMessage from 'components/ErrorMessage'
 import { makeSelectUser, makeSelectUserCan } from 'containers/App/selectors'
 import { getAttachmentFileName } from 'shared/services/get-attachment-file-name'
-import fileSize from 'signals/incident/services/file-size'
 
 import EditAttachment from './EditAttachment.'
 import {
@@ -56,6 +55,7 @@ import type { Files } from '../../hooks/useUpload'
 import type { Attachment } from '../../types'
 import { isPdf } from '../../utils/isPdf'
 import FileInput from '../FileInput'
+import i18n from 'i18n'
 
 const MIN = 30 * 2 ** 10 // 30 KiB
 const MAX = 20 * 2 ** 20 // 20 MiB
@@ -100,17 +100,13 @@ const Attachments: FC<AttachmentsProps> = ({
     (newFiles) => {
       if (newFiles.find((file: File) => file.size < MIN)) {
         setError(
-          `Dit bestand is te klein. De minimale bestandsgrootte is ${fileSize(
-            MIN
-          )}.`
+          i18n.t('dit-bestand-is-te-klein-de-minimale-bestandsgrootte-is-filesize-min')
         )
         return
       }
       if (newFiles.find((file: File) => file.size > MAX)) {
         setError(
-          `Dit bestand is te groot. De maximale bestandsgrootte is ${fileSize(
-            MAX
-          )}.`
+          i18n.t('dit-bestand-is-te-groot-de-maximale-bestandsgrootte-is-filesize-max')
         )
         return
       }
@@ -160,7 +156,7 @@ const Attachments: FC<AttachmentsProps> = ({
     <Wrapper className={className} data-testid="attachments-definition">
       {hasAttachments && !selectedEditAttachment && (
         <Title forwardedAs="h2" styleAs="h4">
-          Bestanden
+          {i18n.t('bestanden')}
         </Title>
       )}
       {attachments.map((attachment) => {
@@ -197,7 +193,7 @@ const Attachments: FC<AttachmentsProps> = ({
                     src={attachment.location}
                     alt={
                       attachment.caption ||
-                      `Bestand met locatie ${attachment.location}`
+                      i18n.t('bestand-met-locatie') + `${attachment.location}`
                     }
                   />
                   <StyledGradient />
@@ -205,10 +201,10 @@ const Attachments: FC<AttachmentsProps> = ({
               )}
               <StyledBoxContent>
                 {!attachment.created_by && (
-                  <StyledReporter>Melder</StyledReporter>
+                  <StyledReporter>{i18n.t('melder')}</StyledReporter>
                 )}
                 {attachment.public && attachment.created_by && (
-                  <StyledReporter>Openbaar</StyledReporter>
+                  <StyledReporter>{i18n.t('openbaar')}</StyledReporter>
                 )}
                 <StyledDetails isPdf={isPdf(attachment.location)}>
                   {fileName && <StyledName>{fileName}</StyledName>}
@@ -230,7 +226,7 @@ const Attachments: FC<AttachmentsProps> = ({
                         icon={
                           <img
                             src="/assets/images/icon-edit.svg"
-                            alt="Bewerken"
+                            alt={i18n.t('bewerken')}
                           />
                         }
                         iconSize={18}
@@ -238,7 +234,7 @@ const Attachments: FC<AttachmentsProps> = ({
                           event.stopPropagation()
                           setSelectedEditAttachment(attachment.location)
                         }}
-                        title="Openbaar maken"
+                        title={i18n.t('openbaar-maken')}
                         variant="application"
                         disabled={isRemoving || !!selectedEditAttachment}
                       />
@@ -250,12 +246,11 @@ const Attachments: FC<AttachmentsProps> = ({
                       data-testid={'DeleteIcon' + attachment.created_at}
                       onClick={(event) => {
                         event.stopPropagation()
-                        window.confirm(
-                          `Weet je zeker dat je de bijlage '${fileName}' wilt verwijderen?`
+                        window.confirm(i18n.t('weet-je-zeker-dat-je-de-bijlage') + ` '${fileName}' `
                         ) && remove(attachment)
                         setSelectedEditAttachment(null)
                       }}
-                      title="Bijlage verwijderen"
+                      title={i18n.t('bijlage-verwijderen')}
                       variant="application"
                       disabled={isRemoving}
                     />
@@ -275,7 +270,7 @@ const Attachments: FC<AttachmentsProps> = ({
             <StyledBoxContent>
               <StyledDetails>
                 <StyledName>{file.name}</StyledName>
-                <StyledError>Uploaden mislukt</StyledError>
+                <StyledError>{i18n.t('uploaden-mislukt')}</StyledError>
               </StyledDetails>
               <StyledButton
                 icon={<CloseIcon />}
@@ -285,7 +280,7 @@ const Attachments: FC<AttachmentsProps> = ({
                   setFiles([])
                 }}
                 variant="application"
-                title="Bijlage sluiten"
+                title={i18n.t('bijlage-sluiten')}
               />
             </StyledBoxContent>
           </StyledBox>
@@ -301,7 +296,7 @@ const Attachments: FC<AttachmentsProps> = ({
             <StyledBoxContent>
               <StyledDetails>
                 <StyledName>{file.name}</StyledName>
-                <StyledDate>wordt geüpload</StyledDate>
+                <StyledDate>{i18n.t('wordt-geuepload')}</StyledDate>
               </StyledDetails>
             </StyledBoxContent>
           </StyledBox>
@@ -313,7 +308,7 @@ const Attachments: FC<AttachmentsProps> = ({
           <FileInput multiple={false} name="addPhoto" onChange={handleChange}>
             {files.length > 0 && !uploadError ? (
               <Button variant="application" disabled={true} type="button">
-                Bestand toevoegen
+                {i18n.t('bestand-toevoegen')}
               </Button>
             ) : (
               <Button
@@ -322,7 +317,7 @@ const Attachments: FC<AttachmentsProps> = ({
                 variant="application"
                 type="button"
               >
-                Bestand toevoegen
+                {i18n.t('bestand-toevoegen')}
               </Button>
             )}
           </FileInput>
@@ -332,7 +327,7 @@ const Attachments: FC<AttachmentsProps> = ({
           variant="application"
           onClick={() => setShowNoteForm(!showNoteForm)}
         >
-          Notitie toevoegen
+          {i18n.t('notitie-toevoegen')}
         </Button>
       </StyledButtonWrapper>
       {showNoteForm && (

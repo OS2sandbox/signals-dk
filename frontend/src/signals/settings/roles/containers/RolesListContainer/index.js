@@ -16,6 +16,7 @@ import { rolesModelSelector } from 'models/roles/selectors'
 import { BASE_URL, ROLE_URL } from 'signals/settings/routes'
 
 import RolesList from './components/RolesList'
+import i18n from 'i18n'
 
 const HeaderButton = styled(Button)`
   &:hover {
@@ -31,8 +32,8 @@ export const RolesListContainer = ({
     <>
       <Row>
         <PageHeader
-          title="Rollen"
-          BackLink={<BackLink to={BASE_URL}>Terug naar instellingen</BackLink>}
+          title={i18n.t('rollen')}
+          BackLink={<BackLink to={BASE_URL}>{i18n.t('terug-naar-instellingen')}</BackLink>}
         >
           {userCan('add_group') && (
             <HeaderButton
@@ -40,7 +41,7 @@ export const RolesListContainer = ({
               forwardedAs={Link}
               to={`${BASE_URL}/${ROLE_URL}`}
             >
-              Rol toevoegen
+              {i18n.t('rol-toevoegen')}
             </HeaderButton>
           )}
         </PageHeader>

@@ -23,6 +23,7 @@ import {
   storeDefaultTextsError,
 } from './actions'
 import { FETCH_DEFAULT_TEXTS, STORE_DEFAULT_TEXTS } from './constants'
+import i18n from 'i18n'
 
 export function* fetchDefaultTexts(action) {
   try {
@@ -39,7 +40,7 @@ export function* fetchDefaultTexts(action) {
     yield put(
       showGlobalNotification({
         title: getErrorMessage(error),
-        message: 'Het standaard teksten overzicht kon niet opgehaald worden',
+        message: i18n.t('het-standaard-teksten-overzicht-kon-niet-opgehaald-worden'),
         variant: VARIANT_ERROR,
         type: TYPE_LOCAL,
       })
@@ -65,7 +66,7 @@ export function* storeDefaultTexts(action) {
 
     yield put(
       showGlobalNotification({
-        title: `Standaard teksten bijgewerkt voor ${subcategory.value}, ${payload.status.value}`,
+        title: i18n.t('standaard-teksten-bijgewerkt-voor') + ` ${subcategory.value}, ${payload.status.value}`,
         variant: VARIANT_SUCCESS,
         type: TYPE_LOCAL,
       })
@@ -76,7 +77,7 @@ export function* storeDefaultTexts(action) {
     yield put(
       showGlobalNotification({
         title: getErrorMessage(error),
-        message: 'De standaard teksten konden niet opgeslagen worden',
+        message: i18n.t('de-standaard-teksten-konden-niet-opgeslagen-worden'),
         variant: VARIANT_ERROR,
         type: TYPE_LOCAL,
       })

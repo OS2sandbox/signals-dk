@@ -1,4 +1,7 @@
 // SPDX-License-Identifier: MPL-2.0
+
+import i18n from "i18n"
+
 // Copyright (C) 2020 - 2021 Gemeente Amsterdam
 export const RESET = 'sia/incidentManagement/FilterForm/RESET'
 export const SET_ADDRESS = 'sia/incidentManagement/FilterForm/SET_ADDRESS'
@@ -14,5 +17,5 @@ export const SET_NOTE_KEYWORD =
   'sia/incidentManagement/FilterForm/SET_NOTE_KEYWORD'
 export const SET_GROUP_OPTIONS =
   'sia/incidentManagement/FilterForm/SET_GROUP_OPTIONS'
-export const DEFAULT_SUBMIT_BUTTON_LABEL = 'Filter'
-export const SAVE_SUBMIT_BUTTON_LABEL = 'Opslaan en filter'
+export const DEFAULT_SUBMIT_BUTTON_LABEL = i18n.t('filter')
+export const SAVE_SUBMIT_BUTTON_LABEL = i18n.t('opslaan-en-filter')

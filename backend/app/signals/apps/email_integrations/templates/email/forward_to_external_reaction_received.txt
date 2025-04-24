@@ -1,16 +1,16 @@
-Geachte behandelaar,
+Kære behandler,
 
-Bedankt voor het invullen van het actieformulier. Uw informatie helpt ons bij het verwerken van de melding.
+Tak for udfyldelsen af handlingsformularen. Din information hjælper os med at behandle rapporten.
 
-U liet ons het volgende weten
+Du lod os vide følgende
 {{ reaction_text }}
 
-Gegevens van de melding
+Oplysninger om rapporten
 - Nummer: {{ formatted_signal_id }}
-- Gemeld op: {{ created_at|date:"DATETIME_FORMAT" }}
-- Plaats: {% if location %}{{ location|format_address:"O hlT, P W" }}{% endif %}
+- Rapporteret den: {{ created_at|date:"DATETIME_FORMAT" }}
+- Placering: {% if location %}{{ location|format_address:"O hlT, P W" }}{% endif %}
 
 
-Met vriendelijke groet,
+Med venlig hilsen,
 
 {{ ORGANIZATION_NAME }}

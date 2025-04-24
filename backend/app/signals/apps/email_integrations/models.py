@@ -3,7 +3,7 @@
 import typing
 
 from django.contrib.gis.db import models
-
+from .translations import TranslationKey, translate
 from signals.apps.signals.models.mixins import CreatedUpdatedModel
 
 
@@ -50,7 +50,7 @@ class EmailTemplate(CreatedUpdatedModel):
 
     key = models.CharField(max_length=100, choices=KEYS_CHOICES, db_index=True, unique=True)
     title = models.CharField(max_length=255)
-    body = models.TextField(help_text='Het is mogelijk om Markdown en template variabelen te gebruiken')
+    body = models.TextField(help_text=translate(TranslationKey.email_template_body_help_text))
     created_by = models.EmailField(null=True, blank=True)
 
     class Meta:

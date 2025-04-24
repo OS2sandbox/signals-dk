@@ -15,6 +15,7 @@ import useIsIncidentMap from 'hooks/useIsIncidentMap'
 import { getIsAuthenticated } from 'shared/services/auth/auth'
 import configuration from 'shared/services/configuration/configuration'
 import { makeSelectIncidentContainer } from 'signals/incident/containers/IncidentContainer/selectors'
+import i18n from 'i18n'
 
 const FooterWrapper = styled.div`
   background-color: ${themeColor('tint', 'level1')};
@@ -62,15 +63,15 @@ const FooterContainer = () => {
             <>
               {configuration.links.about && (
                 <Link href={configuration.links.about} inList tabFocus>
-                  Over deze site
+                  {i18n.t('over-deze-site')}
                 </Link>
               )}
               <Link href={configuration.links.privacy} inList>
-                Privacy
+                {i18n.t('privacy')}
               </Link>
               {configuration.links.accessibility && (
                 <Link href={configuration.links.accessibility} inList>
-                  Toegankelijkheid
+                  {i18n.t('toegankelijkheid')}
                 </Link>
               )}
             </>

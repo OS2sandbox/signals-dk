@@ -2,6 +2,7 @@
 # Copyright (C) 2021 - 2023 Gemeente Amsterdam
 from django.conf import settings
 
+from signals.apps.email_integrations.translations import TranslationKey, translate
 from signals.apps.email_integrations.actions.abstract import AbstractSystemAction
 from signals.apps.email_integrations.models import EmailTemplate
 from signals.apps.signals.models import Signal
@@ -11,8 +12,8 @@ class FeedbackReceivedAction(AbstractSystemAction):
     _required_call_kwargs: list[str] = ['feedback']
 
     key: str = EmailTemplate.SIGNAL_FEEDBACK_RECEIVED
-    subject: str = 'Bedankt voor uw feedback'
-    note: str = 'Automatische e-mail bij ontvangen van feedback is verzonden aan de melder.'
+    subject: str = translate(TranslationKey.email_feedback_received_thank_you_message)
+    note: str = translate(TranslationKey.email_automated_email_feedback_received_sent)
 
     def _validate(self) -> bool:
         return settings.FEATURE_FLAGS.get('SYSTEM_MAIL_FEEDBACK_RECEIVED_ENABLED', True)

@@ -4,6 +4,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
+from .translations import TranslationKey, translate
 from signals.apps.questionnaires.models import Questionnaire
 from signals.apps.signals.models.signal_departments import SignalDepartments
 from signals.apps.signals.models.type import _history_translated_action
@@ -138,64 +139,64 @@ class Log(models.Model):
         "who" in the style of the signals_history_view
         Present for backwards compatibility
         """
-        return self.created_by or 'Signalen systeem'
+        return self.created_by or 'Signalen system'
 
     def get_action(self) -> str:  # noqa C901
         """
         "get_action" copied from History
         Present for backwards compatibility
         """
-        action = 'Actie onbekend.'
+        action = translate(TranslationKey.log_unknown_action)
         what = self.what
         if what == 'UPDATE_STATUS':
-            _status_choice = 'Onbekend'
+            _status_choice = translate(TranslationKey.log_unknown)
             if self.extra:
-                _status_choice = dict(STATUS_CHOICES).get(self.extra, 'Onbekend')
+                _status_choice = dict(STATUS_CHOICES).get(self.extra, TranslationKey.log_unknown)
 
-            action = f'Status gewijzigd naar: {_status_choice}'
+            action = f'{translate(TranslationKey.log_status_choice)}: {_status_choice}'
         elif what == 'UPDATE_PRIORITY':
-            _priority = 'Onbekend'
+            _priority = TranslationKey.log_unknown
             if self.extra:
-                _priority = {'high': 'Hoog', 'normal': 'Normaal', 'low': 'Laag'}.get(self.extra, 'Onbekend')
-            action = f'Urgentie gewijzigd naar: {_priority}'
+                _priority = {'high': translate(TranslationKey.log_priority_high), 'normal': translate(TranslationKey.log_priority_normal), 'low': translate(TranslationKey.log_priority_low)}.get(self.extra, translate(TranslationKey.log_unknown))
+            action = f'{translate(TranslationKey.log_urgency_changed_to)}: {_priority}'
         elif what == 'UPDATE_CATEGORY_ASSIGNMENT':
-            action = f'Categorie gewijzigd naar: {self.extra}'
+            action = f'{translate(TranslationKey.log_category_changed_to)}: {self.extra}'
         elif what == 'UPDATE_LOCATION':
-            action = 'Locatie gewijzigd naar:'
+            action = translate(TranslationKey.log_location_changed_to)
         elif what == 'CREATE_NOTE':
-            action = 'Notitie toegevoegd:'
+            action = translate(TranslationKey.log_note_added)
         elif what == 'RECEIVE_FEEDBACK' or what == 'CREATE_FEEDBACK':
-            action = 'Feedback van melder ontvangen'
+            action = translate(TranslationKey.log_feedback_from_reporter)
         elif what == 'UPDATE_TYPE_ASSIGNMENT':
-            action = f'Type gewijzigd naar: {_history_translated_action(self.extra)}'
+            action = f'{translate(TranslationKey.log_type_changed_to)}: {_history_translated_action(self.extra)}'
         elif what == 'UPDATE_DIRECTING_DEPARTMENTS_ASSIGNMENT':
-            action = f'Regie gewijzigd naar: {self.extra or "Verantwoordelijke afdeling"}'
+            action = f'{translate(TranslationKey.log_direction_changed_to)}: {self.extra or translate(TranslationKey.log_responsible_department)}'
         elif what == 'UPDATE_ROUTING_ASSIGNMENT':
-            _route_assignment = self.extra or 'Verantwoordelijke afdeling (routering)'
-            action = f'Routering: afdeling/afdelingen gewijzigd naar: {_route_assignment}'
+            _route_assignment = self.extra or translate(TranslationKey.log_default_responsible_department)
+            action = f'{translate(TranslationKey.log_routing_department_changed_to)}: {_route_assignment}'
         elif what == 'UPDATE_USER_ASSIGNMENT':
             if self.extra:
-                action = f'Melding toewijzing gewijzigd naar: {self.extra}'
+                action = f'{translate(TranslationKey.log_report_assignment_changed_to)}: {self.extra}'
             else:
-                action = 'Melding niet meer toegewezen aan behandelaar.'
+                action = translate(TranslationKey.log_unassigned_report)
         elif what == 'CREATE_SIGNAL' and self.object_pk != self._signal_id:
-            action = 'Deelmelding toegevoegd'
+            action = translate(TranslationKey.log_sub_report_added)
         elif what == 'UPDATE_SLA':
-            action = 'Servicebelofte:'
+            action = translate(TranslationKey.log_service_commitment) + ':'
         elif what == 'RECEIVE_SESSION':
             assert self.object
             assert self.object.questionnaire
 
             if self.object.questionnaire.flow == Questionnaire.FORWARD_TO_EXTERNAL:
-                action = 'Toelichting ontvangen'
+                action = translate(TranslationKey.log_received_explanation)
         elif what == 'NOT_RECEIVED_SESSION':
             assert self.object
             assert self.object.questionnaire
 
             if self.object.questionnaire.flow == Questionnaire.FORWARD_TO_EXTERNAL:
-                action = 'Geen toelichting ontvangen'
+                action = translate(TranslationKey.log_no_explanation_received)
         elif what == 'UPDATE_REPORTER':
-            action = 'Contactgegevens melder:'
+            action = translate(TranslationKey.log_reporter_contact_info) + ':'
 
         return action
 
@@ -213,7 +214,7 @@ class Log(models.Model):
         elif what == 'CHILD_SIGNAL_CREATED':
             description = f'Melding {self.extra}'
         elif what == 'UPDATE_SLA' and self.description is None:
-            description = 'Servicebelofte onbekend'
+            description = translate(TranslationKey.log_default_service_promise)
 
         return description
 

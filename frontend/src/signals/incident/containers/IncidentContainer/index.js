@@ -25,7 +25,7 @@ import reducer from './reducer'
 import saga from './saga'
 import { makeSelectIncidentContainer } from './selectors'
 import IncidentClassification from '../../components/IncidentClassification'
-import wizardDefinition from '../../definitions/wizard'
+import { getWizardSections as wizardDefinition } from '../../definitions/wizard'
 
 // Not possible to properly test the async loading, setting coverage reporter to ignore lazy imports
 // istanbul ignore next

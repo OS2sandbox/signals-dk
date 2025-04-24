@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (C) 2020 - 2024 Gemeente Amsterdam
 import configuration from 'shared/services/configuration/configuration'
-
 import PreviewComponents from '../../components/IncidentPreview/components'
 import step4, {
   Label,
@@ -11,6 +10,7 @@ import step4, {
   SCSVLabel,
   summary,
 } from '../wizard-step-4-summary'
+import i18n from 'i18n'
 
 const { previewFactory } = step4
 
@@ -22,7 +22,7 @@ jest.mock('lodash/memoize', () => ({
 
 const expectedLocation = {
   locatie: {
-    label: 'Waar is het?',
+    label: i18n.t('waar-is-het'),
     optional: true,
     render: expect.any(Function),
     canBeNull: false,

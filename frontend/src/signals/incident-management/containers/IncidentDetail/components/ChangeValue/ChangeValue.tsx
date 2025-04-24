@@ -19,6 +19,7 @@ import type { Priority } from 'signals/incident-management/definitions/types'
 
 import IncidentDetailContext from '../../context'
 import EditButton from '../EditButton'
+import i18n from 'i18n'
 
 const DisplayValue = styled.span<{ hasHighPriority: boolean }>`
   color: ${({ hasHighPriority, theme }) =>
@@ -216,24 +217,20 @@ const ChangeValue: FunctionComponent<ChangeValueProps> = ({
 
       <ButtonBar>
         <SaveButton
-          data-testid={`submit${type.charAt(0).toUpperCase()}${type.slice(
-            1
-          )}Button`}
+          data-testid={`submit${type.charAt(0).toUpperCase()}${type.slice(1)}Button`}
           variant="secondary"
           type="submit"
         >
-          Opslaan
+          {i18n.t('opslaan')}
         </SaveButton>
 
         <Button
-          data-testid={`cancel${type.charAt(0).toUpperCase()}${type.slice(
-            1
-          )}Button`}
+          data-testid={`cancel${type.charAt(0).toUpperCase()}${type.slice(1)}Button`}
           variant="tertiary"
           type="button"
           onClick={handleCancel}
         >
-          Annuleer
+          {i18n.t('annuleer')}
         </Button>
       </ButtonBar>
     </form>
@@ -255,9 +252,7 @@ const ChangeValue: FunctionComponent<ChangeValueProps> = ({
         {!showForm && (
           <EditButton
             className=""
-            data-testid={`edit${type.charAt(0).toUpperCase()}${type.slice(
-              1
-            )}Button`}
+            data-testid={`edit${type.charAt(0).toUpperCase()}${type.slice(1)}Button`}
             disabled={disabled}
             onClick={onShowForm}
           />

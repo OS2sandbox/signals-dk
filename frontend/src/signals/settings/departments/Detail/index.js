@@ -26,6 +26,7 @@ import CategoryLists from './components/CategoryLists'
 import DepartmentDetailContext from './context'
 import useConfirmedCancel from '../../hooks/useConfirmedCancel'
 import useFetchResponseNotification from '../../hooks/useFetchResponseNotification'
+import i18n from 'i18n'
 
 export const DepartmentDetailContainer = ({
   categories,
@@ -37,10 +38,8 @@ export const DepartmentDetailContainer = ({
   const { isLoading, isSuccess, data, error, get, patch, type } = useFetch()
   const redirectURL = location.referrer || `${BASE_URL}/${routes.departments}`
   const confirmedCancel = useConfirmedCancel(redirectURL)
-  const entityName = `Afdeling${data ? ` '${data.name}'` : ''}`
-  const title = `${entityName} ${
-    isExistingDepartment ? 'wijzigen' : 'toevoegen'
-  }`
+  const entityName = i18n.t('afdeling') + `${data ? ` '${data.name}'` : ''}`
+  const title = `${entityName} ${isExistingDepartment ? i18n.t('wijzigen') : i18n.t('toevoegen')}`
 
   useFetchResponseNotification({
     entityName,
@@ -75,7 +74,7 @@ export const DepartmentDetailContainer = ({
           title={title}
           BackLink={
             <BackLink to={`${BASE_URL}/${routes.departments}`}>
-              Terug naar overzicht
+              {i18n.t('terug-naar-overzicht')}
             </BackLink>
           }
         />
@@ -86,13 +85,10 @@ export const DepartmentDetailContainer = ({
       {!isLoading && data && (
         <Fragment>
           <Row data-testid="department-detail">
-            <Column span={12}>
-              <div>
-                <Heading forwardedAs="h2" styleAs="h4">
-                  Afdeling
-                </Heading>
-                <Paragraph>{data.name}</Paragraph>
-              </div>
+            <Column span={4}>
+              <Heading forwardedAs="h4" styleAs="h4">
+                {i18n.t('afdeling') + ': ' + data.name}
+              </Heading>
             </Column>
           </Row>
 

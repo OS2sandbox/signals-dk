@@ -24,6 +24,7 @@ import dataLists from 'signals/incident-management/definitions'
 
 import AppContext from '../../../../containers/App/context'
 import { useIncidentManagementContext } from '../../context'
+import i18n from 'i18n'
 
 const StyledTag = styled(Tag)`
   display: inline-block;
@@ -174,7 +175,7 @@ export const FilterTagListComponent = (props) => {
       )}
       {showClearButton && (
         <Button variant="textButton" onClick={props.onClear}>
-          Wis filter
+          {i18n.t('wis-filter')}
         </Button>
       )}
     </FilterWrapper>

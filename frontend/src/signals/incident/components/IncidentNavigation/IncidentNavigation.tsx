@@ -11,12 +11,8 @@ import styled from 'styled-components'
 import NextButton from 'components/NextButton'
 import PreviousButton from 'components/PreviousButton'
 import { makeSelectIncidentContainer } from 'signals/incident/containers/IncidentContainer/selectors'
-import type {
-  FormAction,
-  WizardSection,
-} from 'signals/incident/definitions/wizard'
+import type { FormAction, WizardSection } from 'signals/incident/definitions/wizard'
 import type { WizardSectionProp } from 'signals/incident/definitions/wizard'
-
 import { WizardContext } from '../StepWizard'
 
 const Nav = styled.div`
@@ -49,7 +45,7 @@ interface IncidentNavigationProps {
   }
 }
 
-const IncidentNavigation = ({ meta }: IncidentNavigationProps) => {
+export const IncidentNavigation = ({ meta }: IncidentNavigationProps) => {
   const { wizard } = meta
   const { step, next, previous } = useContext(WizardContext)
 

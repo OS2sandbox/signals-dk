@@ -1,0 +1,51 @@
+name: CI-CD
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+      - labeled
+      - unlabeled
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+
+  FRONTEND:
+    uses: Strongminds/signals-frontend/.github/workflows/build_and_push_to_docker_hub.yml@main
+    with:
+      release_tag: "${{ github.sha }}"
+      SUB_TREE_PATH: "frontend/"
+    secrets: inherit
+
+  BACKEND:
+    uses: Strongminds/signals-backend/.github/workflows/build_and_push_to_docker_hub.yml@main
+    with:
+      release_tag: "${{ github.sha }}"
+      SUB_TREE_PATH: "backend/"
+    secrets: inherit
+
+  DEV:
+    uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml@main
+    needs: [ FRONTEND, BACKEND ]
+    with:
+      ENVIRONMENT: dev
+      FRONTEND_IMAGE_NAME: "strongminds/signalen-frontend:${{ github.sha }}"
+      BACKEND_IMAGE_NAME: "strongminds/signalen-backend:${{ github.sha }}"
+      DOMAIN: signalen.dev.os2.strongminds.dk
+      AWS_ACCOUNT_ID: 816069162453
+      SUB_TREE_PATH: "aws-infrastructure/"
+    secrets: inherit
+
+

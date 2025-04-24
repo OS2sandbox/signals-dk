@@ -33,6 +33,7 @@ import IncidentForm from '../IncidentForm'
 import IncidentPreview from '../IncidentPreview'
 import { StepByStepNavClickable } from '../StepByStepNavClickable'
 import { Step, Steps, Wizard } from '../StepWizard'
+import getWizardSections from 'signals/incident/definitions/wizard-sections'
 
 interface IncidentWizardProps {
   wizardDefinition: WizardSection
@@ -49,7 +50,6 @@ interface IncidentWizardProps {
 }
 
 const IncidentWizard: FC<IncidentWizardProps> = ({
-  wizardDefinition,
   getClassification,
   updateIncident,
   createIncident,
@@ -69,7 +69,7 @@ const IncidentWizard: FC<IncidentWizardProps> = ({
     [incidentContainer.incident]
   )
 
-  const steps = Object.values(wizardDefinition)
+  const steps = Object.values(getWizardSections())
     .filter(({ countAsStep }) => countAsStep)
     .map(({ stepLabel }) => ({ label: stepLabel || '' }))
 
@@ -87,14 +87,14 @@ const IncidentWizard: FC<IncidentWizardProps> = ({
       <FormProvider {...formMethods}>
         <Wizard
           onNext={(wiz) => {
-            return onNext(wizardDefinition, wiz, incident)
+            return onNext(getWizardSections(), wiz, incident)
           }}
         >
           {incidentContainer.loading || appContext.loading ? (
             <LoadingIndicator />
           ) : (
             <Steps>
-              {Object.keys(wizardDefinition).map((key, index) => (
+              {Object.keys(getWizardSections()).map((key, index) => (
                 <Step
                   key={key}
                   id={`incident/${key}`}
@@ -107,7 +107,7 @@ const IncidentWizard: FC<IncidentWizardProps> = ({
                       subHeader,
                       previewFactory,
                       sectionLabels,
-                    } = wizardDefinition[key as keyof WizardSection]
+                    } = getWizardSections()[key as keyof WizardSection]
                     const showProgress = index < steps.length
 
                     return previewFactory || form || formFactory ? (
@@ -127,7 +127,7 @@ const IncidentWizard: FC<IncidentWizardProps> = ({
                               steps={steps}
                               itemType="numeric"
                               activeItem={index}
-                              wizardRoutes={Object.keys(wizardDefinition)}
+                              wizardRoutes={Object.keys(getWizardSections())}
                               breakpoint={breakpoint(
                                 'max-width',
                                 'tabletM'
@@ -158,7 +158,7 @@ const IncidentWizard: FC<IncidentWizardProps> = ({
                                 updateIncident={updateIncident}
                                 addToSelection={addToSelection}
                                 removeFromSelection={removeFromSelection}
-                                wizard={wizardDefinition}
+                                wizard={getWizardSections()}
                                 createIncident={createIncident}
                               />
                             )}

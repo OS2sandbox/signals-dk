@@ -30,6 +30,7 @@ import makeSelectDefaultTextsAdmin from './selectors'
 import { reCategory } from '../../../../shared/services/resolveClassification'
 import HiddenInput from '../../components/HiddenInput'
 import { statusList } from '../../definitions'
+import i18n from 'i18n'
 
 const StyledH1 = styled(Heading)`
   margin-bottom: ${themeSpacing(8)};
@@ -135,7 +136,7 @@ export const DefaultTextsAdminContainer = ({
   return (
     <Row>
       <Column span={12}>
-        <StyledH1>Beheer standaard teksten</StyledH1>
+        <StyledH1>{i18n.t('beheer-standaard-teksten')}</StyledH1>
       </Column>
 
       {!subCategories && <LoadingIndicator />}
@@ -178,7 +179,7 @@ export const DefaultTextsAdminContainer = ({
         )}
       </Column>
 
-      <StyledFormFooter submitBtnLabel="Opslaan" onSubmitForm={handleSubmit} />
+      <StyledFormFooter submitBtnLabel={i18n.t('opslaan')} onSubmitForm={handleSubmit} />
     </Row>
   )
 }

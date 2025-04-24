@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (C) 2019 - 2023 Gemeente Amsterdam
 import { useRef, useState, useCallback } from 'react'
+import i18n from 'i18n'
 
 /**
  * useFormValidation hook
@@ -43,7 +44,7 @@ const useFormValidation = (formRef) => {
 
         if (!valid) {
           if (required && valueMissing) {
-            error = 'Dit veld is verplicht'
+            error = i18n.t('dit-veld-is-verplicht')
           }
         }
 

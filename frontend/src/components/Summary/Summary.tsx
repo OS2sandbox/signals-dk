@@ -26,6 +26,7 @@ import type {
 import { showMap } from 'signals/incident/containers/IncidentContainer/actions'
 
 import onButtonPress from '../../utils/on-button-press'
+import i18n from 'i18n'
 
 const mapWidth = 640
 const mapHeight = 180
@@ -106,7 +107,7 @@ const Summary: FC<SummaryProps> = ({
   let summaryAddress = address ? formatAddress(address) : ''
   summaryAddress =
     !summaryAddress && coordinates
-      ? 'Locatie is gepind op de kaart'
+      ?i18n.t('locatie-is-gepind-op-de-kaart')
       : summaryAddress
 
   const dispatch = useDispatch()
@@ -169,7 +170,7 @@ const Summary: FC<SummaryProps> = ({
           variant="inline"
           tabIndex={0}
         >
-          Wijzigen
+          {i18n.t('wijzigen')}
         </StyledLink>
       )}
     </Wrapper>

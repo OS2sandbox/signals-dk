@@ -8,6 +8,7 @@ import styled from 'styled-components'
 
 import Button from 'components/Button'
 import TextArea from 'components/TextArea'
+import i18n from 'i18n'
 
 export interface AddNoteProps {
   className?: string
@@ -52,11 +53,11 @@ export const getAddNoteError = (config: {
   }
 
   if (shouldContainAtLeastOneChar && text.trim() === '') {
-    return `De ${fieldName} mag niet leeg zijn`
+    return i18n.t('de-fieldname-mag-niet-leeg-zijn', { fieldName })
   }
 
   if (text.length > maxContentLength) {
-    return `Je hebt meer dan de maximale ${maxContentLength} tekens ingevoerd.`
+    return i18n.t('je-hebt-meer-dan-de-maximale-maxcontentlength-tekens-ingevoerd', { maxContentLength})
   }
 
   return ''
@@ -120,7 +121,7 @@ const AddNote = forwardRef<HTMLTextAreaElement, AddNoteProps>(
             data-testid="add-note-new-note-button"
             onClick={() => setShowForm(true)}
           >
-            Notitie toevoegen
+            {i18n.t('notitie-toevoegen')}
           </Button>
         </section>
       )
@@ -150,7 +151,7 @@ const AddNote = forwardRef<HTMLTextAreaElement, AddNoteProps>(
               type="submit"
               variant="secondary"
             >
-              Opslaan
+              {i18n.t('opslaan')}
             </NoteButton>
 
             <NoteButton
@@ -159,7 +160,7 @@ const AddNote = forwardRef<HTMLTextAreaElement, AddNoteProps>(
               type="button"
               onClick={handleCancel}
             >
-              Annuleer
+              {i18n.t('annuleer')}
             </NoteButton>
           </>
         )}
@@ -172,7 +173,7 @@ AddNote.defaultProps = {
   className: '',
   isStandalone: true,
   inForm: false,
-  label: 'Notitie toevoegen',
+  label: i18n.t('notitie-toevoegen'),
   rows: 10,
   withToggle: true,
 }

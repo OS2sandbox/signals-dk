@@ -20,6 +20,7 @@ import {
 import { makeSelectAllFilters } from 'signals/incident-management/selectors'
 
 import FilterItem from './components/FilterItem'
+import i18n from 'i18n'
 
 const sortFilters = (filters) => {
   filters.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1))
@@ -84,11 +85,8 @@ export const MyFiltersComponent = ({
         ))
       ) : (
         <NoFilters className="my-filters--empty">
-          <p>U heeft geen eigen filter opgeslagen.</p>
-          <p>
-            Ga naar &lsquo;Filter&rsquo; en voer een naam in om een
-            filterinstelling op te slaan.
-          </p>
+          <p>{i18n.t('u-heeft-geen-eigen-filter-opgeslagen')}</p>
+          <p>{i18n.t('ga-naar-and-lsquo-filter-and-rsquo-en-voer-een-naam-in-om-een-filterinstell')}</p>
         </NoFilters>
       )}
     </MyFilters>

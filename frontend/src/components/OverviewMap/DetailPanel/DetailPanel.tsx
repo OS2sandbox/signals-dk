@@ -19,6 +19,7 @@ import { INCIDENT_URL } from 'signals/incident-management/routes'
 import type { StatusCode } from 'types/status-code'
 
 import type { IncidentSummary } from '../types'
+import i18n from 'i18n'
 
 const statuses = statusList.reduce(
   (acc, status) => ({
@@ -87,11 +88,9 @@ const DetailPanel: FunctionComponent<DetailPanelProps> = ({
           variant="inline"
           to={`../${INCIDENT_URL}/${incident.id}`}
         >
-          Melding {incident.id}
+          {i18n.t('melding')} {incident.id}
         </AscLink>
-      ) : (
-        `Melding ${incident.id}`
-      )}
+      ) : (i18n.t('melding') + ` ${incident.id}`)}
       <Button
         size={36}
         variant="blank"
@@ -106,7 +105,7 @@ const DetailPanel: FunctionComponent<DetailPanelProps> = ({
       incident.category?.main) && (
       <StyledMetaList>
         {incident.created_at && (
-          <dt data-testid="meta-list-date-definition">Gemeld op</dt>
+          <dt data-testid="meta-list-date-definition">{i18n.t('gemeld-op')}</dt>
         )}
         {incident.created_at && (
           <dd data-testid="meta-list-date-value">
@@ -115,7 +114,7 @@ const DetailPanel: FunctionComponent<DetailPanelProps> = ({
           </dd>
         )}
         {incident.status && statuses[incident.status] && (
-          <dt data-testid="meta-list-status-definition">Status</dt>
+          <dt data-testid="meta-list-status-definition">{i18n.t('status')}</dt>
         )}
         {incident.status && statuses[incident.status] && (
           <dd className="alert" data-testid="meta-list-status-value">
@@ -123,7 +122,7 @@ const DetailPanel: FunctionComponent<DetailPanelProps> = ({
           </dd>
         )}
         {incident.category?.sub && (
-          <dt data-testid="meta-list-subcategory-definition">Subcategorie</dt>
+          <dt data-testid="meta-list-subcategory-definition">{i18n.t('subcategorie')}</dt>
         )}
         {incident.category?.sub && (
           <dd data-testid="meta-list-subcategory-value">
@@ -131,7 +130,7 @@ const DetailPanel: FunctionComponent<DetailPanelProps> = ({
           </dd>
         )}
         {incident.category?.main && (
-          <dt data-testid="meta-list-category-definition">Hoofdcategorie</dt>
+          <dt data-testid="meta-list-category-definition">{i18n.t('hoofdcategorie')}</dt>
         )}
         {incident.category?.main && (
           <dd data-testid="meta-list-category-value">

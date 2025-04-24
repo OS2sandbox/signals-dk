@@ -28,6 +28,7 @@ import wegenVerkeerStraatmeubilairControls from './wizard-step-2-vulaan/wegen-ve
 import { controls as wonenControls } from './wizard-step-2-vulaan/wonen'
 import IncidentNavigation from '../components/IncidentNavigation'
 import PreviewComponents from '../components/IncidentPreview/components'
+import i18n from 'i18n'
 
 export const ObjectLabel = ({ value }) => value?.label
 export const Label = ({ value }) => value
@@ -45,7 +46,7 @@ export const renderPreview = ({ render, meta }) => {
         return PreviewComponents.ListObjectValue
       }
 
-      return () => 'Ja'
+      return () => i18n.t('ja')
 
     case QuestionFieldType.MultiTextInput:
       return SCSVLabel
@@ -217,22 +218,22 @@ const getExtraQuestions = (category, subcategory, questions) => {
 }
 
 export default {
-  label: 'Versturen',
-  subHeader: 'Controleer uw gegevens en verstuur uw melding.',
-  nextButtonLabel: 'Verstuur',
+  label: i18n.t('versturen'),
+  subHeader: i18n.t('controleer-uw-gegevens-en-verstuur-uw-melding'),
+  nextButtonLabel: i18n.t('verstuur'),
   nextButtonClass: 'action primary',
-  previousButtonLabel: 'Vorige',
+  previousButtonLabel: i18n.t('vorige'),
   previousButtonClass: 'action startagain',
   sectionLabels: {
     heading: {
-      beschrijf: '1. Beschrijf uw melding',
-      vulaan: '2. Locatie en vragen',
-      contact: '3. Contactgegevens',
+      beschrijf: i18n.t('1-beschrijf-uw-melding'),
+      vulaan: i18n.t('2-locatie-en-vragen'),
+      contact: i18n.t('3-contactgegevens'),
     },
     edit: {
-      beschrijf: 'Wijzig uw melding',
-      vulaan: 'Wijzig locatie en vragen',
-      contact: 'Wijzig contactgegevens',
+      beschrijf: i18n.t('wijzig-uw-melding'),
+      vulaan: i18n.t('wijzig-locatie-en-vragen'),
+      contact: i18n.t('wijzig-contactgegevens'),
     },
   },
   formAction: 'CREATE_INCIDENT',
@@ -248,26 +249,26 @@ export default {
   previewFactory: ({ category, subcategory, questions }) => ({
     beschrijf: {
       source: {
-        label: 'Bron',
+        label: i18n.t('bron'),
         render: ({ value }) => value?.label,
         authenticated: true,
       },
       priority: {
-        label: 'Urgentie',
+        label: i18n.t('urgentie'),
         render: ({ value }) => value?.label,
         authenticated: true,
       },
       description: {
-        label: 'Waar gaat het over?',
+        label: i18n.t('waar-gaat-het-over'),
         render: ({ value }) => value,
       },
       classification: {
-        label: 'Subcategorie',
+        label: i18n.t('subcategorie'),
         render: ({ value }) => value?.name,
         authenticated: true,
       },
       images_previews: {
-        label: "Foto's toevoegen",
+        label: i18n.t('fotos-toevoegen'),
         render: PreviewComponents.Image,
         optional: true,
       },
@@ -277,19 +278,19 @@ export default {
 
     contact: {
       phone: {
-        label: 'Wat is uw telefoonnummer?',
+        label: i18n.t('wat-is-uw-telefoonnummer'),
         optional: true,
         render: ({ value }) => value,
       },
 
       email: {
-        label: 'Wat is uw e-mailadres?',
+        label: i18n.t('wat-is-uw-e-mailadres'),
         optional: true,
         render: ({ value }) => value,
       },
 
       sharing_allowed: {
-        label: 'Melding delen',
+        label: i18n.t('melding-delen'),
         optional: true,
         render: ({ value }) => {
           if (!value) return null

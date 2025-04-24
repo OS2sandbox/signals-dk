@@ -8,6 +8,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { showGlobalNotification } from 'containers/App/actions'
 import { TYPE_LOCAL, VARIANT_ERROR } from 'containers/Notification/constants'
 import configuration from 'shared/services/configuration/configuration'
+import i18n from 'i18n'
 
 export const useApiHealthCheck = async () => {
   const dispatch = useDispatch()
@@ -27,7 +28,7 @@ export const useApiHealthCheck = async () => {
       } catch (error) {
         dispatch(
           showGlobalNotification({
-            title: 'Er kon geen health check worden uitgevoerd op de API.',
+            title: i18n.t('er-kon-geen-health-check-worden-uitgevoerd-op-de-api'),
             variant: VARIANT_ERROR,
             type: TYPE_LOCAL,
           })

@@ -12,6 +12,7 @@ import configuration from 'shared/services/configuration/configuration'
 
 import type { ShowItems } from './SiteHeader'
 import { SearchBarMenuItem, StyledMenuButton } from './styled'
+import i18n from 'i18n'
 
 interface Props {
   onLinkClick?: () => void
@@ -43,7 +44,7 @@ export const MenuItems = ({ onLogOut, showItems, onLinkClick }: Props) => {
               to="/manage/incidents"
               $active={activeMenuItem.includes('/manage/incidents')}
             >
-              Overzicht
+              {i18n.t('overzicht')}
             </StyledMenuButton>
           </MenuItem>
         </>
@@ -57,7 +58,7 @@ export const MenuItems = ({ onLogOut, showItems, onLinkClick }: Props) => {
           href="/incident/beschrijf"
           $active={activeMenuItem.includes('/incident/beschrijf')}
         >
-          Melden
+          {i18n.t('melden')}
         </StyledMenuButton>
       </MenuItem>
 
@@ -69,7 +70,7 @@ export const MenuItems = ({ onLogOut, showItems, onLinkClick }: Props) => {
             to="/manage/signalering"
             $active={activeMenuItem.includes('/manage/signalering')}
           >
-            Signalering
+            {i18n.t('signalering')}
           </StyledMenuButton>
         </MenuItem>
       )}
@@ -83,7 +84,7 @@ export const MenuItems = ({ onLogOut, showItems, onLinkClick }: Props) => {
               to="/manage/v1/standaardteksten"
               $active={activeMenuItem.includes('/manage/v1/standaardteksten')}
             >
-              Standaard teksten
+              {i18n.t('standaard-teksten')}
               {configuration.featureFlags.showStandardTextAdminV2 && ' (v1)'}
             </StyledMenuButton>
           </MenuItem>
@@ -98,7 +99,7 @@ export const MenuItems = ({ onLogOut, showItems, onLinkClick }: Props) => {
               to="/manage/v2/standaardteksten"
               $active={activeMenuItem.includes('/manage/v2/standaardteksten')}
             >
-              Standaard teksten
+              {i18n.t('standaard-teksten')}
               {configuration.featureFlags.showStandardTextAdminV1 && ' (v2)'}
             </StyledMenuButton>
           </MenuItem>
@@ -112,7 +113,7 @@ export const MenuItems = ({ onLogOut, showItems, onLinkClick }: Props) => {
             to="/instellingen/"
             $active={activeMenuItem.includes('/instellingen/')}
           >
-            Instellingen
+            {i18n.t('instellingen')}
           </StyledMenuButton>
         </MenuItem>
       )}
@@ -127,7 +128,7 @@ export const MenuItems = ({ onLogOut, showItems, onLinkClick }: Props) => {
                 href={configuration.links?.help}
                 target="_blank"
               >
-                Help
+                {i18n.t('help')}
               </StyledMenuButton>
             </MenuItem>
           )}
@@ -142,7 +143,7 @@ export const MenuItems = ({ onLogOut, showItems, onLinkClick }: Props) => {
               iconSize={16}
               iconLeft={<LogoutIcon focusable="false" />}
             >
-              Uitloggen
+              {i18n.t('uitloggen')}
             </StyledMenuButton>
           </MenuItem>
         </>

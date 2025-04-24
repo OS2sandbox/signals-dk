@@ -15,6 +15,7 @@ import ExtraProperties from './components/ExtraProperties'
 import Location from './components/Location'
 import Reporter from './components/Reporter'
 import IncidentDetailContext from '../../context'
+import i18n from 'i18n'
 
 const Wrapper = styled.article`
   contain: content;
@@ -86,7 +87,7 @@ const Detail = ({ context }) => {
       <DefinitionList
         autoRowsStart={4 + (memoIncident.extra_properties?.length || 0)}
       >
-        <dt>Overlast</dt>
+        <dt>{i18n.t('overlast')}</dt>
         <dd>
           {string2date(incident.incident_date_start)}{' '}
           {string2time(incident.incident_date_start)}&nbsp;
@@ -107,10 +108,10 @@ const Detail = ({ context }) => {
             <Contact incident={incident} showPhone={showPhone} />
 
             <dt data-testid="detail-sharing-definition">
-              Toestemming contactgegevens delen
+              {i18n.t('toestemming-contactgegevens-delen')}
             </dt>
             <dd data-testid="detail-sharing-value">
-              {incident.reporter.sharing_allowed ? 'Ja' : 'Nee'}
+              {incident.reporter.sharing_allowed ? i18n.t('ja') : i18n.t('nee')}
             </dd>
           </Fragment>
         )}

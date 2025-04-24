@@ -12,6 +12,7 @@ import type {
 import { RadioButtonOption } from './RadioButtonOption'
 import { FilterGroup, StyledRadioGroup } from './styled'
 import type { RadioButtonOption as RadioButtonOptionType } from './types'
+import i18n from 'i18n'
 
 export interface RadioButtonListProps<T = RadioButtonOptionType> {
   /** List of keys for elements that need to be checked by default */
@@ -49,7 +50,7 @@ export interface RadioButtonListProps<T = RadioButtonOptionType> {
  */
 const RadioButtonList = <T extends RadioButtonOptionType>({
   className,
-  emptySelectionLabel = 'Alles',
+  emptySelectionLabel = i18n.t('alles'),
   hasEmptySelectionButton = true,
   defaultValue = '',
   disabled = false,

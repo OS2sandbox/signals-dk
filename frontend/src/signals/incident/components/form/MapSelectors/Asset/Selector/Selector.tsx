@@ -62,6 +62,7 @@ import { formatAddress } from '../../../../../../../shared/services/format-addre
 import type { PdokResponse } from '../../../../../../../shared/services/map-location'
 import { MapMessage, ZoomMessage } from '../../components/MapMessage'
 import { selectionIsUndetermined } from '../../constants'
+import i18n from 'i18n'
 
 const MAP_ASSETS_ZOOM_LEVEL: ZoomLevel = {
   max: configuration.map.optionsAssetSelector.assetsZoom,
@@ -131,7 +132,7 @@ const Selector: FC = () => {
         meta: {
           category: 'interaction.generic.component.mapInteraction',
           action: 'pinClick',
-          label: 'Click on map',
+          label: i18n.t('click-on-map'),
         },
       })
 
@@ -172,11 +173,11 @@ const Selector: FC = () => {
 
   useEffect(() => {
     if (maxAssetWarning) {
-      const number =
+      const numberStr =
         maxNumberOfAssets === 1
           ? meta?.language?.objectTypeSingular || 'object'
           : meta?.language?.objectTypePlural || 'objecten'
-      setMapMessage(`U kunt maximaal ${maxNumberOfAssets} ${number} kiezen.`)
+      setMapMessage(i18n.t('u-kunt-maximaal-maxnumberofassets-number-kiezen', { maxNumberOfAssets, numberStr }))
     }
   }, [
     maxAssetWarning,
@@ -236,19 +237,17 @@ const Selector: FC = () => {
           setMapMessage(
             <>
               <strong>
-                {`${configuration.language.siteAddress} heeft geen
-                            toestemming om uw locatie te gebruiken.`}
+                {i18n.t('configuration-language-siteaddress-heeft-geen-toes')}
               </strong>
               <p>
-                Dit kunt u wijzigen in de voorkeuren of instellingen van uw
-                browser of systeem.
+                {i18n.t('dit-kunt-u-wijzigen-in-de-voorkeuren-of-instelling')}
               </p>
             </>
           )
         }}
         onLocationOutOfBounds={() => {
           setMapMessage(
-            'Uw locatie valt buiten de kaart en is daardoor niet te zien'
+            i18n.t('uw-locatie-valt-buiten-de-kaart-en-is-daardoor-nie')
           )
         }}
       />
@@ -258,7 +257,7 @@ const Selector: FC = () => {
           data-testid="zoom-message"
           zoomLevel={MAP_ASSETS_ZOOM_LEVEL}
         >
-          Zoom in om de {meta?.language?.objectTypePlural || 'objecten'} te zien
+          {i18n.t('zoom-in-om-de')} {meta?.language?.objectTypePlural || 'objecten'} {i18n.t('te-zien')}
         </ZoomMessage>
       )}
 
@@ -324,13 +323,13 @@ const Selector: FC = () => {
                   iconSize={20}
                   onClick={() => dispatch(closeMap())}
                   size={24}
-                  title="Terug"
+                  title={i18n.t('terug')}
                   variant="blank"
                 />
                 <InputGroup>
                   {!showList && (
                     <StyledLabel htmlFor="pdokautosuggest">
-                      {meta?.language?.pdokLabel || 'Zoek op adres of postcode'}
+                      {meta?.language?.pdokLabel || i18n.t('zoek-op-adres-of-postcode')}
                     </StyledLabel>
                   )}
 
@@ -345,7 +344,7 @@ const Selector: FC = () => {
                     onSelect={onAddressSelect}
                     value={addressValue}
                     placeholder={
-                      meta?.language?.pdokInput || 'Adres of postcode'
+                      meta?.language?.pdokInput || i18n.t('adres-of-postcode')
                     }
                     autoFocus={true}
                   />

@@ -3,6 +3,7 @@
 import { createSelector } from 'reselect'
 
 import { initialState } from './reducer'
+import i18n from 'i18n'
 
 export const selectDepartmentsDomain = (state) =>
   state?.departments || initialState
@@ -29,7 +30,7 @@ export const makeSelectDepartments = createSelector(
 export const inputSelectDepartmentsSelector = createSelector(
   selectDepartmentsDomain,
   (state) => [
-    { key: '', name: 'Alles', value: '*' },
+    { key: '', name: i18n.t('alles'), value: '*' },
     ...departmentsInputOptions(state),
   ]
 )
@@ -40,7 +41,7 @@ export const makeSelectDirectingDepartments = createSelector(
       (department) => department.can_direct
     )
     return [
-      { key: 'null', value: 'Verantwoordelijke afdeling' },
+      { key: 'null', value: i18n.t('verantwoordelijke-afdeling') },
       ...directingDepartments.map(({ code }) => ({ key: code, value: code })),
     ]
   }
@@ -51,7 +52,7 @@ export const makeSelectRoutingDepartments = createSelector(
   (state) => {
     const routingDepartments = state?.list
     return [
-      { key: 'null', value: 'Niet gekoppeld' },
+      { key: 'null', value: i18n.t('niet-gekoppeld') },
       ...routingDepartments.map(({ code, name }) => ({
         key: code,
         value: name,

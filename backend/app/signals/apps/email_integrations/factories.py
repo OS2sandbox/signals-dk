@@ -2,7 +2,7 @@
 # Copyright (C) 2021 - 2023 Gemeente Amsterdam
 from factory import Sequence
 from factory.django import DjangoModelFactory
-
+from .translations import translate, TranslationKey
 from signals.apps.email_integrations.models import EmailTemplate
 
 
@@ -13,6 +13,6 @@ class EmailTemplateFactory(DjangoModelFactory):
         skip_postgeneration_save = True
 
     key = EmailTemplate.SIGNAL_CREATED
-    title = 'Uw melding {{ signal_id }}'
-    body = 'Bedankt voor uw melding {{ formatted_signal_id }}!'
+    title = f'{translate(TranslationKey.email_title_prefix)} {{ signal_id }}'
+    body = f'{translate(TranslationKey.email_body_prefix)} {{ formatted_signal_id }}!'
     created_by = Sequence(lambda n: 'admin-{}@example.com'.format(n))

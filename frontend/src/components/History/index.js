@@ -6,6 +6,7 @@ import styled from 'styled-components'
 
 import HistoryList from 'components/HistoryList'
 import { historyType } from 'shared/types'
+import i18n from 'i18n'
 
 const Section = styled.section`
   contain: content;
@@ -22,7 +23,7 @@ const History = ({ className, list }) =>
   list.length > 0 ? (
     <Section className={className} data-testid="history">
       <H2 forwardedAs="h2" styleAs="h4">
-        Geschiedenis
+        {i18n.t('geschiedenis')}
       </H2>
 
       <HistoryList list={list} />

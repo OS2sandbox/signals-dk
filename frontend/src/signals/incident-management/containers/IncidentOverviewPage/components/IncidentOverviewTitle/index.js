@@ -18,6 +18,7 @@ import {
 
 import { SubTitle, StyledLink, RefreshIcon, StyledSpan } from './styled'
 import { sortOptionsList } from '../../contants'
+import i18n from 'i18n'
 
 const getSortInformation = (ordering) => {
   const sort = sortOptionsList.find((sortOption) => {
@@ -39,7 +40,7 @@ export const IncidentOverviewTitle = ({
   showsMap,
 }) => {
   const headerTitle = useMemo(() => {
-    let title = filter.name || 'Meldingen'
+    let title = filter.name || i18n.t('meldingen')
     const hasCount = incidentsCount !== null && incidentsCount >= 0
     title += hasCount ? ` (${incidentsCount.toLocaleString('nl-NL')})` : ''
 
@@ -68,7 +69,7 @@ export const IncidentOverviewTitle = ({
 
   const subTitleSort = useMemo(() => {
     const sortInformation = ordering && getSortInformation(ordering)
-    return sortInformation && `Sorteer op ${sortInformation}`
+    return sortInformation && i18n.t('sorteer-op-sortinformation', { sortInformation })
   }, [ordering])
 
   return (
@@ -77,7 +78,7 @@ export const IncidentOverviewTitle = ({
       {subTitleSort && !showsMap && (
         <>
           <StyledSpan>{subTitleSort}</StyledSpan>
-          <StyledLink onClick={resetSorting}>Wis sortering</StyledLink>
+          <StyledLink onClick={resetSorting}>{i18n.t('wis-sortering')}</StyledLink>
         </>
       )}
     </PageHeader>

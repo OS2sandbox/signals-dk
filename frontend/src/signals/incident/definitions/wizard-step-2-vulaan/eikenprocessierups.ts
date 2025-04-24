@@ -9,6 +9,7 @@ import type ConfigurationType from '../../../../../app.amsterdam.json'
 import appConfiguration from '../../../../shared/services/configuration/configuration'
 import { FeatureStatus } from '../../components/form/MapSelectors/types'
 import { validateObjectLocation } from '../../services/custom-validators'
+import i18n from 'i18n'
 
 export const ICON_SIZE = 40
 
@@ -22,7 +23,7 @@ const configuration = appConfiguration as unknown as typeof ConfigurationType
 export const controls = {
   extra_eikenprocessierups: {
     meta: {
-      label: 'Waar is het?',
+      label: i18n.t('waar-is-het'),
       language: {
         title: 'Selecteer de boom',
         subTitle: 'Kies een boom op de kaart',

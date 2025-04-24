@@ -12,6 +12,7 @@ import FormFooter, { FORM_FOOTER_HEIGHT } from 'components/FormFooter'
 import Input from 'components/Input'
 import useFormValidation from 'hooks/useFormValidation'
 import { BASE_URL, ROLES_URL } from 'signals/settings/routes'
+import i18n from 'i18n'
 
 const StyledForm = styled.form`
   margin-bottom: ${FORM_FOOTER_HEIGHT}px;
@@ -107,13 +108,13 @@ export const RoleForm = ({
           disabled={readOnly}
           error={errors.name || null}
           id="name"
-          label="Naam"
+          label={i18n.t('naam')}
           name="name"
           required
           type="text"
         />
 
-        <GroupLabel label="Rechten" />
+        <GroupLabel label={i18n.t('rechten')} />
         {permissions.map((permission) => (
           <div key={permission.id}>
             <Label
@@ -136,10 +137,10 @@ export const RoleForm = ({
 
         {!readOnly && (
           <FormFooter
-            cancelBtnLabel="Annuleer"
+            cancelBtnLabel={i18n.t('annuleer')}
             onCancel={handleCancel}
             onSubmitForm={validate}
-            submitBtnLabel="Opslaan"
+            submitBtnLabel={i18n.t('opslaan')}
           />
         )}
       </StyledForm>

@@ -32,29 +32,29 @@ AFGEHANDELD_EXTERN = 'done external'
 # Choices for the API/Serializer layer. Users that can change the state via the API are only allowed
 # to use one of the following choices.
 STATUS_CHOICES_API = (
-    (GEMELD, 'Gemeld'),
-    (AFWACHTING, 'In afwachting van behandeling'),
-    (BEHANDELING, 'In behandeling'),
-    (ON_HOLD, 'On hold'),
-    (INGEPLAND, 'Ingepland'),
-    (TE_VERZENDEN, 'Extern: te verzenden'),
-    (AFGEHANDELD, 'Afgehandeld'),
-    (GEANNULEERD, 'Geannuleerd'),
-    (HEROPEND, 'Heropend'),
-    (GESPLITST, 'Gesplitst'),
-    (VERZOEK_TOT_AFHANDELING, 'Extern: verzoek tot afhandeling'),
-    (REACTIE_GEVRAAGD, 'Reactie gevraagd'),
-    (REACTIE_ONTVANGEN, 'Reactie ontvangen'),
-    (DOORGEZET_NAAR_EXTERN, 'Doorgezet naar extern'),
+    (GEMELD, 'Rapporteret'),
+    (AFWACHTING, 'Afventer behandling'),
+    (BEHANDELING, 'Under behandling'),
+    (ON_HOLD, 'På hold'),
+    (INGEPLAND, 'Planlagt'),
+    (TE_VERZENDEN, 'Ekstern: skal sendes'),
+    (AFGEHANDELD, 'Afsluttet'),
+    (GEANNULEERD, 'Annulleret'),
+    (HEROPEND, 'Genåbnet'),
+    (GESPLITST, 'Opdelt'),
+    (VERZOEK_TOT_AFHANDELING, 'Ekstern: anmodning om behandling'),
+    (REACTIE_GEVRAAGD, 'Reaktion anmodet'),
+    (REACTIE_ONTVANGEN, 'Reaktion modtaget'),
+    (DOORGEZET_NAAR_EXTERN, 'Videresendt til ekstern'),
 )
 
 # Choices used by the application. These choices can be set from within the application, not via the
 # API/Serializer layer.
 STATUS_CHOICES_APP = (
-    (VERZONDEN, 'Extern: verzonden'),
-    (VERZENDEN_MISLUKT, 'Extern: mislukt'),
-    (AFGEHANDELD_EXTERN, 'Extern: afgehandeld'),
-    (VERZOEK_TOT_HEROPENEN, 'Verzoek tot heropenen'),
+    (VERZONDEN, 'Ekstern: sendt'),
+    (VERZENDEN_MISLUKT, 'Ekstern: mislykket'),
+    (AFGEHANDELD_EXTERN, 'Ekstern: afsluttet'),
+    (VERZOEK_TOT_HEROPENEN, 'Anmodning om genåbning'),
 )
 
 # All allowed choices, used for the model `Status`.

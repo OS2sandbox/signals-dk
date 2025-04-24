@@ -37,6 +37,7 @@ import {
   StyledViewerContainer,
   StyledAutosuggest,
 } from './styled'
+import i18n from 'i18n'
 
 interface Props {
   className?: string
@@ -169,7 +170,7 @@ const MapInput = ({
               municipality={configuration.map?.municipality}
               onClear={onClear}
               onSelect={onSelect}
-              placeholder="Zoek adres"
+              placeholder={i18n.t('zoek-adres')}
               value={addressValue}
               id={id}
               {...rest}

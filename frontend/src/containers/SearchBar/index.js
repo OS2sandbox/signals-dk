@@ -11,6 +11,7 @@ import styled from 'styled-components'
 
 import { setSearchQuery, resetSearchQuery } from 'containers/App/actions'
 import { makeSelectSearchQuery } from 'containers/App/selectors'
+import i18n from 'i18n'
 
 const StyledSearchBar = styled(SearchBar)`
   ${styles.TextFieldStyle} > input {
@@ -57,7 +58,7 @@ export const SearchBarComponent = ({
       <StyledSearchBar
         className={className}
         data-testid="search-bar"
-        placeholder="Zoek op meldingsinformatie"
+        placeholder={i18n.t('zoek-op-meldingsinformatie')}
         onChange={onChange}
         onClear={() => resetSearchQueryAction()}
         value={query}

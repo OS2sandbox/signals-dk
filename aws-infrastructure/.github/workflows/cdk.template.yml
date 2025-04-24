@@ -1,0 +1,68 @@
+name: Deploy CDK
+on:
+  workflow_call:
+    inputs:
+      ENVIRONMENT:
+        required: true
+        default: 'dev'
+        type: string
+      AWS_DEFAULT_REGION:
+        required: false
+        default: 'eu-west-1'
+        description: 'Default region'
+        type: string
+      AWS_ACCOUNT_ID:
+        required: true
+        description: 'Default region'
+        type: string
+      DOMAIN:
+        required: true
+        type: string
+      FRONTEND_IMAGE_NAME:
+        required: false
+        type: string
+      BACKEND_IMAGE_NAME:
+        required: false
+        type: string
+      SUB_TREE_PATH:
+        description: "Support subtreeing"  
+        type: string
+        default: ""
+        required: false
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    name: DEPLOY
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.ENVIRONMENT }}
+    concurrency:
+      group: ${{ inputs.ENVIRONMENT }}
+      cancel-in-progress: false
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@v4
+
+      - name: Assume role using OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ inputs.AWS_ACCOUNT_ID }}:role/github-ci
+          role-session-name: Github
+          aws-region: ${{ inputs.AWS_DEFAULT_REGION }}
+          
+      
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+      
+      - name: Install AWS CDK CLI
+        run: npm install -g aws-cdk        
+      
+      - name: Deploy CDK Stacks
+        run: cdk deploy --all --require-approval never --concurrency 15 --method=direct -c zoneName=${{ inputs.DOMAIN }}  -c frontendImageName=${{ inputs.FRONTEND_IMAGE_NAME }} -c backendImageName=${{ inputs.BACKEND_IMAGE_NAME }}
+        working-directory: ${{ inputs.SUB_TREE_PATH }}Cdk
+        

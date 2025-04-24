@@ -7,6 +7,7 @@ from django.contrib.auth import get_user_model
 from django.core.mail import send_mail
 from django.template import Context, Template, loader
 
+from signals.apps.email_integrations.translations import TranslationKey, translate
 from signals.apps.email_integrations.actions.abstract import AbstractSystemAction
 from signals.apps.email_integrations.exceptions import URLEncodedCharsFoundInText
 from signals.apps.email_integrations.models import EmailTemplate
@@ -26,7 +27,7 @@ class AssignedAction(AbstractSystemAction):
 
     key: str = EmailTemplate.SIGNAL_ASSIGNED
     subject: str = (
-        "Melding {{ formatted_signal_id }} is toegewezen aan "
+        translate(TranslationKey.email_assignment_message_template) +
         "{% if assigned_to_user %}jou{% else %}{{ assigned_to_department }}{% endif %}"
     )
 

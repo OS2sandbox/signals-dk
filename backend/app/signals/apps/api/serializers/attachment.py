@@ -8,6 +8,7 @@ from django.utils import timezone
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
+from signals.apps.api.translations import TranslationKey, translate
 from signals.apps.api.fields import (
     PrivateSignalAttachmentLinksField,
     PublicSignalAttachmentLinksField
@@ -36,10 +37,10 @@ class BaseSignalAttachmentSerializer(HALSerializer):
 
         # add a note that an attachment (currently only images allowed) was uploaded
         filename = os.path.basename(attachment.file.name)
-        if user.is_authenticated:
-            Signal.actions.create_note({'text': f'Bijlage toegevoegd: {filename}', 'created_by': user}, signal)
+        if user.is_authenticated:          
+            Signal.actions.create_note({'text': f'{translate(TranslationKey.api_attachment_note)}: {filename}', 'created_by': user}, signal)
         else:
-            Signal.actions.create_note({'text': f'Bijlage toegevoegd door melder: {filename}'}, signal)
+            Signal.actions.create_note({'text': f'{translate(TranslationKey.api_attachment_note_2)}: {filename}'}, signal)
 
         return attachment
 

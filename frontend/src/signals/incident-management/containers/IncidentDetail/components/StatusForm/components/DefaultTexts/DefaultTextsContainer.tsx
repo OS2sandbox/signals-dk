@@ -6,6 +6,7 @@ import type { StatusCode } from 'types/status-code'
 
 import DefaultTexts from './DefaultTexts'
 import { StandardTextsButton } from '../../styled'
+import i18n from 'i18n'
 
 export interface Props {
   closeDefaultTextModal: () => void
@@ -57,9 +58,7 @@ const DefaultTextsContainer = ({
         onClick={openDefaultTextModal}
         templatesAvailable={defaultTextTemplatesLength(activeDefaultTexts) > 0}
       >
-        <div>{`Standaardtekst (${defaultTextTemplatesLength(
-          activeDefaultTexts
-        )})`}</div>
+        <div>{i18n.t('standaardtekst') + ` (${defaultTextTemplatesLength(activeDefaultTexts)})`}</div>
       </StandardTextsButton>
 
       {modalDefaultTextIsOpen && (

@@ -15,6 +15,7 @@ import type SubCategory from 'types/api/sub-category'
 
 import { CategoryColumns, StyledUnderline } from './styled'
 import PageHeader from '../../../../../../components/PageHeader'
+import i18n from 'i18n'
 
 type Props = {
   onChange: (categoryIds: number[]) => void
@@ -130,10 +131,10 @@ export const Subcategories = ({ onChange, value = [], defaultText }: Props) => {
             })}
           </CategoryColumns>
           <FormFooter
-            cancelBtnLabel="Annuleer"
+            cancelBtnLabel={i18n.t('annuleer')}
             onCancel={onCancel}
             onSubmitForm={onSubmitForm}
-            submitBtnLabel="Opslaan"
+            submitBtnLabel={i18n.t('opslaan')}
           />
         </Column>
       </Row>

@@ -6,6 +6,8 @@ import * as Sentry from '@sentry/browser'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { HistoryRouter as Router } from 'redux-first-history/rr6'
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n';
 
 import App from 'containers/App'
 import { authenticateUser } from 'containers/App/actions'
@@ -21,6 +23,7 @@ import './polyfills'
 import './fonts.css'
 
 import configureStore from './configureStore'
+import { Suspense } from 'react'
 
 const environment = process.env.BUILD_ENV
 const dsn = configuration?.sentry?.dsn
@@ -65,14 +68,21 @@ const render = () => {
   spinner.remove()
   spinnerBackground.remove()
 
-  ReactDOM.render(
-    <Provider store={store}>
-      <Router history={reduxHistory}>
-        <App />
-      </Router>
-    </Provider>,
-    MOUNT_NODE
-  )
+  i18n.on('loaded', () => {
+    ReactDOM.render(
+      <I18nextProvider i18n={i18n}>
+        <Suspense fallback={<div>Loading translations...</div>}>
+          <Provider store={store}>
+            <Router history={reduxHistory}>
+              <App />
+            </Router>
+          </Provider>
+        </Suspense>
+      </I18nextProvider>
+      ,
+      MOUNT_NODE
+    )
+  });
 }
 
 const registerServiceWorkerProxy = () => {
@@ -96,7 +106,11 @@ if (module.hot) {
   // Hot reloadable React components and translation json files
   // modules.hot.accept does not accept dynamic dependencies,
   // have to be constants at compile-time
-  module.hot.accept()
+  module.hot.accept(['../public/locales/en/translation.json'], () => {
+    i18n.reloadResources().then(() => {
+      console.log('Translations reloaded');
+    });
+  });
 }
 
 // Authenticate and start the authorization process
@@ -108,4 +122,4 @@ authenticate()
     unregisterServiceWorkers()
     registerServiceWorkerProxy()
   })
-  .catch(() => {})
+  .catch(() => { })

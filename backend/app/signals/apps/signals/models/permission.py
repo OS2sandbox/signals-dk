@@ -43,6 +43,6 @@ def sync_custom_permissions(sender, **kwargs):
     ]
 
     for codename, name in custom_permissions:
-        if not Permission.objects.filter(name=name, codename=codename, content_type=content_type).exists():
+        if not Permission.objects.filter(codename=codename, content_type=content_type).exists():
             logger.info(f'Creating custom permission "{codename}" with name "{name}"')
             Permission.objects.create(name=name, codename=codename, content_type=content_type)

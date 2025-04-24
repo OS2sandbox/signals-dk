@@ -4,14 +4,13 @@ import { render, screen } from '@testing-library/react'
 import form from 'react-hook-form'
 
 import { withAppContext } from 'test/utils'
+import i18n from 'i18next'
 
 import GlobalError from './index'
 
-const defaultErrorMessage =
-  'U hebt niet alle vragen beantwoord. Vul hieronder aan alstublieft.'
+const defaultErrorMessage = `${i18n.t('u-hebt-niet-alle-vragen-beantwoord-vul-hieronder-a')}`
 
-const invalidErrorMessage =
-  'U hebt niet alle vragen (juist) beantwoord. Vul hieronder aan alstublieft.'
+const invalidErrorMessage = `${i18n.t('u-hebt-niet-alle-vragen-juist-beantwoord-vul-hiero')}`
 
 jest.mock('react-hook-form', () => ({
   ...jest.requireActual('react-hook-form'),

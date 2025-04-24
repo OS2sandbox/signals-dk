@@ -3,10 +3,11 @@
 import { StatusCode } from 'types/status-code'
 
 import type { Status } from './types'
+import i18n from 'i18n'
 
 export const GEMELD = {
   key: StatusCode.Gemeld,
-  value: 'Gemeld',
+  value: i18n.t('gemeld'),
   color: 'red',
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
@@ -14,7 +15,7 @@ export const GEMELD = {
 
 export const AFWACHTING = {
   key: StatusCode.Afwachting,
-  value: 'In afwachting van behandeling',
+  value: i18n.t('in-afwachting-van-behandeling'),
   color: 'purple',
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
@@ -22,7 +23,7 @@ export const AFWACHTING = {
 
 export const BEHANDELING = {
   key: StatusCode.Behandeling,
-  value: 'In behandeling',
+  value: i18n.t('in-behandeling'),
   color: 'blue',
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
@@ -30,7 +31,7 @@ export const BEHANDELING = {
 
 export const AFGEHANDELD = {
   key: StatusCode.Afgehandeld,
-  value: 'Afgehandeld',
+  value: i18n.t('afgehandeld'),
   color: 'lightgreen',
   email_sent_when_set: true,
   shows_remaining_sla_days: false,
@@ -38,7 +39,7 @@ export const AFGEHANDELD = {
 
 export const GESPLITST = {
   key: StatusCode.Gesplitst,
-  value: 'Gesplitst',
+  value: i18n.t('gesplitst'),
   color: 'lightgreen',
   email_sent_when_set: false,
   shows_remaining_sla_days: false,
@@ -46,7 +47,7 @@ export const GESPLITST = {
 
 export const INGEPLAND = {
   key: StatusCode.Ingepland,
-  value: 'Ingepland',
+  value: i18n.t('ingepland'),
   color: 'grey',
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
@@ -54,7 +55,7 @@ export const INGEPLAND = {
 
 export const GEANNULEERD = {
   key: StatusCode.Geannuleerd,
-  value: 'Geannuleerd',
+  value: i18n.t('geannuleerd'),
   color: 'darkgrey',
   email_sent_when_set: false,
   shows_remaining_sla_days: false,
@@ -62,21 +63,21 @@ export const GEANNULEERD = {
 
 export const REACTIE_GEVRAAGD = {
   key: StatusCode.ReactieGevraagd,
-  value: 'Reactie gevraagd',
+  value: i18n.t('reactie-gevraagd'),
   email_sent_when_set: true,
   shows_remaining_sla_days: false,
 }
 
 export const REACTIE_ONTVANGEN = {
   key: StatusCode.ReactieOntvangen,
-  value: 'Reactie ontvangen',
+  value: i18n.t('reactie-ontvangen'),
   email_sent_when_set: false,
   shows_remaining_sla_days: false,
 }
 
 export const VERZOEK_TOT_HEROPENEN = {
   key: StatusCode.VerzoekTotHeropenen,
-  value: 'Verzoek tot heropenen',
+  value: i18n.t('verzoek-tot-heropenen'),
   color: 'orange',
   email_sent_when_set: false,
   shows_remaining_sla_days: false,
@@ -84,7 +85,7 @@ export const VERZOEK_TOT_HEROPENEN = {
 
 export const HEROPEND = {
   key: StatusCode.Heropend,
-  value: 'Heropend',
+  value: i18n.t('heropend'),
   color: 'orange',
   email_sent_when_set: true,
   shows_remaining_sla_days: true,
@@ -92,42 +93,42 @@ export const HEROPEND = {
 
 export const TE_VERZENDEN = {
   key: StatusCode.TeVerzenden,
-  value: 'Extern: te verzenden',
+  value: i18n.t('extern-te-verzenden'),
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
 }
 
 export const VERZONDEN = {
   key: StatusCode.Verzonden,
-  value: 'Extern: verzonden',
+  value: i18n.t('extern-verzonden'),
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
 }
 
 export const VERZENDEN_MISLUKT = {
   key: StatusCode.VerzendenMislukt,
-  value: 'Extern: mislukt',
+  value: i18n.t('extern-mislukt'),
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
 }
 
 export const VERZOEK_TOT_AFHANDELING = {
   key: StatusCode.VerzoekTotAfhandeling,
-  value: 'Extern: verzoek tot afhandeling',
+  value: i18n.t('extern-verzoek-tot-afhandeling'),
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
 }
 
 export const DOORGEZET_NAAR_EXTERN = {
   key: StatusCode.DoorgezetNaarExtern,
-  value: 'Doorgezet naar extern',
+  value: i18n.t('doorgezet-naar-extern'),
   email_sent_when_set: true,
   shows_remaining_sla_days: true,
 }
 
 export const AFGEHANDELD_EXTERN = {
   key: StatusCode.AfgehandeldExtern,
-  value: 'Extern: afgehandeld',
+  value: i18n.t('extern-afgehandeld'),
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
 }

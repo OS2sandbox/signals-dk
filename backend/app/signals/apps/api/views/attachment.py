@@ -15,6 +15,7 @@ from rest_framework.status import HTTP_204_NO_CONTENT
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
 from rest_framework_extensions.mixins import NestedViewSetMixin
 
+from signals.apps.api.translations import TranslationKey, translate
 from signals.apps.api.generics.permissions import SIAAttachmentPermissions
 from signals.apps.api.serializers import (
     PrivateSignalAttachmentSerializer,
@@ -118,8 +119,8 @@ class PrivateSignalAttachmentsViewSet(NestedViewSetMixin, ModelViewSet):
         # would again run get_object() which we already did above.
         self.perform_destroy(attachment)
 
-        att_filename = os.path.split(attachment.file.name)[1]
+        att_filename = os.path.split(attachment.file.name)[1]     
         Signal.actions.create_note({
-            'text': f'Bijlage {att_filename} is verwijderd.', 'created_by': user
+            'text': f'{translate(TranslationKey.api_bijlage)} {att_filename} ' + translate(TranslationKey.api_attachment_deleted_message), 'created_by': user
         }, signal=signal)
         return Response(status=HTTP_204_NO_CONTENT)

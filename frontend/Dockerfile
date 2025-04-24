@@ -32,6 +32,7 @@ RUN npm install
 COPY assets /app/assets
 COPY internals /app/internals
 COPY src /app/src
+COPY public /app/public
 
 ARG FRONTEND_TAG
 ENV FRONTEND_TAG ${FRONTEND_TAG}

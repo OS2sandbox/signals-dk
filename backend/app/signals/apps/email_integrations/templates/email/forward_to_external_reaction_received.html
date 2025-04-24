@@ -1,32 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
-    <title>Uw melding {{ formatted_signal_id }}</title>
+    <title>Din rapport {{ formatted_signal_id }}</title>
 </head>
 <body>
     <p>
-        <h1>Geachte behandelaar,</h1>
+        <h1>Kære behandler,</h1>
     </p>
 
     <p>
-        Bedankt voor het invullen van het actieformulier. Uw informatie helpt ons bij het verwerken van de melding.
+        Tak for udfyldelsen af handlingsformularen. Din information hjælper os med at behandle rapporten.
     </p>
 
     <p>
-        <strong>U liet ons het volgende weten</strong>
+        <strong>Du lod os vide følgende</strong>
         {{ reaction_text }}
     </p>
 
     <p>
-        <strong>Gegevens van de melding</strong><br>
+        <strong>Oplysninger om rapporten</strong><br>
         Nummer: {{ formatted_signal_id }}<br>
-        Gemeld op: {{ created_at|date:"DATETIME_FORMAT" }}<br>
-        Locatie: {% if address %}{{ address|format_address:"O hlT, P W" }}{% endif %}<br>
+        Rapporteret den: {{ created_at|date:"DATETIME_FORMAT" }}<br>
+        Placering: {% if address %}{{ address|format_address:"O hlT, P W" }}{% endif %}<br>
     </p>
 
     <p>
-        Met vriendelijke groet,
+        Med venlig hilsen,
         <br/>
         {{ ORGANIZATION_NAME }}
     </p>

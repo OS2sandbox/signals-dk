@@ -26,6 +26,7 @@ import {
   Wrapper,
 } from '../styled'
 import { StyledDiv } from '../styled'
+import i18n from 'i18n'
 
 export interface Props {
   icon: string | null
@@ -40,7 +41,7 @@ export const IconInput = ({ formMethods, icon }: Props) => {
   const { upload, uploadSuccess, uploadError } = useUpload()
   const { categoryId } = useParams<{ categoryId: string }>()
 
-  const label = fileDataURL ? 'Icoon wijzigen' : 'Icoon toevoegen'
+  const label = fileDataURL ? i18n.t('icoon-wijzigen') : i18n.t('icoon-toevoegen')
 
   const { del: deleteIcon, isLoading, isSuccess, error, type } = useFetch()
 
@@ -58,8 +59,8 @@ export const IconInput = ({ formMethods, icon }: Props) => {
       if (!fileDataURL) confirmed = true
       if (fileDataURL) {
         confirmed = await isConfirmed(
-          'Let op, je wijzigt het icoon ',
-          'Er wordt geen back-up van het icoon gemaakt.'
+          i18n.t('let-op-je-wijzigt-het-icoon'),
+          i18n.t('er-wordt-geen-back-up-van-het-icoon-gemaakt')
         )
       }
 
@@ -87,8 +88,8 @@ export const IconInput = ({ formMethods, icon }: Props) => {
       event.preventDefault()
 
       const confirmed = await isConfirmed(
-        'Let op, je verwijdert het icoon ',
-        'Er wordt geen back-up van het icoon gemaakt.'
+        i18n.t('let-op-je-verwijdert-het-icoon'),
+        i18n.t('er-wordt-geen-back-up-van-het-icoon-gemaakt')
       )
 
       if (confirmed) {
@@ -131,10 +132,10 @@ export const IconInput = ({ formMethods, icon }: Props) => {
 
   return (
     <FieldGroup>
-      <StyledHeading>Icoon</StyledHeading>
+      <StyledHeading>{i18n.t('icoon')}</StyledHeading>
       <Detail
-        header={'Het icoon wordt getoond op de openbare meldingenkaart.'}
-        content={'Zorg voor een cirkel en exporteer als SVG.'}
+        header={i18n.t('het-icoon-wordt-getoond-op-de-openbare-meldingenkaart')}
+        content={i18n.t('zorg-voor-een-cirkel-en-exporteer-als-svg')}
       >
         {ICONEXAMPLE}
       </Detail>
@@ -145,7 +146,7 @@ export const IconInput = ({ formMethods, icon }: Props) => {
           <StyledDiv>
             {fileDataURL && (
               <StyledIcon size={32}>
-                <img width={32} height={32} alt="Icoon" src={fileDataURL} />
+                <img width={32} height={32} alt={i18n.t('icoon')} src={fileDataURL} />
               </StyledIcon>
             )}
 
@@ -170,7 +171,7 @@ export const IconInput = ({ formMethods, icon }: Props) => {
                 <DeleteButton
                   icon={<TrashBin />}
                   iconSize={16}
-                  title="Icoon verwijderen"
+                  title={i18n.t('icoon-verwijderen')}
                   variant="application"
                   onClick={handleOnDelete}
                 />

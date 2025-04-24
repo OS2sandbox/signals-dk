@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (C) 2020 - 2021 Gemeente Amsterdam
 import format from 'date-fns/format'
+import i18n from 'i18n'
 
 export const dateToISOString = (date) =>
   date &&
@@ -19,8 +20,8 @@ export const capitalize = (value) =>
   value && value[0].toUpperCase() + value.substring(1)
 
 export const formatWeekOrWorkdays = (days, isCalendarDays) => {
-  const dayString = days === 1 ? 'dag' : 'dagen'
-  return isCalendarDays ? dayString : `werk${dayString}`
+  const dayString = days === 1 ? i18n.t('dag') : i18n.t('dagen')
+  return isCalendarDays ? dayString : i18n.t('werk') + `${dayString}`
 }
 
 export const getDaysString = (days, isCalendarDays) =>

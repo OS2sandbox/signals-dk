@@ -16,6 +16,7 @@ import type { Context as IncidentDetailContextType } from 'signals/incident-mana
 import type { Incident } from '../../../../../../types/incident'
 import { PATCH_TYPE_LOCATION } from '../../constants'
 import IncidentDetailContext from '../../context'
+import i18n from 'i18n'
 
 const StyledColumn = styled(Column)`
   display: block;
@@ -81,11 +82,11 @@ const LocationForm = () => {
               )}
             />
             <FormFooter
-              cancelBtnLabel="Annuleer"
+              cancelBtnLabel={i18n.t('annuleer')}
               inline
               onCancel={close}
               onSubmitForm={() => {}}
-              submitBtnLabel="Opslaan"
+              submitBtnLabel={i18n.t('opslaan')}
             />
           </MapContext>
         </form>

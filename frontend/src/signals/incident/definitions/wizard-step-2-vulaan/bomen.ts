@@ -8,6 +8,7 @@ import { validateObjectLocation } from 'signals/incident/services/custom-validat
 import { QuestionFieldType } from 'types/question'
 
 import type ConfigurationType from '../../../../../app.amsterdam.json'
+import i18n from 'i18n'
 
 export const ICON_SIZE = 40
 
@@ -21,7 +22,7 @@ const configuration = appConfiguration as unknown as typeof ConfigurationType
 export const controls = {
   extra_bomen: {
     meta: {
-      label: 'Waar is het?',
+      label: i18n.t('waar-is-het'),
       language: {
         title: 'Selecteer de boom',
         subTitle: 'Kies een boom op de kaart',

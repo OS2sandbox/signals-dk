@@ -2,6 +2,7 @@
 # Copyright (C) 2021 - 2023 Gemeente Amsterdam
 import typing
 
+from signals.apps.email_integrations.translations import TranslationKey, translate
 from signals.apps.email_integrations.actions.abstract import AbstractSignalStatusAction
 from signals.apps.email_integrations.models import EmailTemplate
 from signals.apps.email_integrations.rules import SignalCreatedRule
@@ -14,9 +15,8 @@ class SignalCreatedAction(AbstractSignalStatusAction):
     rule: AbstractRule = SignalCreatedRule()
 
     key: str = EmailTemplate.SIGNAL_CREATED
-    subject: str = 'Bedankt voor uw melding {formatted_signal_id}'
-
-    note: str = 'Automatische e-mail bij registratie van de melding is verzonden aan de melder.'
+    subject: str = translate(TranslationKey.email_acknowledgment_message) + ' {formatted_signal_id}'
+    note: str = translate(TranslationKey.email_automated_email_confirmation_message)
 
     def get_additional_context(self, signal: Signal, dry_run: bool = False) -> dict:
         assert signal.category_assignment is not None

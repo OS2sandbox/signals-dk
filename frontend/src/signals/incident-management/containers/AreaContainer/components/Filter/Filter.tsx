@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import configuration from 'shared/services/configuration/configuration'
 import { dateToString } from 'shared/services/date-utils'
+import i18n from 'i18n'
 
 interface FilterProps {
   subcategory?: string
@@ -36,7 +37,7 @@ const Filter: React.FC<FilterProps> = (props) => {
   const subcategory = props.subcategory ? (
     <Field>
       <Title data-testid="subcategory-label">
-        Subcategorie (verantwoordelijke afdeling)
+        {i18n.t('subcategorie-verantwoordelijke-afdeling')}
       </Title>
       <List>
         <ListItem>
@@ -49,68 +50,68 @@ const Filter: React.FC<FilterProps> = (props) => {
 
   return (
     <Wrapper>
-      <Heading>Filter</Heading>
+      <Heading>{i18n.t('filter')}</Heading>
       {subcategory}
       <Field>
-        <Title data-testid="status-label">Status</Title>
+        <Title data-testid="status-label">{i18n.t('status')}</Title>
         <List>
           <ListItem>
             <StyledIcon size={ICON_SIZE}>
               <img
-                alt="Groene locatie pin"
+                alt={i18n.t('groene-locatie-pin')}
                 src="/assets/images/area-map/icon-pin.svg"
               />
             </StyledIcon>
-            Openstaand
+            {i18n.t('openstaand')}
           </ListItem>
           <ListItem>
             <StyledIcon size={ICON_SIZE}>
               <img
-                alt="Zwarte locatie pin"
+                alt={i18n.t('zwarte-locatie-pin')}
                 src="/assets/images/area-map/icon-pin-green.svg"
               />
             </StyledIcon>
-            Afgehandeld
+            {i18n.t('afgehandeld')}
           </ListItem>
         </List>
       </Field>
 
       <Field>
-        <Title data-testid="period-label">Periode</Title>
+        <Title data-testid="period-label">{i18n.t('periode')}</Title>
         <List>
           <ListItem data-testid="period">
-            Van {dateToString(new Date(props.startDate))} t/m NU
+            {i18n.t('van')} {dateToString(new Date(props.startDate))} {i18n.t('t-m-nu')}
           </ListItem>
         </List>
       </Field>
 
       <Field>
-        <Title data-testid="area-label">Omgeving</Title>
+        <Title data-testid="area-label">{i18n.t('omgeving')}</Title>
         <List>
           <ListItem>
             <StyledIcon size={ICON_SIZE}>
               <img
-                alt="Draadkruis"
+                alt={i18n.t('draadkruis')}
                 src="/assets/images/area-map/icon-cross-small.svg"
               />
             </StyledIcon>
-            Locatie huidige melding
+            {i18n.t('locatie-huidige-melding')}
           </ListItem>
           <ListItem>
             <StyledIcon size={ICON_SIZE}>
-              <img alt="Straal" src="/assets/images/area-map/icon-radius.svg" />
+              <img alt={i18n.t('straal')} src="/assets/images/area-map/icon-radius.svg" />
             </StyledIcon>
-            {`Straal ${configuration.map.optionsAreaMap.focusRadiusMeters}m`}
+            {i18n.t('straal') + `${configuration.map.optionsAreaMap.focusRadiusMeters} m`}
           </ListItem>
         </List>
       </Field>
       <Field>
         <Title forwardedAs="h4" data-testid="kind-label">
-          Soort
+          {i18n.t('soort')}
         </Title>
         <List>
-          <ListItem>Standaardmelding</ListItem>
-          <ListItem>Deelmelding</ListItem>
+          <ListItem>{i18n.t('standaardmelding')}</ListItem>
+          <ListItem>{i18n.t('deelmelding')}</ListItem>
         </List>
       </Field>
     </Wrapper>

@@ -38,6 +38,7 @@ import { createPatch, createPost } from './utils'
 import useFetchResponseNotification from '../../../../../settings/hooks/useFetchResponseNotification'
 import { SelectedSubcategories } from '../SelectedSubcategories'
 import Subcategories from '../Subcategories'
+import i18n from 'i18n'
 
 interface Option {
   key: string
@@ -47,10 +48,10 @@ interface Option {
 const schema = yup.object({
   categories: yup
     .array()
-    .min(1, 'Vul de subcategorie(ën) in')
-    .required('Vul de subcategorie(ën) in.'),
-  title: yup.string().required('Vul een titel in'),
-  text: yup.string().required('Vul een omschrijving in'),
+    .min(1, i18n.t('vul-de-subcategorie-en-in'))
+    .required(i18n.t('vul-de-subcategorie-en-in-0')),
+  title: yup.string().required(i18n.t('vul-een-titel-in')),
+  text: yup.string().required(i18n.t('vul-een-omschrijving-in')),
 })
 
 export const Detail = () => {
@@ -62,11 +63,11 @@ export const Detail = () => {
     useFetch<StandardTextDetailData>()
 
   const title = params.id
-    ? 'Standaardtekst wijzigen'
-    : 'Standaardtekst toevoegen'
+    ? i18n.t('standaardtekst-wijzigen')
+    : i18n.t('standaardtekst-toevoegen')
 
   useFetchResponseNotification({
-    entityName: 'Standaard tekst',
+    entityName: i18n.t('standaard-tekst'),
     error,
     isLoading,
     isSuccess,
@@ -117,8 +118,8 @@ export const Detail = () => {
 
   const handleOnDelete = async () => {
     const confirmed = await isConfirmed(
-      'Let op, je verwijdert de standaardtekst',
-      'Er is geen back-up beschikbaar.'
+      i18n.t('let-op-je-verwijdert-de-standaardtekst'),
+      i18n.t('er-is-geen-back-up-beschikbaar')
     )
     if (confirmed) {
       del(`${configuration.STANDARD_TEXTS_ENDPOINT}${params.id}`)
@@ -163,7 +164,7 @@ export const Detail = () => {
                     <GlobalErrorWrapper>
                       <GlobalError
                         meta={{
-                          label: 'De standaardtekst kan niet worden opgeslagen',
+                          label: i18n.t('de-standaardtekst-kan-niet-worden-opgeslagen'),
                         }}
                       />
                     </GlobalErrorWrapper>
@@ -175,7 +176,7 @@ export const Detail = () => {
                   dataTestId={'defaulttextadmin-page-header'}
                   title={title}
                   BackLink={
-                    <BackLink to={'../../'}>Terug naar overzicht</BackLink>
+                    <BackLink to={'../../'}>{i18n.t('terug-naar-overzicht')}</BackLink>
                   }
                 />
               </Row>
@@ -210,7 +211,7 @@ export const Detail = () => {
                             }
                             return (
                               <>
-                                <Label as="span">Status</Label>
+                                <Label as="span">{i18n.t('status')}</Label>
                                 <RadioButtonList
                                   groupName="Status"
                                   hasEmptySelectionButton={false}
@@ -236,7 +237,7 @@ export const Detail = () => {
                               name={name}
                               value={value}
                               onChange={onChange}
-                              placeholder={'Titel'}
+                              placeholder={i18n.t('titel')}
                               error={error?.message}
                             />
                           )}
@@ -253,7 +254,7 @@ export const Detail = () => {
                               name={name}
                               value={value}
                               onChange={onChange}
-                              placeholder="Tekst"
+                              placeholder={i18n.t('tekst')}
                               errorMessage={error?.message}
                             />
                           )}
@@ -262,7 +263,7 @@ export const Detail = () => {
                           name="active"
                           render={({ field: { name, value, onChange } }) => (
                             <div>
-                              <StyledLabel htmlFor={name} label="Actief">
+                              <StyledLabel htmlFor={name} label={i18n.t('actief')}>
                                 <Checkbox
                                   name={name}
                                   checked={value}
@@ -280,16 +281,16 @@ export const Detail = () => {
                             onClick={handleOnDelete}
                             type="button"
                           >
-                            Verwijderen
+                            {i18n.t('verwijderen')}
                           </Button>
                         )}
                       </RightSection>
                     </Grid>
 
                     <StyledFormFooter
-                      cancelBtnLabel="Annuleer"
+                      cancelBtnLabel={i18n.t('annuleer')}
                       onCancel={handleOnCancel}
-                      submitBtnLabel="Opslaan"
+                      submitBtnLabel={i18n.t('opslaan')}
                     />
                   </Form>
                 </Column>

@@ -15,6 +15,7 @@ import {
 } from 'signals/shared/filter/parse'
 
 import Refresh from '../../../../../../images/icon-refresh.svg'
+import i18n from 'i18n'
 
 const Wrapper = styled.div`
   margin-bottom: ${themeSpacing(7)};
@@ -83,7 +84,7 @@ const FilterItem = ({
 
       if (
         global.confirm(
-          'Weet je zeker dat je dit filter wilt verwijderen?\nDit kan niet ongedaan worden gemaakt.'
+          i18n.t('weet-je-zeker-dat-je-dit-filter-wilt-verwijderen-ndit-kan-niet-ongedaan-wor')
         )
       ) {
         onRemoveFilter(filter.id)
@@ -117,7 +118,7 @@ const FilterItem = ({
         onClick={handleApplyFilter}
         data-testid="handle-apply-filter-button"
       >
-        Toon resultaat
+        {i18n.t('toon-resultaat')}
       </StyledLink>
       <StyledLink
         href="/"
@@ -125,7 +126,7 @@ const FilterItem = ({
         onClick={handleEditFilter}
         data-testid="handle-edit-filter-button"
       >
-        Wijzig
+        {i18n.t('wijzig')}
       </StyledLink>
       <StyledLink
         href="/"
@@ -133,10 +134,10 @@ const FilterItem = ({
         onClick={handleRemoveFilter}
         data-testid="handle-remove-filter-button"
       >
-        Verwijder
+        {i18n.t('verwijder')}
       </StyledLink>
 
-      <OverviewLabel label="Toon in het overzicht">
+      <OverviewLabel label={i18n.t('toon-in-het-overzicht')}>
         <Checkbox
           onClick={toggleShowFilterOnOverview}
           checked={filter.show_on_overview}

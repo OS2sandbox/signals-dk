@@ -31,6 +31,7 @@ import {
 import AssetSelectContext from '../../context'
 import Legend from '../Legend'
 import { ScrollWrapper, StyledPDOKAutoSuggest } from '../styled'
+import i18n from 'i18n'
 
 export interface DetailPanelProps {
   language?: Record<string, string>
@@ -127,21 +128,21 @@ const DetailPanel: FC<DetailPanelProps> = ({ language, zoomLevel }) => {
           {!shouldRenderMobileVersion && (
             <>
               <StyledParagraphPDOkAutoSuggest>
-                {language?.title || 'Selecteer de locatie'}
+                {language?.title || i18n.t('selecteer-de-locatie')}
                 <Description>
                   {language?.description ||
-                    'Typ het dichtstbijzijnde adres, klik de locatie aan op de kaart of gebruik "Mijn locatie"'}
+                    i18n.t('typ-het-dichtstbijzijnde-adres-klik-de-locatie-aan')}
                 </Description>
               </StyledParagraphPDOkAutoSuggest>
               <StyledLabelPDOkAutoSuggest htmlFor="location">
-                {meta?.language?.pdokLabel || 'Zoek op adres of postcode'}
+                {meta?.language?.pdokLabel || i18n.t('zoek-op-adres-of-postcode')}
               </StyledLabelPDOkAutoSuggest>
               <StyledPDOKAutoSuggest
                 id={'location'}
                 onClear={removeItem}
                 onSelect={onAddressSelect}
                 value={addressValue}
-                placeholder={meta?.language?.pdokInput || 'Adres of postcode'}
+                placeholder={meta?.language?.pdokInput || i18n.t('adres-of-postcode')}
               />
             </>
           )}

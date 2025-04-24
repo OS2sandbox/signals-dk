@@ -14,8 +14,9 @@ import PageHeader from 'components/PageHeader'
 import { makeSelectUserCan } from 'containers/App/selectors'
 import { makeSelectDepartments } from 'models/departments/selectors'
 import { BASE_URL, DEPARTMENT_URL } from 'signals/settings/routes'
-
+import i18n from 'i18n'
 import filterData from '../../utils/filterData'
+import { sub } from 'date-fns'
 
 const StyledList = styled(ListComponent)`
   th {
@@ -27,10 +28,13 @@ const StyledList = styled(ListComponent)`
   }
 `
 
+const displayName = i18n.t('naam')
+const subCategoryName = i18n.t('subcategorie')
+
 const colMap = {
   id: 'id',
-  _display: 'Naam',
-  category_names: 'Subcategorie',
+  _display: displayName,
+  category_names: subCategoryName,
 }
 
 const DepartmentOverview = () => {
@@ -60,15 +64,15 @@ const DepartmentOverview = () => {
 
   const data = filterData(departments.list, colMap)
 
+  console.log('data', data);
+  
   return (
     <Fragment>
       <Row>
         <PageHeader
           dataTestId={'settings-page-header'}
-          title={`Afdelingen${
-            departments.count ? ` (${departments.count})` : ''
-          }`}
-          BackLink={<BackLink to={BASE_URL}>Terug naar instellingen</BackLink>}
+          title={i18n.t('afdelingen') + `${departments.count ? ` (${departments.count})` : ''}`}
+          BackLink={<BackLink to={BASE_URL}>{i18n.t('terug-naar-instellingen')}</BackLink>}
         />
       </Row>
       <Row>
@@ -77,7 +81,7 @@ const DepartmentOverview = () => {
         <Column span={12}>
           {!departments.loading && data && (
             <StyledList
-              columnOrder={['Naam', 'Subcategorie']}
+              columnOrder={[displayName, subCategoryName]}
               items={data}
               onItemClick={onItemClick}
               primaryKeyColumn="id"

@@ -20,17 +20,22 @@ import {
 
 import { StyledDataView, StyledCompactPager } from './styled'
 import filterData from '../../utils/filterData'
+import i18n from 'i18n'
+
+const subCategoryName = i18n.t('subcategorie')
+const statusName = i18n.t('status')
+const slaName = i18n.t('afhandeltermijn')
 
 // name mapping from API values to human-readable values
 export const colMap = {
   fk: 'fk',
   id: 'id',
-  value: 'Subcategorie',
-  is_active: 'Status',
-  sla: 'Afhandeltermijn',
+  value: subCategoryName,
+  is_active: statusName,
+  sla: slaName,
 }
 
-const columnHeaders = ['Subcategorie', 'Afhandeltermijn', 'Status']
+const columnHeaders = [subCategoryName, slaName, statusName]
 
 interface Params {
   pageNum: string
@@ -53,8 +58,8 @@ export const OverviewContainer = () => {
     .map((category) => ({
       ...category,
       sla: `${category.sla.n_days} ${
-        !category.sla.use_calendar_days ? 'werk' : ''
-      }dagen`,
+        !category.sla.use_calendar_days ? i18n.t('werk') : ''
+      }` + i18n.t('dagen'),
     }))
   const data = filterData(pagedData, colMap)
   const isLoading = !subCategories
@@ -98,8 +103,8 @@ export const OverviewContainer = () => {
       <Row>
         <PageHeader
           dataTestId={'settings-page-header'}
-          title={`Subcategorieën ${count ? `(${count})` : ''}`}
-          BackLink={<BackLink to={BASE_URL}>Terug naar instellingen</BackLink>}
+          title={i18n.t('subcategorieen') + ` ${count ? `(${count})` : ''}`}
+          BackLink={<BackLink to={BASE_URL}>{i18n.t('terug-naar-instellingen')}</BackLink>}
         />
       </Row>
 

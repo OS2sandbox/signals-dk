@@ -1,189 +1,186 @@
 {
-  "apiBaseUrl": "http://localhost:8000",
+  "apiBaseUrl": "https://api.signalen.dev.os2.strongminds.dk",
   "areaTypeCodeForDistrict": "district",
   "featureFlags": {
-    "appMode": false,
-    "assignSignalToDepartment": false,
-    "assignSignalToEmployee": false,
-    "enableAmsterdamSpecificOverigCategories": false,
-    "enableCsvExport": false,
-    "enableMultipleKtoAnswers": false,
-    "enableMyIncidents": false,
-    "enableNearIncidents": false,
-    "enablePublicIncidentsMap": false,
-    "enablePublicSignalMap": false,
-    "enableReporter": false,
-    "fetchDistrictsFromBackend": false,
-    "fetchQuestionsFromBackend": false,
-    "mapFilter24Hours": false,
-    "reporterMailHandledNegativeContactEnabled": false,
-    "showThorButton": false,
-    "showVulaanControls": false,
-    "useProjectenSignalType": false,
-    "enableForwardIncidentToExternal": false,
-    "showMainCategories": false,
-    "showStandardTextAdminV1": true,
-    "showStandardTextAdminV2": false,
-    "disableClosingCategoryOverigOverig": false,
-    "showContactEdit": false
+      "appMode": false,
+      "assignSignalToDepartment": false,
+      "assignSignalToEmployee": false,
+      "enableAmsterdamSpecificOverigCategories": false,
+      "enableCsvExport": false,
+      "enableMultipleKtoAnswers": false,
+      "enableMyIncidents": false,
+      "enableNearIncidents": false,
+      "enablePublicIncidentsMap": false,
+      "enablePublicSignalMap": false,
+      "enableReporter": false,
+      "fetchDistrictsFromBackend": false,
+      "fetchQuestionsFromBackend": false,
+      "mapFilter24Hours": false,
+      "reporterMailHandledNegativeContactEnabled": false,
+      "showThorButton": false,
+      "showVulaanControls": false,
+      "useProjectenSignalType": false,
+      "enableForwardIncidentToExternal": false,
+      "showMainCategories": false,
+      "showStandardTextAdminV1": true,
+      "showStandardTextAdminV2": false,
+      "disableClosingCategoryOverigOverig": false,
+      "showContactEdit": false
   },
   "head": {
-    "androidIcon": "/icon_192x192.png",
-    "backgroundColor": "#ffffff",
-    "favicon": "/favicon.png",
-    "iosIcon": "/icon_180x180.png",
-    "statusBarStyle": "default",
-    "themeColor": "#fff"
+      "androidIcon": "/icon_192x192.png",
+      "backgroundColor": "#ffffff",
+      "favicon": "/favicon.png",
+      "iosIcon": "/icon_180x180.png",
+      "statusBarStyle": "default",
+      "themeColor": "#fff"
   },
   "language": {
-    "consentToContactSharing": "Ja, ik geef Signalen toestemming om mijn contactgegevens te delen met andere organisaties, als dat nodig is om mijn melding goed op te lossen.",
-    "district": "Wijk",
-    "headerTitle": "",
-    "helpText": "Wij zijn bereikbaar van maandag tot en met vrijdag van 08.00 tot 18.00 uur.",
-    "helpTextHeader": "Lukt het niet om een melding te doen? Bel het telefoonnummer [070-373 8393](tel:+31703738393)",
-    "logoDescription": "Logo gemeente",
-    "mapDescription": "Weet u het adres niet, bel dan 070-373 8393 om telefonisch de melding te maken.",
-    "phoneNumber": "070-373 8393",
-    "shortTitle": "Signalen",
-    "siteAddress": "signalen.org",
-    "siteTitle": "Signalen",
-    "smallHeaderTitle": "Signalen",
-    "title": "Signalen",
-    "urgentContactInfo": "Voor spoedeisende zaken kunt u ook telefonisch contact opnemen."
+      "district": "Aarhus Kommune",
+      "headerTitle": "",
+      "logoDescription": "Logo beskrivelse",
+      "mapDescription": "Hvis du ikke kender adressen, kan du ringe til +4589404400 for at lave anmeldelsen telefonisk.",
+      "phoneNumber": "+4589404400",
+      "shortTitle": "Signalen",
+      "siteAddress": "signalen.dev.os2.strongminds.dk",
+      "siteTitle": "Signalen",
+      "smallHeaderTitle": "Signalen",
+      "title": "Signalen",
+      "urgentContactInfo": "For hastesager kan du også kontakte os telefonisk."
   },
   "links": {
-    "about": "",
-    "accessibility": "",
-    "help": "https://signalen.org/",
-    "home": "https://signalen.org/",
-    "privacy": "https://vng.nl/privacyverklaring-vereniging-van-nederlandse-gemeenten"
+      "about": "",
+      "accessibility": "",
+      "help": "https://aarhus.dk/",
+      "home": "https://signalen.org/",
+      "privacy": "https://aarhus.dk/om-kommunen/databeskyttelse/om-hjemmesiden/privatlivspolitik"
   },
   "logo": {
-    "url": "/assets/images/amsterdam-logo.svg",
-    "width": "153px",
-    "height": "68px",
-    "smallWidth": "68px",
-    "smallHeight": "29px"
+      "url": "https://aarhus.dk/media/y21f3c1y/aak-logo-1.svg",
+      "width": "153px",
+      "height": "68px",
+      "smallWidth": "68px",
+      "smallHeight": "29px"
   },
   "map": {
-    "keys": {
-      "dataPlatform": ""
-    },
-    "municipality": "amsterdam",
-    "options": {
-      "crs": "EPSG:28992",
-      "center": [
-        52.3731081,
-        4.8932945
-      ],
-      "maxBounds": [
-        [
-          52.25168,
-          4.64034
-        ],
-        [
-          52.50536,
-          5.10737
-        ]
-      ],
-      "maxNumberOfAssets" : {
-        "straatverlichting": 3,
-        "klokken": 1,
-        "afvalContainer": 5,
-        "eikenProcessierups": 5
+      "keys": {
+          "dataPlatform": ""
       },
-      "maxZoom": 16,
-      "minZoom": 8,
-      "zoom": 10
-    },
-    "optionsBackOffice": {
-      "maxZoom": 16,
-      "minZoom": 7,
-      "zoom": 7
-    },
-    "optionsAreaMap": {
-      "focusRadiusMeters": 50,
-      "zoom": 14,
-      "maxZoom": 15
-    },
-    "optionsOverviewMap": {
-      "flyToMinZoom": 11
-    },
-    "optionsSummaryMap": {
-      "zoom": 12
-    },
-    "optionsIncidentMap": {
-      "zoom": 9,
-      "flyToMinZoom": 12,
-      "flyToMaxZoom": 14
-    },
-    "optionsMapInput": {
-      "zoom": 14
-    },
-    "optionsIncidentDetailLocation": {
-      "zoom": 9
-    },
-    "optionsAssetSelector": {
-      "assetsZoom": 13,
-      "locationZoom": 14
-    },
-    "optionsMyIncidentsMap": {
-      "zoom": 14
-    },
-    "optionsExternalReplyLocation": {
-      "zoom": 9
-    },
-    "optionsExternalReplyMap": {
-      "zoom": 10
-    },
-    "tiles": {
-      "args": [
-        "https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/standaard/EPSG:28992/{z}/{x}/{y}.png"
-      ],
+      "municipality": "amsterdam",
       "options": {
-        "attribution": "Kaartgegevens &copy; Kadaster",
-        "maxNativeZoom": 14,
-        "tms": false
+          "crs": "EPSG:28992",
+          "center": [
+              52.3731081,
+              4.8932945
+          ],
+          "maxBounds": [
+              [
+                  52.25168,
+                  4.64034
+              ],
+              [
+                  52.50536,
+                  5.10737
+              ]
+          ],
+          "maxNumberOfAssets": {
+              "straatverlichting": 3,
+              "klokken": 1,
+              "afvalContainer": 5,
+              "eikenProcessierups": 5
+          },
+          "maxZoom": 16,
+          "minZoom": 8,
+          "zoom": 10
+      },
+      "optionsBackOffice": {
+          "maxZoom": 16,
+          "minZoom": 7,
+          "zoom": 7
+      },
+      "optionsAreaMap": {
+          "focusRadiusMeters": 50,
+          "zoom": 14,
+          "maxZoom": 15
+      },
+      "optionsOverviewMap": {
+          "flyToMinZoom": 11
+      },
+      "optionsSummaryMap": {
+          "zoom": 12
+      },
+      "optionsIncidentMap": {
+          "zoom": 9,
+          "flyToMinZoom": 12,
+          "flyToMaxZoom": 14
+      },
+      "optionsMapInput": {
+          "zoom": 14
+      },
+      "optionsIncidentDetailLocation": {
+          "zoom": 9
+      },
+      "optionsAssetSelector": {
+          "assetsZoom": 13,
+          "locationZoom": 14
+      },
+      "optionsMyIncidentsMap": {
+          "zoom": 14
+      },
+      "optionsExternalReplyLocation": {
+          "zoom": 9
+      },
+      "optionsExternalReplyMap": {
+          "zoom": 10
+      },
+      "tiles": {
+          "args": [
+              "https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/standaard/EPSG:28992/{z}/{x}/{y}.png"
+          ],
+          "options": {
+              "attribution": "Kaartgegevens &copy; Kadaster",
+              "maxNativeZoom": 14,
+              "tms": false
+          }
+      },
+      "layers": {
+          "containers": "https://api.data.amsterdam.nl/v1/wfs/huishoudelijkafval/?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=app:container&COUNT=1000&SRSNAME=urn:ogc:def:crs:EPSG::4326&outputFormat=application/json"
+      },
+      "pdok": {
+          "suggest": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/suggest",
+          "reverse": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/reverse"
       }
-    },
-    "layers": {
-      "containers": "https://api.data.amsterdam.nl/v1/wfs/huishoudelijkafval/?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=app:container&COUNT=1000&SRSNAME=urn:ogc:def:crs:EPSG::4326&outputFormat=application/json"
-    },
-    "pdok": {
-      "suggest": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/suggest",
-      "reverse": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/reverse"
-    }
   },
   "oidc": {
-    "authEndpoint": "http://localhost:5556/auth",
-    "clientId": "signals",
-    "responseType": "id_token",
-    "scope": "openid email profile"
+      "authEndpoint": "https://eu-west-1hepqer09o.auth.eu-west-1.amazoncognito.com/oauth2/authorize",
+      "clientId": "1e62jf9du06ccq04sh80djse1i",
+      "responseType": "token",
+      "scope": "openid email profile"
   },
   "theme": {
-    "colors": {
-      "primary": {
-        "main": "#004699",
-        "dark": "#00387a"
-      },
-      "secondary": {
-        "main": "#ec0000",
-        "dark": "#bc0000"
-      },
-      "support": {
-        "valid": "#00a03c",
-        "invalid": "#ec0000",
-        "focus": "#fec813"
-      },
-      "error": {
-        "main": "#ec0000"
+      "colors": {
+          "primary": {
+              "main": "#004699",
+              "dark": "#00387a"
+          },
+          "secondary": {
+              "main": "#ec0000",
+              "dark": "#bc0000"
+          },
+          "support": {
+              "valid": "#00a03c",
+              "invalid": "#ec0000",
+              "focus": "#fec813"
+          },
+          "error": {
+              "main": "#ec0000"
+          }
       }
-    }
   },
   "frontPageAlert": {
-    "text":""
+      "text": ""
   },
   "additionalCode": {
-    "css": ""
+      "css": ""
   }
 }

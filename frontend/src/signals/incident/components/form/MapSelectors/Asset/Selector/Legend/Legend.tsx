@@ -5,6 +5,7 @@ import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { NEARBY_TYPE, UNREGISTERED_TYPE } from '../../../constants'
 import AssetSelectContext from '../../context'
 import { LegendToggleButton, StyledLegendPanel } from '../DetailPanel/styled'
+import i18n from 'i18n'
 
 type Props = {
   onLegendToggle: () => void
@@ -29,7 +30,7 @@ const Legend = ({ onLegendToggle }: Props) => {
   const featureStatusTypes = meta.featureStatusTypes || []
 
   const nearbyLegendItem = {
-    label: 'Bestaande melding',
+    label: i18n.t('bestaande-melding'),
     icon: {
       iconUrl: '/assets/images/area-map/icon-pin.svg',
       iconSize: [40, 40],

@@ -21,6 +21,7 @@ import {
 } from 'models/roles/selectors'
 import configuration from 'shared/services/configuration/configuration'
 import { userType, historyType } from 'shared/types'
+import i18n from 'i18n'
 
 const Form = styled.form`
   width: 100%;
@@ -48,8 +49,8 @@ const StyledFormFooter = styled(FormFooter)`
 `
 
 const statusOptions = [
-  { key: 'true', value: 'Actief' },
-  { key: 'false', value: 'Niet actief' },
+  { key: 'true', value: i18n.t('actief') },
+  { key: 'false', value: i18n.t('niet-actief') },
 ]
 
 const StyledHistory = styled(History)`
@@ -88,8 +89,7 @@ const UserForm = ({ data, history, onCancel, onSubmit, readOnly }) => {
       ? [
           {
             key: 'notification_on_department_assignment',
-            value:
-              'Stuur mij een e-mail als een melding aan mijn afdeling is gekoppeld',
+            value: i18n.t('stuur-mij-een-e-mail-als-een-melding-aan-mijn-afdeling-is-gekoppeld'),
           },
         ]
       : []),
@@ -97,7 +97,7 @@ const UserForm = ({ data, history, onCancel, onSubmit, readOnly }) => {
       ? [
           {
             key: 'notification_on_user_assignment',
-            value: 'Stuur mij een e-mail als een melding aan mij is toegewezen',
+            value: i18n.t('stuur-mij-een-e-mail-als-een-melding-aan-mij-is-toegewezen'),
           },
         ]
       : []),
@@ -194,7 +194,7 @@ const UserForm = ({ data, history, onCancel, onSubmit, readOnly }) => {
               <Input
                 disabled={data.username !== undefined || readOnly}
                 id="username"
-                label="E-mailadres"
+                label={i18n.t('e-mailadres')}
                 name="username"
                 onChange={onChangeEvent}
                 readOnly={readOnly}
@@ -207,7 +207,7 @@ const UserForm = ({ data, history, onCancel, onSubmit, readOnly }) => {
               <Input
                 disabled={readOnly}
                 id="first_name"
-                label="Voornaam"
+                label={i18n.t('voornaam')}
                 name="first_name"
                 onChange={onChangeEvent}
                 type="text"
@@ -219,7 +219,7 @@ const UserForm = ({ data, history, onCancel, onSubmit, readOnly }) => {
               <Input
                 disabled={readOnly}
                 id="last_name"
-                label="Achternaam"
+                label={i18n.t('achternaam')}
                 name="last_name"
                 onChange={onChangeEvent}
                 type="text"
@@ -230,7 +230,7 @@ const UserForm = ({ data, history, onCancel, onSubmit, readOnly }) => {
             {(configuration.featureFlags.assignSignalToDepartment ||
               configuration.featureFlags.assignSignalToEmployee) && (
               <FieldGroup>
-                <Label as="span">Notificatie</Label>
+                <Label as="span">{i18n.t('notificatie')}</Label>
                 <CheckboxList
                   defaultValue={state.notifications}
                   disabled={readOnly}
@@ -245,7 +245,7 @@ const UserForm = ({ data, history, onCancel, onSubmit, readOnly }) => {
             )}
 
             <FieldGroup>
-              <Label as="span">Status</Label>
+              <Label as="span">{i18n.t('status')}</Label>
               <RadioButtonList
                 defaultValue={state.is_active}
                 groupName="is_active"
@@ -259,7 +259,7 @@ const UserForm = ({ data, history, onCancel, onSubmit, readOnly }) => {
             </FieldGroup>
 
             <FieldGroup>
-              <Label as="span">Rollen</Label>
+              <Label as="span">{i18n.t('rollen')}</Label>
               <CheckboxList
                 defaultValue={state.roles}
                 disabled={readOnly}
@@ -273,7 +273,7 @@ const UserForm = ({ data, history, onCancel, onSubmit, readOnly }) => {
             </FieldGroup>
 
             <FieldGroup>
-              <Label as="span">Afdeling</Label>
+              <Label as="span">{i18n.t('afdeling')}</Label>
               <CheckboxList
                 defaultValue={state.departments}
                 disabled={readOnly}
@@ -294,7 +294,7 @@ const UserForm = ({ data, history, onCancel, onSubmit, readOnly }) => {
           <div>
             <FieldGroup>
               <Label as="span" htmlFor="note">
-                Notitie
+                {i18n.t('notitie')}
               </Label>
               <TextArea
                 disabled={readOnly}
@@ -314,9 +314,9 @@ const UserForm = ({ data, history, onCancel, onSubmit, readOnly }) => {
 
         {!readOnly && (
           <StyledFormFooter
-            cancelBtnLabel="Annuleer"
+            cancelBtnLabel={i18n.t('annuleer')}
             onCancel={onCancelForm}
-            submitBtnLabel="Opslaan"
+            submitBtnLabel={i18n.t('opslaan')}
             onSubmitForm={onSubmitForm}
           />
         )}

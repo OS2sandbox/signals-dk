@@ -1,0 +1,51 @@
+name: Bootstrap CDK
+on:
+  workflow_dispatch:
+    inputs:
+      AWS_ACCESS_KEY_ID:
+        description: "Access Key ID with Permissions to deploy IAM, and OIDC"
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        description: "Secret Access Key with Permissions to deploy IAM, and OIDC"
+        required: true
+      AWS_SESSION_TOKEN:
+        description: "Secret Session Token with Permissions to deploy IAM, and OIDC"
+        required: false
+      AWS_REGION:
+        description: "Region to deploy to."
+        required: true
+        type: choice
+        default: eu-west-1
+        options:
+          - us-east-1
+          - us-east-2
+          - us-west-1
+          - us-west-2
+          - en-central-1
+          - eu-north-1
+          - eu-west-1
+          - eu-west-2
+          - eu-west-3
+      CDK_BOOTSTRAP:
+        description: "Bootstrap the CDK"
+        required: true
+        type: boolean
+        default: true
+
+permissions:
+  id-token: write
+  contents: read
+  issues: write
+  pull-requests: read
+
+jobs:
+  bootstrap:
+    uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.bootstrap.yml@main
+    with:
+      AWS_ACCESS_KEY_ID:  ${{ inputs.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY:  ${{ inputs.AWS_SECRET_ACCESS_KEY }}
+      AWS_SESSION_TOKEN:  ${{ inputs.AWS_SESSION_TOKEN }}
+      AWS_REGION: ${{ inputs.AWS_REGION }}
+      CDK_BOOTSTRAP:  ${{ inputs.CDK_BOOTSTRAP }}
+      SUB_TREE_PATH: "aws-infrastructure/"
+    secrets: inherit

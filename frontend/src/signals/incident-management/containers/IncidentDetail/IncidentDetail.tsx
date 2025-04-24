@@ -52,6 +52,7 @@ import IncidentDetailContext from './context'
 import useUpload from './hooks/useUpload'
 import reducer, { initialState } from './reducer'
 import type { Attachment, HistoryEntry, IncidentChild, Result } from './types'
+import i18n from 'i18n'
 
 const StyledRow = styled(Row)`
   position: relative;
@@ -163,11 +164,8 @@ const IncidentDetail = () => {
       const fetchError = error as Response
       const title =
         fetchError?.status === 401 || fetchError.status === 403
-          ? 'Geen bevoegdheid'
-          : 'Bewerking niet mogelijk'
-      const message = getErrorMessage(
-        error,
-        'Deze wijziging is niet toegestaan in deze situatie.'
+          ? i18n.t('geen-bevoegdheid') : i18n.t('bewerking-niet-mogelijk')
+      const message = getErrorMessage(error, i18n.t('deze-wijziging-is-niet-toegestaan-in-deze-situatie')
       )
 
       storeDispatch(

@@ -312,7 +312,7 @@ describe('ImplicitAuth authorization', () => {
       expect(window.location.assign).toHaveBeenCalledWith(
         'https://example.com/oauth2/authorize' +
           '?client_id=test' +
-          '&response_type=id_token' +
+          '&response_type=token' +
           '&scope=openid+email+profile' +
           '&state=random-string' +
           '&nonce=random-string' +

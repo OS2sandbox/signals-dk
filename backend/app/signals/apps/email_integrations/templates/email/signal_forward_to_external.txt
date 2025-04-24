@@ -1,14 +1,14 @@
-Geachte behandelaar,
+Kære behandler,
 
-Er is een melding binnengekomen bij de Gemeente. Kunnen jullie hier naar kijken en ons late weten of jullie deze kunnen afhandelen.
+En rapport er modtaget af kommunen. Vil du venligst undersøge den og lade os vide, om du kan håndtere den.
 
-Wat kunt u doen?
-U kunt de melding gelijk inzien en oppakken. Als de melding is verwerkt, ontvangen wij graag een bericht.
+Hvad kan du gøre?
+Du kan se og håndtere rapporten med det samme. Når rapporten er behandlet, vil vi gerne modtage en besked.
 
-[Bekijk de actie]({{ reaction_url }})
+Se handlingen: {{ reaction_url }}
 
 Nummer: {{ formatted_signal_id }}
 
 
-Met vriendelijke groet,
+Med venlig hilsen,
 {{ ORGANIZATION_NAME }}

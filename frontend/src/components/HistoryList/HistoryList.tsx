@@ -9,6 +9,7 @@ import Markdown from 'components/Markdown'
 import { string2date, string2time } from 'shared/services/string-parser'
 import type { History } from 'types/history'
 import type { Theme } from 'types/theme'
+import i18n from 'i18n'
 
 const List = styled.ul`
   margin: 0;
@@ -68,7 +69,7 @@ const HistoryList: FunctionComponent<HistoryListProps> = ({
       return (
         <Item key={`${identifier}-${when}`}>
           <Time>
-            {string2date(when)} om {string2time(when)}
+            {string2date(when)} {i18n.t('om')} {string2time(when)}
             <Who>{who}</Who>
           </Time>
 

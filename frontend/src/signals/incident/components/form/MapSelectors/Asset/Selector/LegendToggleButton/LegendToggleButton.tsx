@@ -7,6 +7,7 @@ import { themeColor } from '@amsterdam/asc-ui'
 import styled from 'styled-components'
 
 import Button from 'components/Button'
+import i18n from 'i18n'
 
 export interface LegendToggleButtonProps {
   className?: string
@@ -44,7 +45,7 @@ const LegendToggleButton: FC<LegendToggleButtonProps> = ({
     variant="blank"
     ref={legendButtonRef}
   >
-    Legenda
+    {i18n.t('legenda')}
   </StyledButton>
 )
 

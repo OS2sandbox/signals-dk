@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdk", "Cdk\Cdk.csproj", "{6F90F90B-7A55-41E8-8075-271482247867}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdk.Bootstrap", "Cdk.Bootstrap\Cdk.Bootstrap.csproj", "{D80F8D2F-9E5D-4125-B190-79544961913F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{CC9DD227-B911-4AEA-9476-492F84DBD267}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\.github\dependabot.yml = ..\..\.github\dependabot.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{FEE55EBF-A29D-466B-B558-98A81163FDC5}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\cdk.bootstrap.yml = .github\workflows\cdk.bootstrap.yml
+		.github\workflows\cdk.template.yml = .github\workflows\cdk.template.yml
+		.github\workflows\CI-CD.yml = .github\workflows\CI-CD.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F90F90B-7A55-41E8-8075-271482247867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F90F90B-7A55-41E8-8075-271482247867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F90F90B-7A55-41E8-8075-271482247867}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6F90F90B-7A55-41E8-8075-271482247867}.Debug|x64.Build.0 = Debug|Any CPU
+		{6F90F90B-7A55-41E8-8075-271482247867}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6F90F90B-7A55-41E8-8075-271482247867}.Debug|x86.Build.0 = Debug|Any CPU
+		{6F90F90B-7A55-41E8-8075-271482247867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F90F90B-7A55-41E8-8075-271482247867}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F90F90B-7A55-41E8-8075-271482247867}.Release|x64.ActiveCfg = Release|Any CPU
+		{6F90F90B-7A55-41E8-8075-271482247867}.Release|x64.Build.0 = Release|Any CPU
+		{6F90F90B-7A55-41E8-8075-271482247867}.Release|x86.ActiveCfg = Release|Any CPU
+		{6F90F90B-7A55-41E8-8075-271482247867}.Release|x86.Build.0 = Release|Any CPU
+		{D80F8D2F-9E5D-4125-B190-79544961913F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D80F8D2F-9E5D-4125-B190-79544961913F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D80F8D2F-9E5D-4125-B190-79544961913F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D80F8D2F-9E5D-4125-B190-79544961913F}.Debug|x64.Build.0 = Debug|Any CPU
+		{D80F8D2F-9E5D-4125-B190-79544961913F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D80F8D2F-9E5D-4125-B190-79544961913F}.Debug|x86.Build.0 = Debug|Any CPU
+		{D80F8D2F-9E5D-4125-B190-79544961913F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D80F8D2F-9E5D-4125-B190-79544961913F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D80F8D2F-9E5D-4125-B190-79544961913F}.Release|x64.ActiveCfg = Release|Any CPU
+		{D80F8D2F-9E5D-4125-B190-79544961913F}.Release|x64.Build.0 = Release|Any CPU
+		{D80F8D2F-9E5D-4125-B190-79544961913F}.Release|x86.ActiveCfg = Release|Any CPU
+		{D80F8D2F-9E5D-4125-B190-79544961913F}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FEE55EBF-A29D-466B-B558-98A81163FDC5} = {CC9DD227-B911-4AEA-9476-492F84DBD267}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8C2F025-AD97-4D20-9F34-C0331FF19F65}
+	EndGlobalSection
+EndGlobal

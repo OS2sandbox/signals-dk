@@ -4,6 +4,7 @@ import LoadingIndicator from 'components/LoadingIndicator'
 import ModalDialog from 'components/ModalDialog/ModalDialog'
 
 import { StyledIframe, styling } from './styled'
+import i18n from 'i18n'
 
 interface EmailPreviewProps {
   onClose: () => void
@@ -30,12 +31,12 @@ const EmailPreview = ({
 
   return (
     <ModalDialog
-      cancelBtnLabel="Wijzig"
+      cancelBtnLabel={i18n.t('wijzig')}
       data-testid="email-preview-modal"
       isConfirmation={true}
       onClose={onClose}
       onConfirm={onUpdate}
-      submitBtnLabel="Verstuur"
+      submitBtnLabel={i18n.t('verstuur')}
       title={title}
       $hasIframe={true}
     >

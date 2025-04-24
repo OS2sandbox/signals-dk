@@ -60,6 +60,12 @@ const devConfig = /** @type { import('webpack').Configuration } */ {
   // Emit a source map for easier debugging
   // See https://webpack.js.org/configuration/devtool/#devtool
   devtool: 'cheap-module-source-map',
+
+  devServer: {
+    static: './public',
+    watchFiles: ['public/locales/**/*.json'], // Watch translation files
+    hot: true, // Enable hot module replacement
+  },
 }
 
 module.exports = merge(baseConfig, devConfig)

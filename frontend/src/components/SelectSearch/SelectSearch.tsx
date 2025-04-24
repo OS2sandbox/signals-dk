@@ -23,6 +23,7 @@ import {
 } from './styled'
 import { useRoveFocus } from '../../hooks/useRoveFocus'
 import type { SelectProps } from '../Select/Select'
+import i18n from 'i18n'
 
 interface Props extends SelectProps {
   assignedCategory: string
@@ -196,7 +197,7 @@ export const SelectSearch = ({
           value={inputValue}
           id="combobox"
           role="combobox"
-          placeholder="Zoek op subcategorie"
+          placeholder={i18n.t('zoek-op-subcategorie')}
         />
         <AbsoluteContentWrapper>
           {!isOpen && <SelectIcon />}
@@ -206,7 +207,7 @@ export const SelectSearch = ({
         <OptionUl ref={optionUlRef} role="listbox" data-testid={name} id={id}>
           {filteredGroups?.length === 0 && (
             <OptionLiGroup key="empty" role="group" aria-label="empty">
-              {'Geen opties beschikbaar'}
+              {i18n.t('geen-opties-beschikbaar')}
             </OptionLiGroup>
           )}
           {filteredGroups &&

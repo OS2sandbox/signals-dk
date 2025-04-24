@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2021 - 2023 Gemeente Amsterdam
+from signals.apps.email_integrations.translations import TranslationKey, translate
 from signals.apps.email_integrations.actions.abstract import AbstractSignalStatusAction
 from signals.apps.email_integrations.models import EmailTemplate
 from signals.apps.email_integrations.rules import SignalScheduledRule
@@ -10,6 +11,5 @@ class SignalScheduledAction(AbstractSignalStatusAction):
     rule: AbstractRule = SignalScheduledRule()
 
     key: str = EmailTemplate.SIGNAL_STATUS_CHANGED_INGEPLAND
-    subject: str = 'Meer over uw melding {formatted_signal_id}'
-
-    note: str = 'Automatische e-mail bij inplannen is verzonden aan de melder.'
+    subject: str = translate(TranslationKey.email_changed_notification_message_template)
+    note: str = translate(TranslationKey.email_scheduled_notification_message)

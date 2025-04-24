@@ -7,12 +7,13 @@ import PropTypes from 'prop-types'
 import TextArea from 'components/TextArea'
 
 import DescriptionInfo from '../DescriptionInfo'
+import i18n from 'i18n'
 
 const DescriptionInput = ({ handler, value, meta, parent }) => {
   const getCharactersInfo = useCallback(
     () =>
       meta.maxLength > 0 &&
-      `${value ? value.length : '0'}/${meta.maxLength} tekens`,
+      `${value ? value.length : '0'}/${meta.maxLength} ` + i18n.t('tekens'),
     [value, meta.maxLength]
   )
 

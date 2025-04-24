@@ -7,6 +7,7 @@ import type { DefaultText as DefaultTextType } from 'types/api/default-text'
 import type { StatusCode } from 'types/status-code'
 
 import { StyledDefaultText, StyledTitle, StyledLink } from './styled'
+import i18n from 'i18n'
 
 export type DefaulTextsProps = {
   defaultTexts: Array<DefaultTextType>
@@ -29,12 +30,11 @@ const DefaultTexts: FC<DefaulTextsProps> = ({
     defaultTexts.find((text) => text.state === status)
 
   return (
-    <ModalDialog title="Standaardtekst" onClose={onClose}>
+    <ModalDialog title={i18n.t('standaardtekst')} onClose={onClose}>
       <div data-scroll-lock-scrollable={true}>
         {(!allText || allText.templates.length === 0) && (
           <StyledDefaultText key={`empty_${status}`} empty>
-            Er is geen standaard tekst voor deze subcategorie en status
-            combinatie.
+            {i18n.t('er-is-geen-standaard-tekst-voor-deze-subcategorie-en-status-combinatie')}
           </StyledDefaultText>
         )}
 
@@ -53,7 +53,7 @@ const DefaultTexts: FC<DefaulTextsProps> = ({
                   onHandleUseDefaultText(event, item.text)
                 }
               >
-                Gebruik deze tekst
+                {i18n.t('gebruik-deze-tekst')}
               </StyledLink>
             </StyledDefaultText>
           ))}

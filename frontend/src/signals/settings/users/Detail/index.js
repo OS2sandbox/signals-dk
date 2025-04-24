@@ -17,8 +17,8 @@ import configuration from 'shared/services/configuration/configuration'
 import useConfirmedCancel from 'signals/settings/hooks/useConfirmedCancel'
 import useFetchResponseNotification from 'signals/settings/hooks/useFetchResponseNotification'
 import routes, { BASE_URL } from 'signals/settings/routes'
-
 import UserForm from './components/UserForm'
+import i18n from 'i18n'
 
 const FormContainer = styled.div`
   // taking into account the space that the FormFooter component takes up
@@ -26,7 +26,7 @@ const FormContainer = styled.div`
 `
 
 const UserDetail = () => {
-  const entityName = 'Gebruiker'
+  const entityName = i18n.t('gebruiker')
   const { userId } = useParams()
   const location = useLocation()
   const userCan = useSelector(makeSelectUserCan)
@@ -87,7 +87,7 @@ const UserDetail = () => {
     [data, confirmedCancel]
   )
 
-  const title = `${entityName} ${isExistingUser ? 'wijzigen' : 'toevoegen'}`
+  const title = `${entityName} ${isExistingUser ? i18n.t('wijzigen') : i18n.t('toevoegen')}`
 
   return (
     <Fragment>
@@ -95,7 +95,7 @@ const UserDetail = () => {
         <PageHeader
           dataTestId={'settings-page-header'}
           title={title}
-          BackLink={<BackLink to={redirectURL}>Terug naar overzicht</BackLink>}
+          BackLink={<BackLink to={redirectURL}>{i18n.t('terug-naar-overzicht')}</BackLink>}
         />
       </Row>
 

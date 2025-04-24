@@ -15,6 +15,7 @@ import type { PdokResponse } from 'shared/services/map-location'
 import type { RevGeo } from 'types/pdok/revgeo'
 
 import { Wrapper, Input, List, InlineButton } from './styled'
+import i18n from 'i18n'
 
 export const INPUT_DELAY = 350
 
@@ -232,7 +233,7 @@ const AutoSuggest = ({
           dispatch(
             showGlobalNotification({
               title: getErrorMessage(error),
-              message: 'De adressen konden niet worden opgehaald.',
+              message: i18n.t('de-adressen-konden-niet-worden-opgehaald'),
               variant: VARIANT_ERROR,
               type: TYPE_LOCAL,
             })
@@ -383,7 +384,7 @@ const AutoSuggest = ({
         {showInlineButton ? (
           <InlineButton
             aria-label="Input verwijderen"
-            title="Verwijderen"
+            title={i18n.t('verwijderen')}
             data-testid="clear-input"
             icon={<Close />}
             iconSize={20}
@@ -394,7 +395,7 @@ const AutoSuggest = ({
         ) : (
           <InlineButton
             aria-label="Zoeken"
-            title="Zoeken"
+            title={i18n.t('zoeken')}
             data-testid="search-input"
             icon={<Search />}
             iconSize={20}

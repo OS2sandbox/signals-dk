@@ -1,3 +1,4 @@
+import i18n from 'i18n'
 import configuration from 'shared/services/configuration/configuration'
 
 export enum SortOptions {
@@ -33,17 +34,17 @@ export enum SortOptionKeys {
   ASSIGNED_USER_EMAIL = 'toegewezen_aan',
 }
 
-export enum SortOptionLabels {
-  ADDRESS = 'Adres',
-  DISTRICT = `Wijk`,
-  DATE = 'Datum',
-  ID = 'Id',
-  BUROUGH = 'Stadsdeel',
-  STATUS = 'Status',
-  SUBCATEGORY = 'Subcategorie',
-  PRIORITY = 'Urgentie',
-  ASSIGNED_USER_EMAIL = 'Toegewezen aan',
-}
+export const SortOptionLabels = {
+  ADDRESS: i18n.t('Adres'),
+  DISTRICT: i18n.t('wijk'),
+  DATE: i18n.t('datum'),
+  ID: i18n.t('id'),
+  BUROUGH: i18n.t('stadsdeel'),
+  STATUS: i18n.t('status'),
+  SUBCATEGORY: i18n.t('subcategorie'),
+  PRIORITY: i18n.t('urgentie'),
+  ASSIGNED_USER_EMAIL: i18n.t('toegewezen-aan'),
+} as const;
 
 export type SortOption = {
   label: string
@@ -71,16 +72,16 @@ export const sortOptionsList: SortOption[] = [
   {
     label: SortOptionLabels.DATE,
     asc: SortOptions.CREATED_AT_ASC,
-    asc_label: '(oud-nieuw)',
+    asc_label: '(' + i18n.t('oud-nieuw') + ')',
     desc: SortOptions.CREATED_AT_DESC,
-    desc_label: '(nieuw-oud)',
+    desc_label: '(' + i18n.t('nieuw-oud') + ')',
   },
   {
     label: SortOptionLabels.ID,
     asc: SortOptions.ID_ASC,
-    asc_label: '(laag-hoog)',
+    asc_label: '(' + i18n.t('laag-hoog') + ')',
     desc: SortOptions.ID_DESC,
-    desc_label: '(hoog-laag)',
+    desc_label: '(' + i18n.t('hoog-laag') + ')',
   },
   {
     label: SortOptionLabels.BUROUGH,
@@ -113,8 +114,8 @@ export const sortOptionsList: SortOption[] = [
   {
     label: SortOptionLabels.PRIORITY,
     asc: SortOptions.PRIORITY_ASC,
-    asc_label: '(hoog-laag-normaal)',
+    asc_label: '(' + i18n.t('hoog-laag-normaal') + ')',
     desc: SortOptions.PRIORITY_DESC,
-    desc_label: '(normaal-laag-hoog)',
+    desc_label: '(' + i18n.t('normaal-laag-hoog') + ')',
   },
 ]

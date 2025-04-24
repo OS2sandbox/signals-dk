@@ -71,14 +71,14 @@ class Attachment(CreatedUpdatedModel):
             models.Index(fields=['_signal', 'is_image']),
         ]
         permissions = [
-            ('sia_add_attachment', 'Kan bijlage aan een melding toevoegen.'),
-            ('sia_change_attachment', 'Kan gegevens van een bijlage bewerken.'),
-            ('sia_delete_attachment_of_normal_signal', 'Kan bijlage bij standaard melding verwijderen.'),
-            ('sia_delete_attachment_of_parent_signal', 'Kan bijlage bij hoofdmelding verwijderen.'),
-            ('sia_delete_attachment_of_child_signal',  'Kan bijlage bij deelmelding verwijderen.'),
-            ('sia_delete_attachment_of_other_user', 'Kan bijlage bij melding van andere gebruiker verwijderen.'),
-            ('sia_delete_attachment_of_anonymous_user', 'Kan bijlage toegevoegd door melder verwijderen.')
-        ]
+            ('sia_add_attachment', 'Kan vedhæfte en fil til en rapport.'),
+            ('sia_change_attachment', 'Kan redigere oplysninger om en vedhæftet fil.'),
+            ('sia_delete_attachment_of_normal_signal', 'Kan slette vedhæftet fil fra standardrapport.'),
+            ('sia_delete_attachment_of_parent_signal', 'Kan slette vedhæftet fil fra hovedrapport.'),
+            ('sia_delete_attachment_of_child_signal', 'Kan slette vedhæftet fil fra underrapport.'),
+            ('sia_delete_attachment_of_other_user', 'Kan slette vedhæftet fil fra rapport af en anden bruger.'),
+            ('sia_delete_attachment_of_anonymous_user', 'Kan slette vedhæftet fil tilføjet af rapportør.'),        
+            ]
 
     def save(self, *args, **kwargs):
         if self.pk is None:

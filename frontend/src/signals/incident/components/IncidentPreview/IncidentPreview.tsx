@@ -11,6 +11,7 @@ import type { Sections } from 'signals/incident/definitions/wizard'
 import type { Incident, ValueObject } from 'types/incident'
 
 import { Dl, Header, LinkContainer, Section, Wrapper } from './styled'
+import i18n from 'i18n'
 
 type Section = {
   authenticated?: boolean
@@ -110,7 +111,7 @@ const IncidentPreview: FC<IncidentPreviewProps> = ({
               ))}
             </Dl>
           ) : (
-            'U hebt geen contactgegevens ingevuld. We kunnen u niet laten weten wat wij hebben gedaan met uw melding.'
+            i18n.t('u-hebt-geen-contactgegevens-ingevuld-we-kunnen-u-niet-laten-weten-wat-wij-h')
           )}
 
           <LinkContainer>
