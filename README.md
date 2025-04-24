@@ -15,12 +15,12 @@ This repository serves as the parent repository for the **signals-dk** project, 
 
 #### Pull Updates from Subtree Repositories
 
-To bring the latest changes from the upstream repositories into the (in this case, **Strongminds**) `signals-dk` repository:
+To bring the latest changes from the upstream repositories into the (in this case, **OS2sandbox**) `signals-dk` repository:
 
 ```
-git subtree pull --prefix=aws-infrastructure git@github.com:Strongminds/signals-aws-infrastructure.git main
-git subtree pull --prefix=frontend git@github.com:Strongminds/signals-frontend.git main
-git subtree pull --prefix=backend git@github.com:Strongminds/signals-backend.git main
+git subtree pull --prefix=aws-infrastructure https://github.com/OS2sandbox/signals-aws-infrastructure main
+git subtree pull --prefix=frontend https://github.com/OS2sandbox/signals-frontend main
+git subtree pull --prefix=backend https://github.com/OS2sandbox/signals-backend main
 ```
 
 #### Push Changes Back to Subtree Repositories
